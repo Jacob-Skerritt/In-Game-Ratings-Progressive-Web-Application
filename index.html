@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+        <title>Player Ratings App</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+
+        <!-- Custom CSS -->
+        
+        <link href="src/assets/styles.css" rel="stylesheet" media="screen" />
+        <style>
+            .container {
+
+                background-image: url('Capture.png');
+                background-size: 100%;
+                background-repeat: no-repeat;
+
+            }
+            ul{
+                list-style: none;
+            }
+            .player1 {
+                position: absolute;
+                width: 25%;
+                height:15%;
+                top: 10%;
+                left: 50%;
+            }
+            .player1 img {
+                width:15%;
+            }
+            /*button{border-radius: 50%;
+                   border: none;
+                   
+                   padding: 5px;
+                   text-align: center;
+                   text-decoration: none;
+                   display: inline-block;
+                   font-size: 10px;
+                   margin: 4px 2px;
+                  }*/
+            img{
+                background-image: url('circle.png');
+            }
+            </style>
+
+        </head>
+        <body>
+
+
+            <!-- container -->
+            <div class="container">
+
+            <div class="page-header">
+
+            </div>
+
+            <!-- placeholder for rendering react components -->
+            <div id='content'></div>
+
+        </div>
+        <!-- /container -->
+
+        <!-- react js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+        
+
+
+        <!-- react code -->
+        <script type="text/babel" src="src/components/readAll.component.js"></script>
+        <script type="text/babel" src="src/components/player_table_row.component.js"></script>
+
+
+
+
+
+
+        <!-- jQuery library required by bootsrap js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <!-- bootstrap JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    </body>
+</html>
