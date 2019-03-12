@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+'use strict';
 
-export class Player extends React.Component {
+const p = React.createElement;
+
+class Player extends React.Component {
     constructor(props, context) {
         super(props, context);
 
@@ -9,10 +10,11 @@ export class Player extends React.Component {
         this.handleClose = this.handleClose.bind(this);
 
         this.state = {
-            show: false,
+            error: null,
+            isLoaded: false,
+            players: []
         };
     }
-    
 
     handleClose() {
         this.setState({show: false});
@@ -21,26 +23,47 @@ export class Player extends React.Component {
     handleShow() {
         this.setState({show: true});
     }
-    render(){
-        return(
-                <div>
-                <div className="Player">
-                            <img alt="Neuer" src={circle} onClick={this.handleShow}/>
-                            <p>Neuer</p>
-                        </div>
-                        <Modal show={this.state.show} onHide={this.handleClose}>
-                        <Modal.Title>Player Name</Modal.Title>
-                        <Modal.Body>Player Rating</Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={this.handleClose}>Close</Button>
-                        </Modal.Footer>
-                    </Modal>
-                        </div>
-                );
-    }
-}
+    componentDidMount() {
+        fetch("http://localhost:1234/player_ratings_api/player/read.php")
+                .then(res => res.json())
+                .then(
+                        (result) => {
+                    this.setState({
+                        isLoaded: true,
+                        players: result.records
+                    });
+                },
+                        // Note: it's important to handle errors here
+                                // instead of a catch() block so that we don't swallow
+                                        // exceptions from actual bugs in components.
+                                                (error) => {
+                                            this.setState({
+                                                isLoaded: true,
+                                                error
+                                            });
+                                        }
+                                        );
+                            }
+  render() {
+   const { error, isLoaded, players } = this.state;
+   if (error) {
+     return <div>Error: {error.message}</div>;
+   } else if (!isLoaded) {
+     return <div>Loading...</div>;
+   } else {
+     return p(
+       <ul>
+         {players.map(player => (
+           <li key={player.id}>
+             {player.player_name} {player.player_no}
+           </li>
+         ))}
+       </ul>
+     );
+   }
+ }
+ }
+                        
 
-
-
-ReactDOM.render(<Player />, document.getElementById('root')
-        );
+const domContainer = document.querySelector('#like_button_container');
+ReactDOM.render(p(Player), domContainer);

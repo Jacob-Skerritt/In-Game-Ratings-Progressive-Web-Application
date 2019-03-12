@@ -49,6 +49,12 @@ class MyComponent extends React.Component {
  }
 }
 
+function Sort(players){
+    
+
+    
+}
+
 // ========================================
 
 ReactDOM.render(<MyComponent />,document.getElementById('root'));

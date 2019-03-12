@@ -36,8 +36,8 @@ var ReadPlayersComponent = React.createClass({
                     return (
                             <PlayerName
                                 key={i}
-                                player={player.player_name}
-                                        number={player.player_no}/>
+                                player={player}
+                                        />
                             );
                 }.bind(this));
         
@@ -49,7 +49,7 @@ var ReadPlayersComponent = React.createClass({
                         <div className="player1">
                             <img alt="Neuer" src={circle} onClick={this.handleShow}/>
                             <p>{filteredPlayers[29]}</p>
-                            <playerDetails/>
+                            
                         </div>
                     </div>
                     <div className="team1">            
