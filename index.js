@@ -181,7 +181,7 @@ class Board extends React.Component {
 
   }
   
-  renderSquare(i,track) {
+  renderSquare2(i,track) {
     if(this.props.players.id !== -1){
     return (
             
@@ -205,7 +205,7 @@ class Board extends React.Component {
 
       //Inner loop to create children
       for (let j = 0; j < 5; j++) {
-        buttons.push(this.renderSquare(count,track));
+        buttons.push(this.renderSquare2(count,track));
         count++;
         track++;
       }
@@ -289,47 +289,47 @@ class Game extends React.Component {
 
     if(Object.keys(this.state.players).length !== 0 && this.state.players.id !== -1){
       return (
-
-                    <div>
+<div>
             <GameInfo/>
         <div className="game">
-            
-          <div className="game-board">
-            <Board players={this.state.players} />
-          </div>
-          <div className="game-info">
+            <div className="game-board">
+                <Board players={this.state.players} />
+            </div>
+            <div className="game-info">
           
-          </div>
+            </div>
+        </div>
+        <div className="subs">
 
-          </div>
-          <div className="subs">
             <Subs data={tableData} />
             </div>
             <div className="managers">
             <Managers data={managerData} />
-            </div>
+
         </div>
+    </div>
       );
     }else{return (
                 
-                    <div>
+    <div>
             <GameInfo/>
-      <div className="game">
-          
-        <div className="game-board">
-        
-          <Board players={this.state.players} />
-        </div>
-        <div className="game-info">
-        <ul>
-          {"hi hi"}
-        </ul>
-        </div>
-
+        <div className="game">
+            <div className="game-board">
+                <Board players={this.state.players} />
             </div>
+            <div className="game-info">
+          
+            </div>
+        </div>
+        <div className="subs">
+
             <Subs data={tableData} />
-    <Managers data={managerData} />
-      </div>
+            </div>
+            <div className="managers">
+            <Managers data={managerData} />
+
+        </div>
+    </div>
     );}
 
 
