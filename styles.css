@@ -1,0 +1,440 @@
+
+.game {
+  position: absolute;
+  background-image: url("Capture.png");
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat, repeat;
+  width: 100%;
+  height: 100%;
+  top: 15%;
+  left: 0%;
+
+
+}
+
+.goal1{
+    width: 100%;
+    height: 50%;
+}
+.team1{
+    width:100%;
+    height:50%;
+    margin-left: 8%;
+    margin-top: 5%;
+}
+
+.team2 {
+  width: 100%;
+  height: 50%;
+  margin-top: 20%;
+  margin-left: 8%;
+}
+.player1 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 5%;
+  left: 48%;
+}
+.player1 img {
+  width: 100%;
+}
+
+.player2 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 15%;
+  left: 10%;
+}
+.player2 img {
+  width: 100%;
+}
+
+.player3 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 15%;
+  left: 35%;
+}
+.player3 img {
+  width: 100%;
+}
+
+.player4 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 15%;
+  left: 60%;
+}
+.player4 img {
+  width: 100%;
+}
+
+.player5 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 15%;
+  left: 85%;
+}
+.player5 img {
+  width: 100%;
+}
+
+.player6 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 27%;
+  left: 25%;
+}
+.player6 img {
+  width: 100%;
+}
+
+.player7 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 27%;
+  left: 50%;
+}
+.player7 img {
+  width: 100%;
+}
+
+.player8 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 27%;
+  left: 70%;
+}
+.player8 img {
+  width: 100%;
+}
+
+.player9 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 38%;
+  left: 25%;
+}
+.player9 img {
+  width: 100%;
+}
+
+.player10 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 38%;
+  left: 50%;
+}
+.player10 img {
+  width: 100%;
+}
+
+.player11 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 38%;
+  left: 70%;
+}
+.player11 img {
+  width: 100%;
+}
+
+.player12 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 52%;
+  left: 25%;
+}
+.player12 img {
+  width: 100%;
+}
+
+.player13 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 52%;
+  left: 50%;
+}
+.player13 img {
+  width: 100%;
+}
+
+.player14 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 52%;
+  left: 70%;
+}
+.player14 img {
+  width: 100%;
+}
+
+.player15 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 65%;
+  left: 25%;
+}
+.player15 img {
+  width: 100%;
+}
+
+.player16 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 65%;
+  left: 50%;
+}
+.player16 img {
+  width: 100%;
+}
+
+.player17 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 65%;
+  left: 70%;
+}
+.player17 img {
+  width: 100%;
+}
+
+.player18 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 78%;
+  left: 10%;
+}
+.player18 img {
+  width: 100%;
+}
+
+.player19 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 78%;
+  left: 35%;
+}
+.player19 img {
+  width: 100%;
+}
+
+.player20 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 78%;
+  left: 60%;
+}
+.player20 img {
+  width: 100%;
+}
+
+.player21 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 78%;
+  left: 85%;
+}
+.player21 img {
+  width: 100%;
+}
+
+.player22 {
+  position: absolute;
+  width: 12%;
+  height: 12%;
+  top: 85%;
+  left: 48%;
+}
+.player22 img {
+  width: 100%;
+}
+.player p {
+  position: relative;
+  top: -20%;
+}
+p {
+  font-weight: bold;
+}
+
+.subs {
+  position: absolute;
+  background-color: gainsboro;
+  margin-top: 75%;
+  text-align: left;
+  width: 100%;
+  left: 0%;
+}
+.managers {
+  position: absolute;
+  background-color: gainsboro;
+  margin-top: 97%;
+  text-align: left;
+  width: 100%;
+  left: 0%;
+}
+
+
+.gameInfo {
+  position: absolute;
+  background-color: gainsboro;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+  height: 15%;
+}
+
+.home {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 20%;
+  left: 0%;
+  text-align: center;
+}
+.home img {
+  position: absolute;
+  left: 5%;
+  width: 25%;
+  height: 100%;
+}
+.home p {
+  position: absolute;
+  left: 38%;
+  top: 0%;
+}
+
+.away {
+  position: absolute;
+  width: 40%;
+  height: 50%;
+  top: 20%;
+  left: 60%;
+  text-align: center;
+}
+
+.away img {
+  position: absolute;
+  left: 65%;
+  width: 25%;
+  height: 100%;
+}
+.away p {
+  position: absolute;
+  left: 15%;
+  top: 5%;
+}
+
+.info {
+  position: absolute;
+  width: 25%;
+  height: 100%;
+  left: 40%;
+  text-align: center;
+}
+
+.info p {
+  position: relative;
+  top: -20%;
+}
+
+.teamName1 {
+  position: absolute;
+  height: 3%;
+  width: 45%;
+  left: 1%;
+}
+
+.teamName1 p {
+  position: absolute;
+  color: white;
+  top: -80%;
+  left: 5%;
+}
+
+.formation1 {
+  position: absolute;
+  height: 3%;
+  width: 25%;
+  left: 75%;
+}
+
+.formation1 p {
+  position: absolute;
+  color: white;
+  top: -80%;
+  left: 50%;
+}
+
+.teamName2 {
+  position: absolute;
+  height: 3%;
+  width: 45%;
+  top: 97.5%;
+  left: 1%;
+}
+
+.teamName2 p {
+  position: absolute;
+  color: white;
+  top: -80%;
+  left: 5%;
+}
+
+.formation2 {
+  position: absolute;
+  height: 3%;
+  width: 25%;
+  top: 97.5%;
+  left: 75%;
+}
+
+.formation2 p {
+  position: absolute;
+  color: white;
+  top: -80%;
+  left: 50%;
+}
+  #plImg{
+    width:50%;
+    height:80%;
+    border-radius: 20%;
+    float:left;
+  }
+  ul{
+      list-style: none;
+  }
+  .left{
+      margin-left: 20%;
+     width: 50%; 
+  }
+  .right{
+      width: 35%;
+      float: right;
+      
+  }
+ 
