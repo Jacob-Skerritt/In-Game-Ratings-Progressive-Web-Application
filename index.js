@@ -140,18 +140,25 @@ var managerData = {
 };
 function Square(props) {
   return (
-    <button className="square" id={props.id} onClick={props.onClick} >
+    <button  id={props.id} className="square" onClick={props.onClick} >
       {props.value}
     </button>
   );
 }
 class Board extends React.Component {
   renderSquare(i,track) {
-    if(this.props.players.id !== -1){
+    if(this.props.players.id !== -1 && i <4){
     return (
       <Square value={this.props.players.teams[0].players[track].player_name} id={track}  onClick={() => this.props.onClick(track)} />
     );
-  } else {
+    
+  } else if (this.props.players.id !== -1 && i >=4)
+  {
+      return (
+            <Square value={this.props.players.teams[1].players[track].player_name} id={track}  onClick={() => this.props.onClick(track)} />
+  );
+        }
+  else{
     return (
       <Square value={0}  onClick={() => this.props.onClick()}/>
     );
@@ -160,15 +167,16 @@ class Board extends React.Component {
 
   boardButtons(){
     let rows = [];
+    let formation = [1,4,3,3,3,3,4,1];
     let count = 0;
     let track = 0;
     // Outer loop to create parent
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 8; i++) {
       let buttons = [];
 
       //Inner loop to create children
-      for (let j = 0; j < 3; j++) {
-        buttons.push(this.renderSquare(count,track));
+      for (let j = 0; j <formation[i]; j++) {
+        buttons.push(this.renderSquare(i,track));
         count++;
         track++;
       }
@@ -213,14 +221,8 @@ class Board extends React.Component {
   }
   render() {
     return (
-      <div>
-          <div className="team1">
+      <div className="game-board-players">
         {this.boardButtons()}
-        </div>
-        <div  className="team2">
-        {this.boardButtons2()}
-        </div>
-
       </div>
     );
   }
@@ -309,7 +311,7 @@ class Game extends React.Component {
             <GameInfo/>
                 <div className="game">
 
-        <div>
+        <div className="modal1">
                { this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null }
                <Modal className="modal" id={this.state.buttonId} vote={(rating ,player_id, match_id) =>this.vote(rating ,player_id, match_id)}show={this.state.isShowing} close={this.closeModalHandler} players={this.state.players}/>
         </div>
@@ -317,9 +319,7 @@ class Game extends React.Component {
           <div className="game-board">
             <Board players={this.state.players}   onClick={(i) => this.handleClick(i)}/>
           </div>
-          <div className="game-info">
 
-          </div>
 
 
         </div>

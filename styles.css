@@ -1,38 +1,44 @@
+#overlay{
+    	display: none;
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: 0.8;
+	z-index:1001;
+}
 
+#overlay-content{ 
+	position: absolute;
+	display: none;
+	width: 80%;
+	height: 90px;
+	padding: 16px;
+	border: 16px solid blue;
+	background-color: white;
+	z-index:1002;
+}
 .game {
   position: absolute;
   background-image: url("Capture.png");
-    -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: contain;
   background-repeat: no-repeat, repeat;
   width: 100%;
   height: 100%;
   top: 15%;
   left: 0%;
-
-
+  text-align: center;
+  
 }
 
 .goal1{
     width: 100%;
     height: 50%;
 }
-.team1{
-    width:100%;
-    height:50%;
 
-    margin-top: 5%;
-}
-
-.team2 {
-  width: 100%;
-  height: 50%;
-  margin-top: 20%;
-
-}
-.player1 {
+.square #0 {
   position: absolute;
   width: 12%;
   height: 12%;
@@ -233,18 +239,18 @@ p {
 .subs {
   position: absolute;
   background-color: gainsboro;
-  margin-top: 75%;
   text-align: left;
   width: 100%;
   left: 0%;
+  top: 87%;
 }
 .managers {
   position: absolute;
   background-color: gainsboro;
-  margin-top: 97%;
   text-align: left;
   width: 100%;
   left: 0%;
+  top: 110%;
 }
 
 
@@ -387,3 +393,4 @@ p {
       
   }
  
+  
