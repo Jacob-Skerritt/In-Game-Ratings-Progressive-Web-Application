@@ -1,9 +1,28 @@
 class GameInfo extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
   }
+  
   render() {
+      if(this.props.players.id !== -1){
     return (
+      <div className="gameInfo">
+        <div className="home">
+          <img alt="Home Crest" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/220px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png" />
+          <p>{this.props.players.teams[1].team_name}</p>
+        </div>
+        <div className="away">
+          <img alt="Away Crest" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Liverpool_FC.svg/1200px-Liverpool_FC.svg.png" />
+          <p>{this.props.players.teams[0].team_name}</p>
+        </div>
+        <div className="info">
+          <h1>{this.props.players.team1_score}-{this.props.players.team2_score}</h1>
+          <p>25:46</p>{" "}
+        </div>
+      </div>
+    );
+  }else
+      return (
       <div className="gameInfo">
         <div className="home">
           <img alt="Home Crest" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/220px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png" />
@@ -148,14 +167,31 @@ function Square(props) {
 class Board extends React.Component {
   renderSquare(i,track) {
     if(this.props.players.id !== -1 && i <4){
+
+      let obj;
+
+      for(let c = 0; c < this.props.players.teams[0].players.length;c++){
+        if(this.props.players.teams[0].players[c].position == track)
+        {
+          obj = this.props.players.teams[0].players[c];
+        }
+      }
     return (
-      <Square value={this.props.players.teams[0].players[track].player_name} id={track}  onClick={() => this.props.onClick(track)} />
+      <Square value={obj.player_name} id={track}  onClick={() => this.props.onClick(track)} />
     );
-    
+
   } else if (this.props.players.id !== -1 && i >=4)
   {
+    let obj;
+
+    for(let c = 0; c < this.props.players.teams[1].players.length;c++){
+      if(this.props.players.teams[1].players[c].position ==10 -(track-11))
+      {
+        obj = this.props.players.teams[1].players[c];
+      }
+    }
       return (
-            <Square value={this.props.players.teams[1].players[track].player_name} id={track}  onClick={() => this.props.onClick(track)} />
+            <Square value={obj.player_name} id={track}  onClick={() => this.props.onClick(track)} />
   );
         }
   else{
@@ -168,7 +204,6 @@ class Board extends React.Component {
   boardButtons(){
     let rows = [];
     let formation = [1,4,3,3,3,3,4,1];
-    let count = 0;
     let track = 0;
     // Outer loop to create parent
     for (let i = 0; i < 8; i++) {
@@ -177,7 +212,6 @@ class Board extends React.Component {
       //Inner loop to create children
       for (let j = 0; j <formation[i]; j++) {
         buttons.push(this.renderSquare(i,track));
-        count++;
         track++;
       }
       //Create the parent and add the children
@@ -186,43 +220,15 @@ class Board extends React.Component {
     return rows;
 
   }
-  
-  renderSquare2(i,track) {
-    if(this.props.players.id !== -1){
-    return (
-      <Square value={this.props.players.teams[1].players[track].player_name} id={track}  onClick={() => this.props.onClick(track)} />
-    );
-  } else {
-    return (
-      <Square value={0}  onClick={() => this.props.onClick()}/>
-    );
-  }
-  }
 
-  boardButtons2(){
-    let rows = [];
-    let count = 0;
-    let track = 0;
-    // Outer loop to create parent
-    for (let i = 0; i < 3; i++) {
-      let buttons = [];
-
-      //Inner loop to create children
-      for (let j = 0; j < 3; j++) {
-        buttons.push(this.renderSquare2(count,track));
-        count++;
-        track++;
-      }
-      //Create the parent and add the children
-      rows.push(<div className="board-row">{buttons}</div>);
-    }
-    return rows;
-
-  }
   render() {
     return (
-      <div className="game-board-players">
+      <div>
+
         {this.boardButtons()}
+
+
+
       </div>
     );
   }
@@ -307,22 +313,16 @@ class Game extends React.Component {
 
     if(Object.keys(this.state.players).length !== 0 && this.state.players.id !== -1){
       return (
-<div>
-            <GameInfo/>
-                <div className="game">
-
-        <div className="modal1">
-               { this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null }
-               <Modal className="modal" id={this.state.buttonId} vote={(rating ,player_id, match_id) =>this.vote(rating ,player_id, match_id)}show={this.state.isShowing} close={this.closeModalHandler} players={this.state.players}/>
-        </div>
-
-          <div className="game-board">
-            <Board players={this.state.players}   onClick={(i) => this.handleClick(i)}/>
-          </div>
-
-
-
-        </div>
+    <div>
+          <GameInfo players={this.state.players}/>
+            
+            <div className="game">
+                <div className="game-board">
+               
+                    <Board players={this.state.players}   onClick={(i) => this.handleClick(i)}/>
+                </div>
+                 
+            </div>
         <div className="subs">
 
             <Subs data={tableData} />
@@ -331,19 +331,26 @@ class Game extends React.Component {
             <Managers data={managerData} />
 
         </div>
+
+            <div>
+                    { this.state.isShowing ? <div onClick={this.closeModalHandler}></div> : null }
+                    <Modal className="modal" id={this.state.buttonId} vote={(rating ,player_id, match_id) =>
+                    this.vote(rating ,player_id, match_id)} show={this.state.isShowing} 
+                    close={this.closeModalHandler} players={this.state.players} />
+            </div>     
     </div>
+    
+    
       );
     }else{return (
                 
     <div>
-            <GameInfo/>
+            <GameInfo players={this.state.players}/>
         <div className="game">
             <div className="game-board">
-                <Board players={this.state.players} />
+                 <Board players={this.state.players}   onClick={(i) => this.handleClick(i)}/>
             </div>
-            <div className="game-info">
-          
-            </div>
+            
         </div>
         <div className="subs">
 
@@ -353,6 +360,12 @@ class Game extends React.Component {
             <Managers data={managerData} />
 
         </div>
+        <div>
+        { this.state.isShowing ? <div onClick={this.closeModalHandler}></div> : null }
+                    <Modal className="modal" id={this.state.buttonId} vote={(rating ,player_id, match_id) =>
+                    this.vote(rating ,player_id, match_id)} show={this.state.isShowing} 
+                    close={this.closeModalHandler} players={this.state.players} />
+                            </div>
     </div>
     );}
 
@@ -361,15 +374,39 @@ class Game extends React.Component {
 }
 
 class Modal extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: 0,
+    };
+
+  }
+
+  onChange(e){
+      this.setState({user: e.target.value}, function(){
+
+  });}
+
 
   render() {
-    if(this.props.id !== -1){
+
+
+    if(this.props.id !== -1 && this.props.id <= 10){
+      let obj;
+
+      for(let i = 0; i < this.props.players.teams[0].players.length;i++){
+        if(this.props.players.teams[0].players[i].position == this.props.id)
+        {
+          obj = this.props.players.teams[0].players[i];
+        }
+      }
     return(
       <div>
           <div className="modal-wrapper"
               style={{
-                  transform: this.props.show ? 'translateY(0vh)' : 'translateY(-100vh)',
-                  opacity: this.props.show ? '1' : '0'
+                  transform: this.props.show ? 'translateY(10vh)' : 'translateY(-110vh)',
+                  opacity: this.props.show ? '1' : '0',
+                  zIndex: this.props.show ? '1000' : '-1000'
               }}>
               <div className="modal-header">
                   <h3>Modal Header</h3>
@@ -377,21 +414,70 @@ class Modal extends React.Component{
               </div>
               <div className="modal-body">
                   <p>
-                      Player#: &nbsp;{this.props.players.teams[0].players[this.props.id].id} <br/>
-                      Player Name: &nbsp;{this.props.players.teams[0].players[this.props.id].player_name} <br/>
-                      Crowd Rating: &nbsp;{this.props.players.teams[0].players[this.props.id].average_rating}<br/>
+                      Player#: &nbsp;{obj.id} <br/>
+                      Player Name: &nbsp;{obj.player_name} <br/>
+                      Crowd Rating: &nbsp;{obj.average_rating}<br/>
+                      User: &nbsp;
+                      <select id="users" onChange={this.onChange.bind(this)}>
+                      <option> 0 - No user </option>
+                      {this.props.players.users.map(function(user, index){return <option value={user.id}>{user.id} - {user.username}</option> })}
+                      </select>
+                      <br/>
                       Enter Rating: &nbsp; <input id="vote" type="text" name="fname"/><br/>
                   </p>
               </div>
               <div className="modal-footer">
                   <button className="btn-cancel" onClick={this.props.close}>CLOSE</button>
-                  <button className="btn-continue" onClick={() =>this.props.vote(document.getElementById('vote').value,this.props.players.teams[0].players[this.props.id].id, this.props.players.id)}>Vote</button>
+                  <button className="btn-continue" onClick={() =>this.props.vote(document.getElementById('vote').value,obj.id, this.props.players.id, this.state.user)}>Vote</button>
               </div>
           </div>
       </div>
     );
-  }
-  else{
+  }else if(this.props.id !== -1 && this.props.id > 10){
+
+    let obj;
+
+    for(let i = 0; i < this.props.players.teams[1].players.length;i++){
+      if(this.props.players.teams[1].players[i].position == 10 -(this.props.id-11))
+      {
+        obj = this.props.players.teams[1].players[i];
+      }
+    }
+    return(
+      <div>
+          <div className="modal-wrapper"
+              style={{
+                  transform: this.props.show ? 'translateY(10vh)' : 'translateY(-100vh)',
+                  opacity: this.props.show ? '1' : '0',
+                  zIndex: '1000'
+              }}>
+              <div className="modal-header">
+                  <h3>Modal Header</h3>
+                  <span className="close-modal-btn" onClick={this.props.close}>×</span>
+              </div>
+              <div className="modal-body">
+                  <p>
+                      Player#: &nbsp;{obj.id} <br/>
+                      Player Name: &nbsp;{obj.player_name} <br/>
+                      Crowd Rating: &nbsp;{obj.average_rating}<br/>
+                        User: &nbsp;
+                      <select id="users" onChange={this.onChange.bind(this)}>
+                      <option> 0 - No user </option>
+                      {this.props.players.users.map(function(user, index){return <option value={user.id}>{user.id} - {user.username}</option> })}
+                      </select>
+                      <br/>
+                      Enter Rating: &nbsp; <input id="vote" type="text" name="fname"/><br/>
+                  </p>
+              </div>
+              <div className="modal-footer">
+                  <button className="btn-cancel" onClick={this.props.close}>CLOSE</button>
+                  <button className="btn-continue" onClick={() =>this.props.vote(document.getElementById('vote').value,obj.id, this.props.players.id, this.state.user)}>Vote</button>
+              </div>
+          </div>
+      </div>
+    );
+
+  }else{
     return(
       <div>
           <div className="modal-wrapper"
@@ -416,6 +502,7 @@ class Modal extends React.Component{
       </div>
     );
     }
+
 
 }};
 

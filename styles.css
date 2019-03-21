@@ -10,6 +10,7 @@
 	z-index:1001;
 }
 
+
 #overlay-content{ 
 	position: absolute;
 	display: none;
@@ -21,376 +22,189 @@
 	z-index:1002;
 }
 .game {
-  position: absolute;
-  background-image: url("Capture.png");
-  background-size: contain;
-  background-repeat: no-repeat, repeat;
-  width: 100%;
-  height: 100%;
-  top: 15%;
-  left: 0%;
-  text-align: center;
-  
-}
-
-.goal1{
+    position: absolute;
+    background-image: url("Capture.png");
+    background-size: cover;
+    background-repeat: no-repeat, repeat;
     width: 100%;
-    height: 50%;
-}
-
-.square #0 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 5%;
-  left: 48%;
-}
-
-.player2 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 15%;
-  left: 10%;
-}
-
-
-.player3 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 15%;
-  left: 35%;
-}
-
-.player4 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 15%;
-  left: 60%;
-}
-
-.player5 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 15%;
-  left: 85%;
-}
-
-.player6 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 27%;
-  left: 25%;
-}
-
-.player7 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 27%;
-  left: 50%;
-}
-
-
-.player8 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 27%;
-  left: 70%;
-}
-
-.player9 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 38%;
-  left: 25%;
-}
-
-
-.player10 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 38%;
-  left: 50%;
-}
-
-.player11 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 38%;
-  left: 70%;
-}
-
-
-.player12 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 52%;
-  left: 25%;
-}
-
-
-.player13 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 52%;
-  left: 50%;
-}
-
-
-.player14 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 52%;
-  left: 70%;
-}
-
-
-.player15 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 65%;
-  left: 25%;
-}
-
-
-.player16 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 65%;
-  left: 50%;
-}
-
-
-.player17 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 65%;
-  left: 70%;
-}
-
-
-.player18 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 78%;
-  left: 10%;
-}
-
-
-.player19 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 78%;
-  left: 35%;
-}
-
-
-.player20 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 78%;
-  left: 60%;
-}
-
-
-.player21 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 78%;
-  left: 85%;
-}
-
-
-.player22 {
-  position: absolute;
-  width: 12%;
-  height: 12%;
-  top: 85%;
-  left: 48%;
+    height: 100%;
+    top: 15%;
+    left: 0%;
+    text-align: center;
 }
 
 .player p {
-  position: relative;
-  top: -20%;
+    position: relative;
+    top: -20%;
 }
 p {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .subs {
-  position: absolute;
-  background-color: gainsboro;
-  text-align: left;
-  width: 100%;
-  left: 0%;
-  top: 87%;
+    position: absolute;
+    background-color: gainsboro;
+    text-align: left;
+    width: 100%;
+    left: 0%;
+    top: 110%;
 }
 .managers {
-  position: absolute;
-  background-color: gainsboro;
-  text-align: left;
-  width: 100%;
-  left: 0%;
-  top: 110%;
+    position: absolute;
+    background-color: gainsboro;
+    text-align: left;
+    width: 100%;
+    left: 0%;
+    top: 135%;
 }
 
-
 .gameInfo {
-  position: absolute;
-  background-color: gainsboro;
-  width: 100%;
-  top: 0%;
-  left: 0%;
-  height: 15%;
+    position: absolute;
+    background-color: gainsboro;
+    width: 100%;
+    top: 0%;
+    left: 0%;
+    height: 15%;
 }
 
 .home {
-  position: absolute;
-  width: 50%;
-  height: 50%;
-  top: 20%;
-  left: 0%;
-  text-align: center;
+    position: absolute;
+    width: 40%;
+    height: 50%;
+    top: 20%;
+    left: 5%;
+    text-align: center;
 }
 .home img {
-  position: absolute;
-  left: 5%;
-  width: 25%;
-  height: 100%;
+    position: absolute;
+    left: 0%;
+    width: 30%;
+    height: 80%;
 }
 .home p {
-  position: absolute;
-  left: 38%;
-  top: 0%;
+    position: absolute;
+    left: 38%;
+    top: 5%;
+    font-family: serif;
 }
 
 .away {
-  position: absolute;
-  width: 40%;
-  height: 50%;
-  top: 20%;
-  left: 60%;
-  text-align: center;
+    position: absolute;
+    width: 40%;
+    height: 50%;
+    top: 20%;
+    left: 55%;
+    text-align: left;
 }
 
 .away img {
-  position: absolute;
-  left: 65%;
-  width: 25%;
-  height: 100%;
+    position: absolute;
+    left: 60%;
+    width: 35%;
+    height: 100%;
+    top: -5%;
 }
 .away p {
-  position: absolute;
-  left: 15%;
-  top: 5%;
+    position: absolute;
+    left: 15%;
+    top: 5%;
+    font-family: serif;
 }
 
 .info {
-  position: absolute;
-  width: 25%;
-  height: 100%;
-  left: 40%;
-  text-align: center;
+    position: absolute;
+    width: 15%;
+    height: 80%;
+    left: 45%;
+    text-align: center;
+    font-family: serif;
+    top: 10%;
 }
 
 .info p {
-  position: relative;
-  top: -20%;
+    position: relative;
+    top: -50%;
+    font-family: serif;
+    top: -12%;
 }
 
 .teamName1 {
-  position: absolute;
-  height: 3%;
-  width: 45%;
-  left: 1%;
+    position: absolute;
+    height: 3%;
+    width: 45%;
+    left: 1%;
 }
 
 .teamName1 p {
-  position: absolute;
-  color: white;
-  top: -80%;
-  left: 5%;
+    position: absolute;
+    color: white;
+    top: -80%;
+    left: 5%;
 }
 
 .formation1 {
-  position: absolute;
-  height: 3%;
-  width: 25%;
-  left: 75%;
+    position: absolute;
+    height: 3%;
+    width: 25%;
+    left: 75%;
 }
 
 .formation1 p {
-  position: absolute;
-  color: white;
-  top: -80%;
-  left: 50%;
+    position: absolute;
+    color: white;
+    top: -80%;
+    left: 50%;
 }
 
 .teamName2 {
-  position: absolute;
-  height: 3%;
-  width: 45%;
-  top: 97.5%;
-  left: 1%;
+    position: absolute;
+    height: 3%;
+    width: 45%;
+    top: 97.5%;
+    left: 1%;
 }
 
 .teamName2 p {
-  position: absolute;
-  color: white;
-  top: -80%;
-  left: 5%;
+    position: absolute;
+    color: white;
+    top: -80%;
+    left: 5%;
 }
 
 .formation2 {
-  position: absolute;
-  height: 3%;
-  width: 25%;
-  top: 97.5%;
-  left: 75%;
+    position: absolute;
+    height: 3%;
+    width: 25%;
+    top: 97.5%;
+    left: 75%;
 }
 
 .formation2 p {
-  position: absolute;
-  color: white;
-  top: -80%;
-  left: 50%;
+    position: absolute;
+    color: white;
+    top: -80%;
+    left: 50%;
 }
-  #plImg{
+#plImg{
     width:50%;
     height:80%;
     border-radius: 20%;
     float:left;
-  }
-  ul{
-      list-style: none;
-  }
-  .left{
-      margin-left: 20%;
-     width: 50%; 
-  }
-  .right{
-      width: 35%;
-      float: right;
-      
-  }
+}
+ul{
+    list-style: none;
+}
+.left{
+    margin-left: 20%;
+    width: 50%; 
+}
+.right{
+    width: 35%;
+    float: right;
+
+}
+
+
+
  
   
