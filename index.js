@@ -318,7 +318,6 @@ class Game extends React.Component {
             
             <div className="game">
                 <div className="game-board">
-               
                     <Board players={this.state.players}   onClick={(i) => this.handleClick(i)}/>
                 </div>
                  
@@ -409,21 +408,22 @@ class Modal extends React.Component{
                   zIndex: this.props.show ? '1000' : '-1000'
               }}>
               <div className="modal-header">
-                  <h3>Modal Header</h3>
+                  <h3>{obj.player_name}</h3>
                   <span className="close-modal-btn" onClick={this.props.close}>×</span>
               </div>
               <div className="modal-body">
                   <p>
-                      Player#: &nbsp;{obj.id} <br/>
-                      Player Name: &nbsp;{obj.player_name} <br/>
-                      Crowd Rating: &nbsp;{obj.average_rating}<br/>
+                      Player ID: &nbsp;{obj.id} <br/>
+                      Player#: &nbsp;{obj.player_no} <br/>
+                     Team: &nbsp;{obj.team_name}<br/>
+                      Crowd Rating: &nbsp;{obj.average_rating}<br/><br/>
                       User: &nbsp;
                       <select id="users" onChange={this.onChange.bind(this)}>
                       <option> 0 - No user </option>
                       {this.props.players.users.map(function(user, index){return <option value={user.id}>{user.id} - {user.username}</option> })}
                       </select>
-                      <br/>
-                      Enter Rating: &nbsp; <input id="vote" type="text" name="fname"/><br/>
+                      <br/><br/>
+                      <h3>Rate the Player </h3> <br/><input id="vote" type="text" name="fname"/><br/><br/>
                   </p>
               </div>
               <div className="modal-footer">
@@ -452,21 +452,22 @@ class Modal extends React.Component{
                   zIndex: '1000'
               }}>
               <div className="modal-header">
-                  <h3>Modal Header</h3>
+                  <h3>{obj.player_name}</h3>
                   <span className="close-modal-btn" onClick={this.props.close}>×</span>
               </div>
               <div className="modal-body">
                   <p>
-                      Player#: &nbsp;{obj.id} <br/>
-                      Player Name: &nbsp;{obj.player_name} <br/>
-                      Crowd Rating: &nbsp;{obj.average_rating}<br/>
+                      Player ID: &nbsp;{obj.id} <br/>
+                      Player#: &nbsp;{obj.player_no} <br/>
+                      Team: &nbsp;{obj.team_name}<br/>
+                      Crowd Rating: &nbsp;{obj.average_rating}<br/><br/>
                         User: &nbsp;
                       <select id="users" onChange={this.onChange.bind(this)}>
                       <option> 0 - No user </option>
                       {this.props.players.users.map(function(user, index){return <option value={user.id}>{user.id} - {user.username}</option> })}
                       </select>
-                      <br/>
-                      Enter Rating: &nbsp; <input id="vote" type="text" name="fname"/><br/>
+                      <br/><br/>
+                      <h3>Rate the Player </h3><br/><input id="vote" type="text" name="fname"/><br/><br/>
                   </p>
               </div>
               <div className="modal-footer">

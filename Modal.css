@@ -23,13 +23,21 @@
     float: left;
     margin: 0;
     padding: 0;
+    
 }
 
 .modal-body {
     padding: 10px 15px;
     text-align: center;
 }
+.modal-body p{
 
+    text-align: left;
+}
+.modal-body h3{
+
+    text-align: center;
+}
 .modal-footer {
     background: #263238;
     height: 35px;
