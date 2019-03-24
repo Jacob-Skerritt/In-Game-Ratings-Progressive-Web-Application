@@ -1,6 +1,6 @@
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
+  margin: 0px;
 }
 
 ol, ul {
@@ -15,16 +15,18 @@ ol, ul {
   display: inline-block;
 }*/
 
-.board-row {
+.board-row1 {
   position: relative;
   display: inline-block;
  padding-right: 15px;
 }
 
 .board-row2 {
-
-  margin-top: 10px;
+  position: relative;
+  display: inline-block;
+ padding-right: 15px;
 }
+
 
 .square {
   background: #fff;
@@ -42,6 +44,27 @@ ol, ul {
   padding: 0;
   background-color: lightgrey;
   border-radius: 50%;
+  position:relative;
+}
+
+.square2 {
+  background: #FF0000;
+  border: 1px solid #999;
+  float: left;
+  font-size: 9px;
+  font-weight: bold;
+  line-height: 8px;
+  height: 15px;
+  width: 15px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+ 
+  background-color: #FF0000;
+  border-radius: 50%;
+  position:relative;
+  left:90%;
 }
 
 .square:focus {
@@ -72,10 +95,15 @@ ol, ul {
 }
 
 .game-board {
-    display: inline-block;
+    position:absolute;
     height: 100%;
     text-align: center;
     width: 100%;
+    top:15%;
+        background-image: url("Capture.png");
+        
+    background-size: 100% 100%;
+    background-repeat: no-repeat, repeat;
 }
 
 game-board-players {
@@ -83,3 +111,9 @@ game-board-players {
     text-align: center;
 
 }
+.playerName{
+  position:absolute;
+  top:110%;
+  left:15%;
+}
+
