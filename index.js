@@ -347,6 +347,8 @@ class Modal extends React.Component{
                 </div>
                 <div className="modal-body">
                     <p>
+                                        <img alt="Home Crest" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/220px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png" />
+
                         Player#: &nbsp;{obj.id} <br/>
                         Team Name: &nbsp;{obj.team_name} <br/>
                         Crowd Rating: &nbsp;{parseFloat(obj.average_rating).toFixed(2)} <br/>

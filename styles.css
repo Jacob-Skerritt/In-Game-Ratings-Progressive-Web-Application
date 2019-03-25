@@ -57,14 +57,6 @@ p {
 
 }
 
-.gameInfo {
-    position: absolute;
-    background-color: 	#ccffcc;
-    width: 100%;
-    top: 0%;
-    left: 0%;
-    height: 15%;
-}
 
 #team-info{
     font: 12px "Century Gothic", Futura, sans-serif;
@@ -108,6 +100,7 @@ p {
     top: 20%;
     font-family: serif;
     font-weight: bold;
+    color: white;
 }
 
 .away {
@@ -133,6 +126,17 @@ p {
     left: 10%;
     font-family: serif;
     font-weight: bold;
+    color: white;
+}
+
+.gameInfo {
+    position: absolute;
+    background-color: #0D2031;
+    width: 100%;
+    top: 0%;
+    left: 0%;
+    height: 15%;
+    color: white;
 }
 
 .info {
@@ -142,7 +146,7 @@ p {
     left: 45%;
     text-align: center;
     font-family: serif;
-
+    color: white;
 }
 
 .info h1 {
