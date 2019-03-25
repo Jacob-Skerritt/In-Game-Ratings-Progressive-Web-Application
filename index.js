@@ -347,9 +347,9 @@ class Modal extends React.Component{
                 </div>
                 <div className="modal-body">
                     <p>
-                    <img alt="Home Crest" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/220px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png" /><br></br>
-                        Club: &nbsp;{obj.team_name} <br/>
-                        Crowd Rating:<br/><p>{parseFloat(obj.average_rating).toFixed(2)}</p>
+                    <img alt="Home Crest" src="https://tmssl.akamaized.net//images/portrait/header/61651-1528450339.jpg?lm=1528450353" /><br></br>
+                    <div className="playerInfo">Club: &nbsp;{obj.team_name} <br/>
+                        Crowd Rating:<br/><h3>{parseFloat(obj.average_rating).toFixed(2)}</h3></div>
                         Enter Rating: &nbsp; <input id="vote" type="text" name="fname"/>
                     </p>
                 </div>

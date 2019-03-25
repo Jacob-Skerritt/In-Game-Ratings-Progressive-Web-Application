@@ -52,10 +52,15 @@
 
 .modal-body img {
     position: relative;
+    left: -35%;
     width: 80px;
-    height: 80px;
+    height: 100px;
 }
-
+.playerInfo {
+    position: absolute;
+    top: 28%;
+    left: 40%;
+}
 .modal-footer {
     background: #263238;
     height: 35px;
