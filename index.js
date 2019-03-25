@@ -179,7 +179,7 @@ class Game extends React.Component {
     }
 
   loadData(){
-    fetch('http://localhost/player_ratings_api/match/all_match_data.php', {
+    fetch('http://mysql02.comp.dkit.ie/D00196117/player_ratings_api/match/all_match_data.php', {
       method:'post',
       header: {
         'Accept' : 'application/json, text/plain, */*',
@@ -221,7 +221,7 @@ class Game extends React.Component {
   
   
   vote(rating ,player_id, match_id, user_id){
-    fetch('http://localhost/player_ratings_api/rating/add_rating.php', {
+    fetch('http://mysql02.comp.dkit.ie/D00196117/player_ratings_api/rating/add_rating.php', {
       method:'post',
       header: {
         'Accept' : 'application/json, text/plain, */*',
