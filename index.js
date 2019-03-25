@@ -17,7 +17,7 @@ class GameInfo extends React.Component {
         </div>
         <div className="info">
           <h1>{this.props.players.team1_score}-{this.props.players.team2_score}</h1>
-          <p>25:46</p>{" "}
+          <p>{parseFloat(this.props.players.match_elapsed_time).toFixed(2)}</p>{" "}
         </div>
       </div>
     );
@@ -45,7 +45,7 @@ function Square(props) {
   if(props.userRating.player_id !== -1){
   return (
 
-    <button className="square" id={props.id} onClick={props.onClick} >
+    <button className={props.class} id={props.id} onClick={props.onClick} >
         <div className="average">{parseFloat(props.value.average_rating).toFixed(1)} </div>
       <div className ="playerName">{props.value.player_name} </div>
       <button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
@@ -55,7 +55,7 @@ function Square(props) {
     //If no user rating has been made for this particular player then a button with the default value "0" will be output instead of the a button with the users ratings.
     return (
 
-      <button className="square" id={props.id} onClick={props.onClick} >
+      <button className={props.class} id={props.id} onClick={props.onClick} >
         <div className="average">{parseFloat(props.value.average_rating).toFixed(1)}</div>
         <div className ="playerName">{props.value.player_name} </div>
         <button className ="square2" onClick={props.onClick}>{"-"} </button>
@@ -69,7 +69,8 @@ function Square(props) {
 
 class Board extends React.Component {
   renderSquare(i,track) {
-          let obj2={player_id: -1};
+       let obj2={player_id: -1};
+       let teamClass;
     if(this.props.players.id !== -1){
       let obj = {id: -1, player_name: "N/A", average_rating: 0, position: -1};
 
@@ -81,6 +82,7 @@ class Board extends React.Component {
             obj = this.props.players.teams[0].players[c];
           }
         }
+        teamClass = "team1-players";
       }else if( i >=4){
         for(let c = 0; c < this.props.players.teams[1].players.length;c++){
           if(this.props.players.teams[1].players[c].position ==10 -(track-11))
@@ -89,6 +91,7 @@ class Board extends React.Component {
 
           }
         }
+        teamClass ="team2-players";
       }
 
       if(this.props.players.user_ratings.length > 0){
@@ -100,12 +103,12 @@ class Board extends React.Component {
       }
 
     return (
-      <Square value={obj} userRating={obj2} id={track}  onClick={() => this.props.onClick(obj.id)} />
+      <Square value={obj} userRating={obj2} id={track} class={teamClass}  onClick={() => this.props.onClick(obj.id)} />
     );
 
   }else{
     return (
-      <Square value={0}  userRating={obj2} onClick={() => this.props.onClick()}/>
+      <Square value={0}  userRating={obj2} id={track} class={teamClass} onClick={() => this.props.onClick()}/>
     );
   }
   }
