@@ -272,6 +272,7 @@ class Modal extends React.Component{
     super(props);
     this.state = {
       user: -1,
+      
     };
 
   }
@@ -315,8 +316,8 @@ class Modal extends React.Component{
     }
     else if(this.props.id !== -1){
       let obj = {id: -1, player_name: "N/A", average_rating: 0, position: -1};
-
-
+     
+      
       for(let i = 0; i < this.props.players.teams[0].players.length;i++){
         if(this.props.players.teams[0].players[i].id == this.props.id)
         {
@@ -332,7 +333,8 @@ class Modal extends React.Component{
       }
 
 
-
+      
+      
     if(obj.id !== -1 && obj.position != -1){
       return(
         <div>
@@ -347,10 +349,11 @@ class Modal extends React.Component{
                 </div>
                 <div className="modal-body">
                     <p>
-                    <img alt="Home Crest" src="https://tmssl.akamaized.net//images/portrait/header/61651-1528450339.jpg?lm=1528450353" /><br></br>
+                    <img alt="Player" src={obj.player_image}/><br></br>
                     <div className="playerInfo">Club: &nbsp;{obj.team_name} <br/>
                         Crowd Rating:<br/><h3>{parseFloat(obj.average_rating).toFixed(2)}</h3></div>
-                        Enter Rating: &nbsp; <input id="vote" type="text" name="fname"/>
+                        Enter Rating: &nbsp; <input id="vote" type="text" name="fname"/><br/>
+                        
                     </p>
                 </div>
                 <div className="modal-footer">
@@ -369,14 +372,16 @@ class Modal extends React.Component{
                     opacity: this.props.show ? '1' : '0'
                 }}>
                 <div className="modal-header">
-                    <h3>Player Name: &nbsp;{obj.player_name} <br/></h3>
+                    <h3>{obj.player_no}. {obj.player_name} <br/></h3>
                     <span className="close-modal-btn" onClick={this.props.close}>×</span>
                 </div>
                 <div className="modal-body">
                     <p>
-                        Player#: &nbsp;{obj.id} <br/>
-                        Team Name: &nbsp;{obj.team_name} <br/>
-                        Crowd Rating: &nbsp;{parseFloat(obj.average_rating).toFixed(2)} <br/>
+                    <img alt="Player" src={obj.player_image}/><br></br>
+                    <div className="playerInfo">Club: &nbsp;{obj.team_name} <br/>
+                        Crowd Rating:<br/><h3>{parseFloat(obj.average_rating).toFixed(2)}</h3></div>
+                        Enter Rating: &nbsp; <input id="vote" type="text" name="fname"/><br/>
+                        
                     </p>
                 </div>
                 <div className="modal-footer">
