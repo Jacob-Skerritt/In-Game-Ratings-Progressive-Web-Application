@@ -43,12 +43,19 @@
 }
 .modal-body p{
 
-    text-align: left;
+    text-align: center;
 }
 .modal-body h3{
 
     text-align: center;
 }
+
+.modal-body img {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
 .modal-footer {
     background: #263238;
     height: 35px;

@@ -342,18 +342,15 @@ class Modal extends React.Component{
                     opacity: this.props.show ? '1' : '0'
                 }}>
                 <div className="modal-header">
-                    <h3>Player Name: &nbsp;{obj.player_name} <br/></h3>
+                    <h3>{obj.player_no}. {obj.player_name} <br/></h3>
                     <span className="close-modal-btn" onClick={this.props.close}>×</span>
                 </div>
                 <div className="modal-body">
                     <p>
-                                        <img alt="Home Crest" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/220px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png" />
-
-                        Player#: &nbsp;{obj.id} <br/>
-                        Team Name: &nbsp;{obj.team_name} <br/>
-                        Crowd Rating: &nbsp;{parseFloat(obj.average_rating).toFixed(2)} <br/>
-                        Position: &nbsp; {obj.position}<br/>
-                        Enter Rating: &nbsp; <input id="vote" type="text" name="fname"/><br/>
+                    <img alt="Home Crest" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/220px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png" /><br></br>
+                        Club: &nbsp;{obj.team_name} <br/>
+                        Crowd Rating:<br/><p>{parseFloat(obj.average_rating).toFixed(2)}</p>
+                        Enter Rating: &nbsp; <input id="vote" type="text" name="fname"/>
                     </p>
                 </div>
                 <div className="modal-footer">
