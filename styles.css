@@ -23,8 +23,7 @@
 }
 
 .game {
-
-        display: flex;
+    display: flex;
     left: 0%;
     text-align: center;
 }
@@ -70,6 +69,19 @@ p {
     position:absolute;
     text-align:left;
     width:50%;
+    background-color: #0D2031
+}
+
+#team1-info h3 {
+    color: white;
+    text-align: left;
+    margin-left: 10px;
+}
+
+#team1-info ul {
+    color: white;
+    text-align: left;
+    margin-left:-20px;
 }
 
 #team2-info{
@@ -77,6 +89,20 @@ p {
     text-align:left;
     width:50%;
     left:50%;
+    background-color: #0D2031;
+}
+
+#team2-info h3 {
+    color: white;
+    text-align: right;
+    margin-right: 10px;
+
+}
+
+#team2-info ul {
+    color: white;
+    text-align: right;
+    margin-right: 20px;
 }
 
 .home {
@@ -97,7 +123,7 @@ p {
 .home p {
     position: absolute;
     left: 40%;
-    top: 20%;
+    top: 15%;
     font-family: serif;
     font-weight: bold;
     color: white;

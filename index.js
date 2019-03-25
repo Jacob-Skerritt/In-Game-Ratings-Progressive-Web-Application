@@ -46,7 +46,7 @@ function Square(props) {
   return (
 
     <button className="square" id={props.id} onClick={props.onClick} >
-      <div>{parseFloat(props.value.average_rating).toFixed(2)} </div>
+        <div className="average">{parseFloat(props.value.average_rating).toFixed(1)} </div>
       <div className ="playerName">{props.value.player_name} </div>
       <button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
     </button>
@@ -56,9 +56,9 @@ function Square(props) {
     return (
 
       <button className="square" id={props.id} onClick={props.onClick} >
-        <div>{parseFloat(props.value.average_rating).toFixed(2)}  </div>
+        <div className="average">{parseFloat(props.value.average_rating).toFixed(1)}</div>
         <div className ="playerName">{props.value.player_name} </div>
-        <button className ="square2" onClick={props.onClick}>{0} </button>
+        <button className ="square2" onClick={props.onClick}>{"-"} </button>
       </button>
 
     );
@@ -351,7 +351,7 @@ class Modal extends React.Component{
                     <p>
                     <img alt="Player" src={obj.player_image}/><br></br>
                     <div className="playerInfo">Club: &nbsp;{obj.team_name} <br/>
-                        Crowd Rating:<br/><h3>{parseFloat(obj.average_rating).toFixed(2)}</h3></div>
+                        Crowd Rating:<br/><h3>{parseFloat(obj.average_rating).toFixed(1)}</h3></div>
                         Enter Rating: &nbsp; <input id="vote" type="text" name="fname"/><br/>
                         
                     </p>
@@ -379,9 +379,8 @@ class Modal extends React.Component{
                     <p>
                     <img alt="Player" src={obj.player_image}/><br></br>
                     <div className="playerInfo">Club: &nbsp;{obj.team_name} <br/>
-                        Crowd Rating:<br/><h3>{parseFloat(obj.average_rating).toFixed(2)}</h3></div>
+                        Crowd Rating:<br/><h3>{parseFloat(obj.average_rating).toFixed(1)}</h3></div>
                         Enter Rating: &nbsp; <input id="vote" type="text" name="fname"/><br/>
-                        
                     </p>
                 </div>
                 <div className="modal-footer">
@@ -442,19 +441,19 @@ class TeamInfo extends React.Component{
       <div id="team-info">
 
       <div id="team1-info">
-      <h2> {this.props.players.teams[0].team_name} Subs </h2>
-       <ul >
+      <h3> {this.props.players.teams[0].team_name}</h3>
+      <ul>
        {this.renderListPlayers(0)}
        </ul>
-       <h2> {this.props.players.teams[0].team_name} Manager </h2>
+       <h3>Managers</h3>
          <ul><li> {this.props.players.teams[0].manager} </li></ul>
        </div>
       <div id="team2-info">
-      <h2> {this.props.players.teams[1].team_name} Subs </h2>
+      <h3> {this.props.players.teams[1].team_name}</h3>
       <ul>
       {this.renderListPlayers(1)}
       </ul>
-      <h2> {this.props.players.teams[1].team_name} Manager </h2>
+      <h3> &nbsp; </h3>
       <ul><li> {this.props.players.teams[1].manager} </li></ul>
       </div>
       </div>
