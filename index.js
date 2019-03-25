@@ -342,13 +342,13 @@ class Modal extends React.Component{
                     opacity: this.props.show ? '1' : '0'
                 }}>
                 <div className="modal-header">
-                    <h3>Modal Header</h3>
+                    <h3>Player Name: &nbsp;{obj.player_name} <br/></h3>
                     <span className="close-modal-btn" onClick={this.props.close}>×</span>
                 </div>
                 <div className="modal-body">
                     <p>
                         Player#: &nbsp;{obj.id} <br/>
-                        Player Name: &nbsp;{obj.player_name} <br/>
+                        Team Name: &nbsp;{obj.team_name} <br/>
                         Crowd Rating: &nbsp;{parseFloat(obj.average_rating).toFixed(2)} <br/>
                         Position: &nbsp; {obj.position}<br/>
                         Enter Rating: &nbsp; <input id="vote" type="text" name="fname"/><br/>
@@ -370,13 +370,13 @@ class Modal extends React.Component{
                     opacity: this.props.show ? '1' : '0'
                 }}>
                 <div className="modal-header">
-                    <h3>Modal Header</h3>
+                    <h3>Player Name: &nbsp;{obj.player_name} <br/></h3>
                     <span className="close-modal-btn" onClick={this.props.close}>×</span>
                 </div>
                 <div className="modal-body">
                     <p>
                         Player#: &nbsp;{obj.id} <br/>
-                        Player Name: &nbsp;{obj.player_name} <br/>
+                        Team Name: &nbsp;{obj.team_name} <br/>
                         Crowd Rating: &nbsp;{parseFloat(obj.average_rating).toFixed(2)} <br/>
                     </p>
                 </div>
