@@ -42,7 +42,7 @@ p {
     text-align: left;
     width: 100%;
     left: 0%;
-    top: 135%;
+    top: 145%;
 
 }
 
@@ -60,7 +60,7 @@ p {
 #team-info{
     font: 12px "Century Gothic", Futura, sans-serif;
     position:absolute;
-    top:115%;
+    top:125%;
     width:100%;
     text-align:left;
 }
@@ -161,7 +161,7 @@ p {
     width: 100%;
     top: 0%;
     left: 0%;
-    height: 15%;
+    height: 20%;
     color: white;
 }
 

@@ -390,7 +390,7 @@ class Modal extends React.Component{
         }
       }
 
-      if(obj.average_rating ===0){
+if(obj.average_rating ===0){
           obj.average_rating =6;
       }
       
@@ -411,14 +411,13 @@ class Modal extends React.Component{
                     <p>
                     <img alt="Player" src={obj.player_image}/><br></br>
                     <div className="playerInfo">Club: &nbsp;{obj.team_name} <br/>
-                        Crowd Rating:<br/><h3>{parseFloat(obj.average_rating).toFixed(1)}</h3></div>
+                    Crowd Rating:<br/><div className="crowdRating"><h2>{parseFloat(obj.average_rating).toFixed(1)}</h2></div></div>
                         Enter Rating: &nbsp; <input id="vote" type="text" name="fname"/><br/>
                         
                     </p>
                 </div>
                 <div className="modal-footer">
-                    <button className="btn-cancel" onClick={this.props.close}>CLOSE</button>
-                    <button className="btn-continue" onClick={() =>this.props.vote(document.getElementById('vote').value,obj.id, this.props.players.id, this.state.user)}>Vote</button>
+                    <button className="btn-continue" onClick={() =>this.props.vote(document.getElementById('vote').value,obj.id, this.props.players.id, this.state.user)}>Submit</button>
                 </div>
             </div>
         </div>
@@ -439,8 +438,8 @@ class Modal extends React.Component{
                     <p>
                     <img alt="Player" src={obj.player_image}/><br></br>
                     <div className="playerInfo">Club: &nbsp;{obj.team_name} <br/>
-                        Crowd Rating:<br/><h3>{parseFloat(obj.average_rating).toFixed(1)}</h3></div>
-                        Enter Rating: &nbsp; <input id="vote" type="text" name="fname"/><br/>
+                        Crowd Rating:<br/><h2>{parseFloat(obj.average_rating).toFixed(1)}</h2></div>
+                       
                     </p>
                 </div>
                 <div className="modal-footer">
