@@ -42,12 +42,25 @@ class GameInfo extends React.Component {
 }
 
 function Square(props) {
-    
-     if(props.value.average_rating === 0){
+    if(props.value.average_rating === 0){
         props.value.average_rating = 6;
     }
     
-  if(props.userRating.player_id !== -1){
+    
+    if(props.value.id === props.starPlayer){
+        return(
+                <div  id="star-player" onClick={props.onClick}>
+                <img src="star.png" id="star-player-image" />
+                        <div className="average">{parseFloat(props.value.average_rating).toFixed(1)} </div>
+      <div className ="playerName">{props.value.player_name} </div>
+      { props.userRating.rating 
+      ?  <button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
+      :  <button className ="square2" onClick={props.onClick}>{"-"} </button>}
+     
+                </div>
+                );
+        
+    }else if(props.userRating.player_id !== -1){
       
      
   return (
@@ -110,7 +123,7 @@ class Board extends React.Component {
       }
 
     return (
-      <Square value={obj} userRating={obj2} id={track} class={teamClass}  onClick={() => this.props.onClick(obj.id)} />
+      <Square value={obj} userRating={obj2} id={track} class={teamClass} starPlayer={this.props.starPlayer} onClick={() => this.props.onClick(obj.id)} />
     );
 
   }else{
@@ -128,6 +141,7 @@ class Board extends React.Component {
     for (let i = 0; i < 8; i++) {
       let team1 = [];
       let team2=[];
+      let id = "team-row-id-"+i;
 
 
       //Inner loop to create children
@@ -137,14 +151,14 @@ class Board extends React.Component {
         track++;
       }
       //Create the parent and add the children
-      rows.push(<div className="board-row1">{team1}</div>);
+      rows.push(<div id={id} className="board-row1">{team1}</div>);
 
     }else if(i>3){
       for (let j = 0; j <formation[i]; j++) {
         team2.push(this.renderSquare(i,track));
         track++;
       }
-      rows.push(<div className="board-row2">{team2}</div>);
+      rows.push(<div id={id} className="board-row2">{team2}</div>);
     }
     }
     return rows;
@@ -262,8 +276,8 @@ class Game extends React.Component {
        for(let i =0;i< this.state.players.teams.length;i++){
           
           for(let c =0; c<this.state.players.teams[i].players.length;c++){
-              if(this.state.players.teams[i].players[c].average_rating >= max){
-                  star.push(this.state.players.teams[i].players[i].id);
+              if(this.state.players.teams[i].players[c].average_rating === max){
+                  star.push(this.state.players.teams[i].players[c].id);
               }
           }
 
@@ -286,8 +300,7 @@ class Game extends React.Component {
         <div className="game">
           <GameInfo players={this.state.players}/>
           <div className="game-board">
-          <div> {String(this.starPlayer())} </div>
-            <Board players={this.state.players}    onClick={(i) => this.handleClick(i)}/>
+            <Board players={this.state.players}  starPlayer={this.starPlayer()}  onClick={(i) => this.handleClick(i)}/>
           </div>
               <TeamInfo players={this.state.players} onClick={(i) => this.handleClick(i)}/>
               { this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null }
@@ -490,7 +503,7 @@ class TeamInfo extends React.Component{
       <div id="team1-info">
       <h3> {this.props.players.teams[0].team_name}</h3>
       <ul>
-       {this.renderListPlayers(0)}
+      {this.renderListPlayers(0)}
        </ul>
        <h3>Managers</h3>
          <ul><li> {this.props.players.teams[0].manager} </li></ul>
@@ -504,7 +517,6 @@ class TeamInfo extends React.Component{
       <ul><li> {this.props.players.teams[1].manager} </li></ul>
       </div>
       </div>
-
 
       );
   }
