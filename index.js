@@ -42,7 +42,14 @@ class GameInfo extends React.Component {
 }
 
 function Square(props) {
+    
+     if(props.value.average_rating === 0){
+        props.value.average_rating = 6;
+    }
+    
   if(props.userRating.player_id !== -1){
+      
+     
   return (
 
     <button className={props.class} id={props.id} onClick={props.onClick} >
@@ -182,7 +189,7 @@ class Game extends React.Component {
     }
 
   loadData(){
-    fetch('http://mysql02.comp.dkit.ie/D00196117/player_ratings_api/match/all_match_data.php', {
+    fetch('http://localhost/player_ratings_api/match/all_match_data.php', {
       method:'post',
       header: {
         'Accept' : 'application/json, text/plain, */*',
@@ -224,7 +231,7 @@ class Game extends React.Component {
   
   
   vote(rating ,player_id, match_id, user_id){
-    fetch('http://mysql02.comp.dkit.ie/D00196117/player_ratings_api/rating/add_rating.php', {
+    fetch('http://localhost/player_ratings_api/rating/add_rating.php', {
       method:'post',
       header: {
         'Accept' : 'application/json, text/plain, */*',
@@ -238,7 +245,40 @@ class Game extends React.Component {
     this.closeModalHandler();
   }
   
+  starPlayer(){
+      let max =0;
+      let star = [];
+      
+      for(let i =0;i< this.state.players.teams.length;i++){
+          
+          for(let c =0; c<this.state.players.teams[i].players.length;c++){
+              if(this.state.players.teams[i].players[c].average_rating >= max){
+                  max =this.state.players.teams[i].players[c].average_rating;
+              }
+          }
+      }
+      
+      
+       for(let i =0;i< this.state.players.teams.length;i++){
+          
+          for(let c =0; c<this.state.players.teams[i].players.length;c++){
+              if(this.state.players.teams[i].players[c].average_rating >= max){
+                  star.push(this.state.players.teams[i].players[i].id);
+              }
+          }
+
+      }
+      
+      if(star.length === 1){
+      return star[0];}else return -1;
+  }
+  
+  
+  
+  
   render() {
+      
+     
 
 
     if(Object.keys(this.state.players).length !== 0 && this.state.players.id !== -1){
@@ -246,12 +286,14 @@ class Game extends React.Component {
         <div className="game">
           <GameInfo players={this.state.players}/>
           <div className="game-board">
-            <Board players={this.state.players}   onClick={(i) => this.handleClick(i)}/>
+          <div> {String(this.starPlayer())} </div>
+            <Board players={this.state.players}    onClick={(i) => this.handleClick(i)}/>
           </div>
               <TeamInfo players={this.state.players} onClick={(i) => this.handleClick(i)}/>
               { this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null }
           <Modal className="modal" id={this.state.buttonId} vote={(rating ,player_id, match_id,user_id) =>this.vote(rating ,player_id, match_id,user_id)} show={this.state.isShowing} close={this.closeModalHandler} players={this.state.players} />    
-        </div>
+                  
+     </div>
     
     
       );
@@ -335,7 +377,9 @@ class Modal extends React.Component{
         }
       }
 
-
+      if(obj.average_rating ===0){
+          obj.average_rating =6;
+      }
       
       
     if(obj.id !== -1 && obj.position != -1){
