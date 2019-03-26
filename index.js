@@ -42,6 +42,10 @@ class GameInfo extends React.Component {
 }
 
 function Square(props) {
+    if(props.value.average_rating === 0){
+        props.value.average_rating = 6;
+    }
+    
   if(props.userRating.player_id !== -1){
   return (
 
@@ -335,7 +339,9 @@ class Modal extends React.Component{
         }
       }
 
-
+      if(obj.average_rating ===0){
+          obj.average_rating =6;
+      }
       
       
     if(obj.id !== -1 && obj.position != -1){
