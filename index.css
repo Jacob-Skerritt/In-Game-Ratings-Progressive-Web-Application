@@ -17,7 +17,7 @@ ol, ul {
 
 .board-row1 {
   position: relative;
-  display: inline-block;
+ display: inline-block;
  padding-right: 15px;
 }
 
@@ -61,7 +61,7 @@ ol, ul {
   margin-left: 20px;
   margin-right: 15px;
   margin-top: 22px;
-  background-color: #0000ff;
+  background-color: #9BD9F4;
   border-color: black;
   border-radius: 50%;
   position:relative;
@@ -80,7 +80,7 @@ ol, ul {
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  background-color: #F5E0CC;
+  background-color: #FFFEFF;
   border-radius: 50%;
   position:absolute;
   top: 40%;
@@ -137,5 +137,10 @@ game-board-players {
     position: absolute;
     top: 30%;
     left: 20%;
-    
+}
+
+button#1.team1-players {
+   position: absolute;
+
+   left: 100%;
 }

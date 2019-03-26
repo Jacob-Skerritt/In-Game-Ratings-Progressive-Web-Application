@@ -446,7 +446,7 @@ class TeamInfo extends React.Component{
       <div id="team1-info">
       <h3> {this.props.players.teams[0].team_name}</h3>
       <ul>
-       {this.renderListPlayers(0)}
+      {this.renderListPlayers(0)}
        </ul>
        <h3>Managers</h3>
          <ul><li> {this.props.players.teams[0].manager} </li></ul>
@@ -460,7 +460,6 @@ class TeamInfo extends React.Component{
       <ul><li> {this.props.players.teams[1].manager} </li></ul>
       </div>
       </div>
-
 
       );
   }
