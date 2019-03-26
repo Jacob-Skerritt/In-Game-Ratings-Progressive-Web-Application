@@ -8,11 +8,12 @@
     align-content: center;
     position: fixed;
     left: 10%;
+    
 
 }
 
 .modal-header {
-    background: #263238;
+    background: #0D2031;
     height: 40px;
     line-height: 40px;
     padding: 5px 20px;
@@ -38,31 +39,31 @@
 }
 
 .modal-body {
-    padding: 10px 15px;
-    text-align: center;
+    padding: 10px 20px;
 }
 .modal-body p{
 
     text-align: center;
 }
-.modal-body h3{
+.modal-body h2{
 
     text-align: center;
 }
 
 .modal-body img {
     position: relative;
-    left: -35%;
+    left: -30%;
     width: 80px;
     height: 100px;
 }
 .playerInfo {
     position: absolute;
-    top: 28%;
-    left: 40%;
+    top: 25%;
+    left: 42%;
 }
+
 .modal-footer {
-    background: #263238;
+    background: #0D2031;
     height: 35px;
     padding: 15px;
 }
@@ -95,8 +96,11 @@
 }
 
 .btn-continue {
-    background-color: #1b5e20;
-    float: right;
+    background-color: #36BA4F;
+    align-content: center;
+    border-radius: 10px;
+    width: 70px; 
+    height: 35px;
 }
 
 
