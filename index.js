@@ -432,7 +432,6 @@ if(obj.average_rating === 0){
   
     <label class="container">
         1
-      <br/>
       <input type="radio" name="react-tips" id="button1" value="1" checked={this.state.selectedOption === "1"} onChange={this.handleOptionChange} className="form-check-input" />
 
       <span class="checkmark"></span>
