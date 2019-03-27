@@ -386,7 +386,7 @@ class Modal extends React.Component{
     }
     else if(this.props.id !== -1){
       let obj = {id: -1, player_name: "N/A", average_rating: 0, position: -1};
-     
+      
       
       for(let i = 0; i < this.props.players.teams[0].players.length;i++){
         if(this.props.players.teams[0].players[i].id == this.props.id)
@@ -402,7 +402,7 @@ class Modal extends React.Component{
         }
       }
 
-if(obj.average_rating ===0){
+if(obj.average_rating === 0){
           obj.average_rating =6;
       }
       
@@ -432,7 +432,6 @@ if(obj.average_rating ===0){
   
     <label class="container">
         1
-      <br/>
       <input type="radio" name="react-tips" id="button1" value="1" checked={this.state.selectedOption === "1"} onChange={this.handleOptionChange} className="form-check-input" />
       <span class="checkmark"></span>
     </label>

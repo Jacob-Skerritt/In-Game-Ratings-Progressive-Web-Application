@@ -236,7 +236,7 @@ button#1.team1-players {
 
 
 .container {
-  display: block;
+  display: inline-block;
   position: relative;
   padding-left: 18px;
   margin-bottom: 12px;
@@ -257,6 +257,7 @@ button#1.team1-players {
   cursor: pointer;
   height: 0;
   width: 0;
+  transform: translate(-50%,-50%);
 }
 
 /* Create a custom radio button */
