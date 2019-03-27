@@ -428,32 +428,27 @@ if(obj.average_rating === 0){
                         Enter Rating: &nbsp;
                     </p>
                                            
-                                    <div className="buttons">
+
   <div className="form-check">
   
     <label class="container">
         1
       <input type="radio" name="react-tips" id="button1" value="1" checked={this.state.selectedOption === "1"} onChange={this.handleOptionChange} className="form-check-input" />
-
       <span class="checkmark"></span>
-      
     </label>
   </div>
 
   <div className="form-check">
     <label class="container">
      2
-    
       <input type="radio" name="react-tips" value="2" checked={this.state.selectedOption === "2"} onChange={this.handleOptionChange} className="form-check-input" />
       <span class="checkmark"></span>
       </label>
-     
   </div>
 
   <div className="form-check">
     <label class="container">
           3
-    
       <input type="radio" name="react-tips" value="3" checked={this.state.selectedOption === "3"} onChange={this.handleOptionChange} className="form-check-input"/>
       <span class="checkmark"></span>
       </label>
@@ -462,7 +457,6 @@ if(obj.average_rating === 0){
     <div className="form-check">
    <label class="container">
           4
-    
       <input type="radio" name="react-tips" value="4" checked={this.state.selectedOption === "4"} onChange={this.handleOptionChange} className="form-check-input"/>
       <span class="checkmark"></span>
       </label>
@@ -471,7 +465,6 @@ if(obj.average_rating === 0){
     <div className="form-check">
     <label class="container">
           5
-    
       <input type="radio" name="react-tips" value="5" checked={this.state.selectedOption === "5"} onChange={this.handleOptionChange} className="form-check-input"/>
       <span class="checkmark"></span>
       </label>
@@ -480,7 +473,6 @@ if(obj.average_rating === 0){
     <div className="form-check">
     <label class="container">
           6
-    
       <input type="radio" name="react-tips" value="6" checked={this.state.selectedOption === "6"} onChange={this.handleOptionChange} className="form-check-input"/>
       <span class="checkmark"></span>
       </label>
@@ -489,7 +481,6 @@ if(obj.average_rating === 0){
     <div className="form-check">
     <label class="container">
           7
-    
       <input type="radio" name="react-tips" value="7" checked={this.state.selectedOption === "7"} onChange={this.handleOptionChange} className="form-check-input"/>
       <span class="checkmark"></span>
       </label>
@@ -521,7 +512,7 @@ if(obj.average_rating === 0){
       <span class="checkmark"></span>
       </label>
   </div>
- </div>
+
 
                     
 
