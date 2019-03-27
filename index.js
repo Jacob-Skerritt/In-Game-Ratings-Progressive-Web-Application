@@ -8,11 +8,11 @@ class GameInfo extends React.Component {
     return (
       <div className="gameInfo">
         <div className="home">
-          <img alt="Home Crest" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/220px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png" />
+          <img alt="Home Crest" src={this.props.players.teams[1].crest} />
           <p>{this.props.players.teams[1].team_name}</p>
         </div>
         <div className="away">
-          <img alt="Away Crest" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Liverpool_FC.svg/1200px-Liverpool_FC.svg.png" />
+          <img alt="Away Crest" src={this.props.players.teams[0].crest} />
           <p>{this.props.players.teams[0].team_name}</p>
         </div>
         <div className="info">
