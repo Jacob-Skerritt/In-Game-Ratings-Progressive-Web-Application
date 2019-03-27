@@ -255,7 +255,7 @@ button#1.team1-players {
   cursor: pointer;
   height: 0;
   width: 0;
-  transform: translate(-50%,-50%);
+  
 }
 
 /* Create a custom radio button */
@@ -267,7 +267,7 @@ button#1.team1-players {
   width: 12px;
   background-color: #eee;
   border-radius: 50%;
-  transform: translate(120%,-100%);
+  transform: translate(125%,-100%);
 }
 
 /* On mouse-over, add a grey background color */

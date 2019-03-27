@@ -367,7 +367,9 @@ class Modal extends React.Component{
                 </div>
                 <div className="modal-body">
                     <p>
+                        <div>&nbsp;</div>
                         Please Select User -  <br/>
+                        <div>&nbsp;</div>
                         User: &nbsp;
                         <select id="users" onChange={this.onChange.bind(this)}>
                         <option> 0 - No User </option>
@@ -377,8 +379,7 @@ class Modal extends React.Component{
                     
                     
                 </div>
-                <div className="modal-footer">
-                </div>
+                
             </div>
         </div>
       );
