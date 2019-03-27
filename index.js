@@ -386,7 +386,7 @@ class Modal extends React.Component{
     }
     else if(this.props.id !== -1){
       let obj = {id: -1, player_name: "N/A", average_rating: 0, position: -1};
-     
+      
       
       for(let i = 0; i < this.props.players.teams[0].players.length;i++){
         if(this.props.players.teams[0].players[i].id == this.props.id)
@@ -402,7 +402,7 @@ class Modal extends React.Component{
         }
       }
 
-if(obj.average_rating ===0){
+if(obj.average_rating === 0){
           obj.average_rating =6;
       }
       
@@ -423,8 +423,10 @@ if(obj.average_rating ===0){
                     <p>
                     <img alt="Player" src={obj.player_image}/><br></br>
                     <div className="playerInfo">Club: &nbsp;{obj.team_name} <br/>
-                    Crowd Rating:<br/><div className="crowdRating"><h2>{parseFloat(obj.average_rating).toFixed(1)}</h2></div></div>
-                        Enter Rating: &nbsp; <input id="vote" type="text" name="fname"/><br/>                          
+                    Crowd Rating:<br/><div className="crowdRating"><h2>{parseFloat(obj.average_rating).toFixed(1)}</h2></div>
+                    Own rating:<br/><div className="ownRating"><h3>{obj.rating}</h3></div>
+                                    </div>
+                                                 
                     </p>
                                            
 
