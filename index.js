@@ -330,10 +330,18 @@ class Modal extends React.Component{
     super(props);
     this.state = {
       user: -1,
+      selectedOption: "6",
+      
       
     };
 
   }
+  
+  handleOptionChange = changeEvent => {
+  this.setState({
+    selectedOption: changeEvent.target.value
+  });
+};
 
   onChange(e){
       this.setState({user: e.target.value}, function(){
@@ -364,6 +372,8 @@ class Modal extends React.Component{
                         {this.props.players.users.map(function(user, index){return <option value={user.id}>{user.id} - {user.username}</option> })}
                         </select>
                     </p>
+                    
+                    
                 </div>
                 <div className="modal-footer">
                 </div>
@@ -412,12 +422,107 @@ if(obj.average_rating ===0){
                     <img alt="Player" src={obj.player_image}/><br></br>
                     <div className="playerInfo">Club: &nbsp;{obj.team_name} <br/>
                     Crowd Rating:<br/><div className="crowdRating"><h2>{parseFloat(obj.average_rating).toFixed(1)}</h2></div></div>
-                        Enter Rating: &nbsp; <input id="vote" type="text" name="fname"/><br/>
-                        
+                        Enter Rating: &nbsp; <input id="vote" type="text" name="fname"/><br/>                          
                     </p>
+                                           
+
+  <div className="form-check">
+    <label class="container">
+      1
+    
+      <input type="radio" name="react-tips" value="1" checked={this.state.selectedOption === "1"} onChange={this.handleOptionChange} className="form-check-input" />
+      <span class="checkmark"></span>
+    </label>
+  </div>
+
+  <div className="form-check">
+    <label class="container">
+     2
+    
+      <input type="radio" name="react-tips" value="2" checked={this.state.selectedOption === "2"} onChange={this.handleOptionChange} className="form-check-input" />
+      <span class="checkmark"></span>
+      </label>
+     
+  </div>
+
+  <div className="form-check">
+    <label class="container">
+          3
+    
+      <input type="radio" name="react-tips" value="3" checked={this.state.selectedOption === "3"} onChange={this.handleOptionChange} className="form-check-input"/>
+      <span class="checkmark"></span>
+      </label>
+  </div>
+  
+    <div className="form-check">
+   <label class="container">
+          4
+    
+      <input type="radio" name="react-tips" value="4" checked={this.state.selectedOption === "4"} onChange={this.handleOptionChange} className="form-check-input"/>
+      <span class="checkmark"></span>
+      </label>
+  </div>
+  
+    <div className="form-check">
+    <label class="container">
+          5
+    
+      <input type="radio" name="react-tips" value="5" checked={this.state.selectedOption === "5"} onChange={this.handleOptionChange} className="form-check-input"/>
+      <span class="checkmark"></span>
+      </label>
+  </div>
+  
+    <div className="form-check">
+    <label class="container">
+          6
+    
+      <input type="radio" name="react-tips" value="6" checked={this.state.selectedOption === "6"} onChange={this.handleOptionChange} className="form-check-input"/>
+      <span class="checkmark"></span>
+      </label>
+  </div>
+  
+    <div className="form-check">
+    <label class="container">
+          7
+    
+      <input type="radio" name="react-tips" value="7" checked={this.state.selectedOption === "7"} onChange={this.handleOptionChange} className="form-check-input"/>
+      <span class="checkmark"></span>
+      </label>
+  </div>
+  
+    <div className="form-check">
+    <label class="container">
+          8
+    
+      <input type="radio" name="react-tips" value="8" checked={this.state.selectedOption === "8"} onChange={this.handleOptionChange} className="form-check-input"/>
+      <span class="checkmark"></span>
+      </label>
+  </div>
+  
+    <div className="form-check">
+    <label class="container">
+          9
+    
+      <input type="radio" name="react-tips" value="9" checked={this.state.selectedOption === "9"} onChange={this.handleOptionChange} className="form-check-input"/>
+      <span class="checkmark"></span>
+      </label>
+  </div>
+  
+    <div className="form-check">
+    <label class="container">
+          10
+    
+      <input type="radio" name="react-tips" value="10" checked={this.state.selectedOption === "10"} onChange={this.handleOptionChange} className="form-check-input"/>
+      <span class="checkmark"></span>
+      </label>
+  </div>
+ 
+
+                    
+
                 </div>
                 <div className="modal-footer">
-                    <button className="btn-continue" onClick={() =>this.props.vote(document.getElementById('vote').value,obj.id, this.props.players.id, this.state.user)}>Submit</button>
+                    <button className="btn-continue" onClick={() =>this.props.vote(this.state.selectedOption,obj.id, this.props.players.id, this.state.user)}>Submit</button>
                 </div>
             </div>
         </div>
