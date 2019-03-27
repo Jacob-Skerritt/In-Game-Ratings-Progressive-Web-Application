@@ -39,7 +39,7 @@ ol, ul {
   width: 10%;
   min-height: 40px;
   min-width: 40px;
-  margin-left: 20px;
+  margin-left: 15px;
   margin-right: 15px;
   margin-top: 22px;
   background-color: #F4A351;
@@ -58,7 +58,7 @@ ol, ul {
   width: 10%;
   min-height: 40px;
   min-width: 40px;
-  margin-left: 20px;
+  margin-left: 15px;
   margin-right: 15px;
   margin-top: 22px;
   background-color: #9BD9F4;
@@ -106,37 +106,37 @@ ol, ul {
 
 #team-row-id-1{
     position:absolute;
-    left:10%;
+    left:5%;
     top:10%;
 }
 
 #team-row-id-2{
     position:absolute;
-    left:19%;
+    left:15%;
     top:22%;
 }
 
 #team-row-id-3{
     position:absolute;
-    left:19%;
+    left:15%;
     top:34%;
 }
 
 #team-row-id-4{
     position:absolute;
-    left:19%;
+    left:15%;
     top:51%;
 }
 
 #team-row-id-5{
     position:absolute;
-    left:19%;
+    left:15%;
     top:63%;
 }
 
 #team-row-id-6{
     position:absolute;
-    left:10%;
+    left:5%;
     top:75%;
 }
 

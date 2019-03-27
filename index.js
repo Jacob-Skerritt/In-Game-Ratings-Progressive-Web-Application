@@ -8,11 +8,11 @@ class GameInfo extends React.Component {
     return (
       <div className="gameInfo">
         <div className="home">
-          <img alt="Home Crest" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg/220px-FC_Bayern_M%C3%BCnchen_logo_%282017%29.svg.png" />
+          <img alt="Home Crest" src={this.props.players.teams[1].crest} />
           <p>{this.props.players.teams[1].team_name}</p>
         </div>
         <div className="away">
-          <img alt="Away Crest" src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Liverpool_FC.svg/1200px-Liverpool_FC.svg.png" />
+          <img alt="Away Crest" src={this.props.players.teams[0].crest} />
           <p>{this.props.players.teams[0].team_name}</p>
         </div>
         <div className="info">
@@ -260,14 +260,14 @@ class Game extends React.Component {
   }
   
   starPlayer(){
-      let max =0;
+      let max = 0;
       let star = [];
       
-      for(let i =0;i< this.state.players.teams.length;i++){
+      for(let i = 0; i< this.state.players.teams.length; i++){
           
-          for(let c =0; c<this.state.players.teams[i].players.length;c++){
+          for(let c =0; c<this.state.players.teams[i].players.length; c++){
               if(this.state.players.teams[i].players[c].average_rating >= max){
-                  max =this.state.players.teams[i].players[c].average_rating;
+                  max = this.state.players.teams[i].players[c].average_rating;
               }
           }
       }
@@ -275,7 +275,7 @@ class Game extends React.Component {
       
        for(let i =0;i< this.state.players.teams.length;i++){
           
-          for(let c =0; c<this.state.players.teams[i].players.length;c++){
+          for(let c = 0; c<this.state.players.teams[i].players.length; c++){
               if(this.state.players.teams[i].players[c].average_rating === max){
                   star.push(this.state.players.teams[i].players[c].id);
               }
@@ -284,7 +284,9 @@ class Game extends React.Component {
       }
       
       if(star.length === 1){
-      return star[0];}else return -1;
+      return star[0];
+        }
+            else return -1;
   }
   
   
