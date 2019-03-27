@@ -238,7 +238,7 @@ button#1.team1-players {
 .container {
   display: inline-block;
   position: relative;
-  padding-left: 18px;
+  padding-left: 15px;
   margin-bottom: 12px;
   cursor: pointer;
   font-size: 11px;

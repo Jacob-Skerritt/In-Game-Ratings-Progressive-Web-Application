@@ -376,8 +376,6 @@ class Modal extends React.Component{
                         {this.props.players.users.map(function(user, index){return <option value={user.id}>{user.id} - {user.username}</option> })}
                         </select>
                     </p>
-                    
-                    
                 </div>
                 
             </div>
