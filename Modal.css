@@ -64,7 +64,7 @@
 }
 
 .modal-footer {
-    background: #0D2031;
+    background: white;
     height: 35px;
     padding: 15px;
 }
@@ -103,8 +103,6 @@
     width: 70px; 
     height: 35px;
 }
-
-
 
 .open-modal-btn {
     margin: 15px;

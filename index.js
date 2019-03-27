@@ -50,9 +50,9 @@ function Square(props) {
     if(props.value.id === props.starPlayer){
         return(
                 <div  id="star-player" onClick={props.onClick}>
-                <img src="star.png" id="star-player-image" />
-                        <div className="average">{parseFloat(props.value.average_rating).toFixed(1)} </div>
-      <div className ="playerName">{props.value.player_name} </div>
+                <img src="star1.png" id="star-player-image" />
+                        <div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
+      <div className ="playerName1">{props.value.player_name} </div>
       { props.userRating.rating 
       ?  <button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
       :  <button className ="square2" onClick={props.onClick}>{"-"} </button>}
@@ -423,19 +423,20 @@ if(obj.average_rating === 0){
                     <p>
                     <img alt="Player" src={obj.player_image}/><br></br>
                     <div className="playerInfo">Club: &nbsp;{obj.team_name} <br/>
-                    Crowd Rating:<br/><div className="crowdRating"><h2>{parseFloat(obj.average_rating).toFixed(1)}</h2></div>
-                    Own rating:<br/><div className="ownRating"><h3>{obj.rating}</h3></div>
-                                    </div>
-                                                 
+                    Crowd Rating:<br/><div className="crowdRating"><h2>{parseFloat(obj.average_rating).toFixed(1)}</h2></div></div>
+                        Enter Rating: &nbsp;
                     </p>
                                            
-
+                                    <div className="buttons">
   <div className="form-check">
+  
     <label class="container">
-      1
-    
-      <input type="radio" name="react-tips" value="1" checked={this.state.selectedOption === "1"} onChange={this.handleOptionChange} className="form-check-input" />
+        1
+      <br/>
+      <input type="radio" name="react-tips" id="button1" value="1" checked={this.state.selectedOption === "1"} onChange={this.handleOptionChange} className="form-check-input" />
+
       <span class="checkmark"></span>
+      
     </label>
   </div>
 
@@ -520,7 +521,7 @@ if(obj.average_rating === 0){
       <span class="checkmark"></span>
       </label>
   </div>
- 
+ </div>
 
                     
 
@@ -548,11 +549,9 @@ if(obj.average_rating === 0){
                     <img alt="Player" src={obj.player_image}/><br></br>
                     <div className="playerInfo">Club: &nbsp;{obj.team_name} <br/>
                         Crowd Rating:<br/><h2>{parseFloat(obj.average_rating).toFixed(1)}</h2></div>
-                       
                     </p>
                 </div>
                 <div className="modal-footer">
-                    <button className="btn-cancel" onClick={this.props.close}>CLOSE</button>
                 </div>
             </div>
         </div>
