@@ -256,7 +256,8 @@ class Game extends React.Component {
     this.setState({
       userId : user_id,
     });
-    this.closeModalHandler();
+    
+    setTimeout(function() {this.closeModalHandler();}.bind(this), 1500)
   }
   
   starPlayer(){
@@ -333,10 +334,20 @@ class Modal extends React.Component{
     this.state = {
       user: -1,
       selectedOption: "6",
+      display: true,
       
       
     };
 
+  }
+  
+    changeDisplay(obj){
+      this.setState({
+          display: false,
+      });
+      this.props.vote(this.state.selectedOption,obj.id, this.props.players.id, this.state.user);
+      setTimeout(function() {this.setState({display: true})}.bind(this), 2500)
+ 
   }
   
   handleOptionChange = changeEvent => {
@@ -383,7 +394,7 @@ class Modal extends React.Component{
       );
 
     }
-    else if(this.props.id !== -1){
+    else if(this.props.id !== -1 && this.state.display === true){
       let obj = {id: -1, player_name: "N/A", average_rating: 0, position: -1};
       
       
@@ -431,7 +442,7 @@ if(obj.average_rating === 0){
   
     <label class="container">
         1
-      <input type="radio" name="react-tips" id="button1" value="1" checked={this.state.selectedOption === "1"} onChange={this.handleOptionChange} className="form-check-input" />
+      <input type="radio" name="react-tips" id="button1" value="1"  onChange={this.handleOptionChange} className="form-check-input" />
       <span class="checkmark"></span>
     </label>
   </div>
@@ -439,7 +450,7 @@ if(obj.average_rating === 0){
   <div className="form-check">
     <label class="container">
      2
-      <input type="radio" name="react-tips" value="2" checked={this.state.selectedOption === "2"} onChange={this.handleOptionChange} className="form-check-input" />
+      <input type="radio" name="react-tips" value="2" onChange={this.handleOptionChange} className="form-check-input" />
       <span class="checkmark"></span>
       </label>
   </div>
@@ -447,7 +458,7 @@ if(obj.average_rating === 0){
   <div className="form-check">
     <label class="container">
           3
-      <input type="radio" name="react-tips" value="3" checked={this.state.selectedOption === "3"} onChange={this.handleOptionChange} className="form-check-input"/>
+      <input type="radio" name="react-tips" value="3" onChange={this.handleOptionChange} className="form-check-input"/>
       <span class="checkmark"></span>
       </label>
   </div>
@@ -455,7 +466,7 @@ if(obj.average_rating === 0){
     <div className="form-check">
    <label class="container">
           4
-      <input type="radio" name="react-tips" value="4" checked={this.state.selectedOption === "4"} onChange={this.handleOptionChange} className="form-check-input"/>
+      <input type="radio" name="react-tips" value="4" onChange={this.handleOptionChange} className="form-check-input"/>
       <span class="checkmark"></span>
       </label>
   </div>
@@ -463,7 +474,7 @@ if(obj.average_rating === 0){
     <div className="form-check">
     <label class="container">
           5
-      <input type="radio" name="react-tips" value="5" checked={this.state.selectedOption === "5"} onChange={this.handleOptionChange} className="form-check-input"/>
+      <input type="radio" name="react-tips" value="5"  onChange={this.handleOptionChange} className="form-check-input"/>
       <span class="checkmark"></span>
       </label>
   </div>
@@ -471,7 +482,7 @@ if(obj.average_rating === 0){
     <div className="form-check">
     <label class="container">
           6
-      <input type="radio" name="react-tips" value="6" checked={this.state.selectedOption === "6"} onChange={this.handleOptionChange} className="form-check-input"/>
+      <input type="radio" name="react-tips" value="6"  onChange={this.handleOptionChange} className="form-check-input"/>
       <span class="checkmark"></span>
       </label>
   </div>
@@ -479,7 +490,7 @@ if(obj.average_rating === 0){
     <div className="form-check">
     <label class="container">
           7
-      <input type="radio" name="react-tips" value="7" checked={this.state.selectedOption === "7"} onChange={this.handleOptionChange} className="form-check-input"/>
+      <input type="radio" name="react-tips" value="7"  onChange={this.handleOptionChange} className="form-check-input"/>
       <span class="checkmark"></span>
       </label>
   </div>
@@ -488,7 +499,7 @@ if(obj.average_rating === 0){
     <label class="container">
           8
     
-      <input type="radio" name="react-tips" value="8" checked={this.state.selectedOption === "8"} onChange={this.handleOptionChange} className="form-check-input"/>
+      <input type="radio" name="react-tips" value="8"  onChange={this.handleOptionChange} className="form-check-input"/>
       <span class="checkmark"></span>
       </label>
   </div>
@@ -497,7 +508,7 @@ if(obj.average_rating === 0){
     <label class="container">
           9
     
-      <input type="radio" name="react-tips" value="9" checked={this.state.selectedOption === "9"} onChange={this.handleOptionChange} className="form-check-input"/>
+      <input type="radio" name="react-tips" value="9"  onChange={this.handleOptionChange} className="form-check-input"/>
       <span class="checkmark"></span>
       </label>
   </div>
@@ -506,22 +517,23 @@ if(obj.average_rating === 0){
     <label class="container">
           10
     
-      <input type="radio" name="react-tips" value="10" checked={this.state.selectedOption === "10"} onChange={this.handleOptionChange} className="form-check-input"/>
+      <input type="radio" name="react-tips" value="10"  onChange={this.handleOptionChange} className="form-check-input"/>
       <span class="checkmark"></span>
       </label>
   </div>
+  
 
 
                     
 
                 </div>
                 <div className="modal-footer">
-                    <button className="btn-continue" onClick={() =>this.props.vote(this.state.selectedOption,obj.id, this.props.players.id, this.state.user)}>Submit</button>
+                    <button className="btn-continue" onClick={() =>this.changeDisplay(obj)}>Submit</button>
                 </div>
             </div>
         </div>
       );
-    }else if( obj.id !== -1){
+    }else if( obj.id !== -1 && this.state.display === true){
       return(
         <div>
             <div className="modal-wrapper"
@@ -547,7 +559,31 @@ if(obj.average_rating === 0){
       );
     }
 
-  }else{
+  }else if(this.state.display != true){
+      
+            return(
+        <div>
+            <div className="modal-wrapper"
+                style={{
+                    transform: this.props.show ? 'translateY(0vh)' : 'translateY(-100vh)',
+                    opacity: this.props.show ? '1' : '0'
+                }}>
+                <div className="modal-header">
+                    <span className="close-modal-btn" onClick={this.props.close}>×</span>
+                </div>
+                <div className="modal-body">
+                    <p>
+                        Rating Complete!
+                    </p>
+                </div>
+                <div className="modal-footer">
+                </div>
+            </div>
+        </div>
+      );
+       
+  }
+  else{
     return(
       <div>
           <div className="modal-wrapper"
