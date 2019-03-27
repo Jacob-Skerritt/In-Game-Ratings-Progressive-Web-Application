@@ -257,7 +257,7 @@ class Game extends React.Component {
       userId : user_id,
     });
     
-    setTimeout(function() {this.closeModalHandler();}.bind(this), 1500)
+    setTimeout(function() {this.closeModalHandler();}.bind(this), 1500);
   }
   
   starPlayer(){
@@ -346,7 +346,7 @@ class Modal extends React.Component{
           display: false,
       });
       this.props.vote(this.state.selectedOption,obj.id, this.props.players.id, this.state.user);
-      setTimeout(function() {this.setState({display: true})}.bind(this), 2500)
+      setTimeout(function() {this.setState({display: true})}.bind(this), 2500);
  
   }
   
