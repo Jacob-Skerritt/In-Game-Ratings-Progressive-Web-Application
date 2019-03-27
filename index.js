@@ -203,7 +203,7 @@ class Game extends React.Component {
     }
 
   loadData(){
-    fetch('http://localhost/player_ratings_api/match/all_match_data.php', {
+    fetch('http://mysql02.comp.dkit.ie/D00196117/player_ratings_api/match/all_match_data.php', {
       method:'post',
       header: {
         'Accept' : 'application/json, text/plain, */*',
@@ -245,7 +245,7 @@ class Game extends React.Component {
   
   
   vote(rating ,player_id, match_id, user_id){
-    fetch('http://localhost/player_ratings_api/rating/add_rating.php', {
+    fetch('http://mysql02.comp.dkit.ie/D00196117/player_ratings_api/rating/add_rating.php', {
       method:'post',
       header: {
         'Accept' : 'application/json, text/plain, */*',
@@ -260,14 +260,14 @@ class Game extends React.Component {
   }
   
   starPlayer(){
-      let max =0;
+      let max = 0;
       let star = [];
       
-      for(let i =0;i< this.state.players.teams.length;i++){
+      for(let i = 0; i< this.state.players.teams.length; i++){
           
-          for(let c =0; c<this.state.players.teams[i].players.length;c++){
+          for(let c =0; c<this.state.players.teams[i].players.length; c++){
               if(this.state.players.teams[i].players[c].average_rating >= max){
-                  max =this.state.players.teams[i].players[c].average_rating;
+                  max = this.state.players.teams[i].players[c].average_rating;
               }
           }
       }
@@ -275,7 +275,7 @@ class Game extends React.Component {
       
        for(let i =0;i< this.state.players.teams.length;i++){
           
-          for(let c =0; c<this.state.players.teams[i].players.length;c++){
+          for(let c = 0; c<this.state.players.teams[i].players.length; c++){
               if(this.state.players.teams[i].players[c].average_rating === max){
                   star.push(this.state.players.teams[i].players[c].id);
               }
@@ -284,7 +284,9 @@ class Game extends React.Component {
       }
       
       if(star.length === 1){
-      return star[0];}else return -1;
+      return star[0];
+        }
+            else return -1;
   }
   
   
