@@ -231,7 +231,6 @@ button#1.team1-players {
 .form-check{
     float:left;
     position:relative;
-    
 }
 
 
@@ -247,7 +246,7 @@ button#1.team1-players {
   -ms-user-select: none;
   user-select: none;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 /* Hide the browser's default radio button */
@@ -256,7 +255,7 @@ button#1.team1-players {
   opacity: 0;
   cursor: pointer;
   height: 0;
-  width: 0;
+  width: 0;  
   
 }
 
@@ -264,12 +263,13 @@ button#1.team1-players {
 .checkmark {
   position: absolute;
   top: 0;
-  left: 0;
+  left: -28%;
   height: 15px;
   width: 15px;
   background-color: #eee;
   border-radius: 50%;
   transform: translate(125%,-100%);
+  border: 0.5px solid black;
 }
 
 /* On mouse-over, add a grey background color */
@@ -304,4 +304,3 @@ button#1.team1-players {
   border-radius: 50%;
   background: white;
 }
-

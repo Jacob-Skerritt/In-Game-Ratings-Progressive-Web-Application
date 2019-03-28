@@ -334,9 +334,7 @@ class Modal extends React.Component{
     this.state = {
       user: -1,
       selectedOption: "6",
-      display: true,
-      
-      
+      display: true   
     };
 
   }
@@ -360,6 +358,19 @@ class Modal extends React.Component{
       this.setState({user: e.target.value}, function(){
 
   });}
+  
+getPlayerRating(obj){
+    let playerRating =0;
+        if(this.props.user_ratings.length>0){
+            for(let i = 0; i < this.props.user_ratings.length;i++){
+            if(this.props.user_ratings[i].player_id == obj.id)
+            {
+              playerRating = this.props.players.teams[0].players[i];
+            }
+          }
+        }
+      return playerRating;
+}
 
 
   render() {
@@ -433,10 +444,13 @@ if(obj.average_rating === 0){
                     <p>
                     <img alt="Player" src={obj.player_image}/><br></br>
                     <div className="playerInfo">Club: &nbsp;{obj.team_name} <br/>
-                    Crowd Rating:<br/><div className="crowdRating"><h2>{parseFloat(obj.average_rating).toFixed(1)}</h2></div></div>
-                        Enter Rating: &nbsp;
+                    Crowd Rating:<div className="crowdRating"><h1>{parseFloat(obj.average_rating).toFixed(1)}</h1></div></div>
+                    
+                    
+                                    
                     </p>
-                                           
+                    <h3>Enter New Rating:</h3>
+                    <br/>
 
   <div className="form-check">
   
