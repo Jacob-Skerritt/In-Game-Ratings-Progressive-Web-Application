@@ -573,11 +573,11 @@ if(obj.average_rating === 0){
                 </div>
                 <div className="modal-body">
                     <p>
+                    <div> &nbsp;</div><div> &nbsp;</div>
                         Rating Complete!
                     </p>
                 </div>
-                <div className="modal-footer">
-                </div>
+                
             </div>
         </div>
       );

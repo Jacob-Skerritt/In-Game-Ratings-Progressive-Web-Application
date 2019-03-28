@@ -14,9 +14,10 @@
 #overlay-content{ 
 	position: absolute;
 	display: none;
-	width: 80%;
-	height: 90px;
+	width: 50%;
+	height: 25%;
 	padding: 16px;
+        margin-bottom: 2%;
 	border: 5px solid #1f233d;
 	background-color: white;
 	z-index:1002;
