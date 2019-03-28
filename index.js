@@ -365,7 +365,7 @@ getPlayerRating(obj){
             for(let i = 0; i < this.props.user_ratings.length;i++){
             if(this.props.user_ratings[i].player_id == obj.id)
             {
-              playerRating = this.props.players.teams[0].players[i];
+              playerRating = this.props.user_ratings[i].rating;
             }
           }
         }
