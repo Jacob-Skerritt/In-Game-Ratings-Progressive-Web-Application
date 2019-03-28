@@ -389,7 +389,7 @@ getPlayerRating(obj){
                 </div>
                 <div className="modal-body">
                     <p>
-                        <div>&nbsp;</div>
+                        
                         Please Select User -  <br/>
                         <div>&nbsp;</div>
                         User: &nbsp;
@@ -587,7 +587,7 @@ if(obj.average_rating === 0){
                 </div>
                 <div className="modal-body">
                     <p>
-                    <div> &nbsp;</div><div> &nbsp;</div>
+                    
                         Rating Complete!
                     </p>
                 </div>
