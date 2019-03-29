@@ -334,9 +334,7 @@ class Modal extends React.Component{
     this.state = {
       user: -1,
       selectedOption: "6",
-      display: true,
-      
-      
+      display: true   
     };
 
   }
@@ -360,6 +358,19 @@ class Modal extends React.Component{
       this.setState({user: e.target.value}, function(){
 
   });}
+  
+getPlayerRating(obj){
+    let playerRating =0;
+        if(this.props.user_ratings.length>0){
+            for(let i = 0; i < this.props.user_ratings.length;i++){
+            if(this.props.user_ratings[i].player_id == obj.id)
+            {
+              playerRating = this.props.players.user_ratings[i].rating;
+            }
+          }
+        }
+      return playerRating;
+}
 
 
   render() {
@@ -378,7 +389,7 @@ class Modal extends React.Component{
                 </div>
                 <div className="modal-body">
                     <p>
-                        <div>&nbsp;</div>
+                        
                         Please Select User -  <br/>
                         <div>&nbsp;</div>
                         User: &nbsp;
@@ -431,13 +442,14 @@ if(obj.average_rating === 0){
                 </div>
                 <div className="modal-body">
                     <p>
-                    <img alt="Player" src={obj.player_image}/><br></br>
+                    <img alt="Player" src={obj.player_image}/><br/>
                     <div className="playerInfo">Club: &nbsp;{obj.team_name} <br/>
-                    Crowd Rating:<br/><div className="crowdRating"><h2>{parseFloat(obj.average_rating).toFixed(1)}</h2></div></div>
-                        Enter Rating: &nbsp;
+                    Crowd Rating:<div className="crowdRating"><h1>{parseFloat(obj.average_rating).toFixed(1)}</h1></div></div>             
                     </p>
-                                           
 
+                    <h3 class="h3Custom">Enter New Rating:</h3>
+                    <br/>
+                    <div className="ratePlayersDiv">
   <div className="form-check">
   
     <label class="container">
@@ -478,6 +490,7 @@ if(obj.average_rating === 0){
       <span class="checkmark"></span>
       </label>
   </div>
+  <br class="rwd-break" /><br class="rwd-break" />
   
     <div className="form-check">
     <label class="container">
@@ -520,6 +533,7 @@ if(obj.average_rating === 0){
       <input type="radio" name="react-tips" value="10"  onChange={this.handleOptionChange} className="form-check-input"/>
       <span class="checkmark"></span>
       </label>
+  </div>
   </div>
   
 
@@ -573,11 +587,11 @@ if(obj.average_rating === 0){
                 </div>
                 <div className="modal-body">
                     <p>
+                    
                         Rating Complete!
                     </p>
                 </div>
-                <div className="modal-footer">
-                </div>
+                
             </div>
         </div>
       );

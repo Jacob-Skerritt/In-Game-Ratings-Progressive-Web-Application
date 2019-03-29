@@ -39,8 +39,8 @@
 }
 
 .modal-body {
-    padding: 10px 20px;
-    height:200px;
+    padding: 5px 20px;
+    height:60%;
 }
 .modal-body p{
 
@@ -59,14 +59,15 @@
 }
 .playerInfo {
     position: absolute;
-    top: 25%;
+    top: 18%;
     left: 42%;
+    font-size: 1.2em;
 }
 
 .modal-footer {
     background: white;
     height: 35px;
-    padding: 15px;
+    padding: 10px;
 }
 
 .close-modal-btn {
@@ -100,8 +101,9 @@
     background-color: #36BA4F;
     align-content: center;
     border-radius: 10px;
-    width: 70px; 
-    height: 35px;
+    width: 60%; 
+    height: 100%;
+    margin: 0 auto;
 }
 
 .open-modal-btn {
@@ -110,4 +112,41 @@
     font-weight: bold;
     z-index: 1001;
 }
+
+.ratePlayersDiv{
+    margin-left: 10px;
+    text-align:center;
+}
+
+
+
+@media only screen and (min-width: 350px) {
+  .ratePlayersDiv {
+    display:inline-block;
+  }
+  
+  
+}
+
+.rwd-break { display: none; }
+
+@media only screen and (max-width: 365px){
+  .rwd-break { display:initial }
+  .modal-wrapper{
+      height: 68%;
+  }
+}
+
+@media only screen and (min-width:640px){
+    .playerInfo{
+        width:200px;
+        font-size: 1.7em;
+    }
+    
+    .modal-body img{
+        width: 180px;
+        height: 150px;
+    }
+}
+
 
