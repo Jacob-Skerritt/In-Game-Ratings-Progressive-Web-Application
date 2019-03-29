@@ -359,6 +359,8 @@ class Modal extends React.Component{
 
   });}
   
+ 
+  
 getPlayerRating(obj){
     let playerRating =0;
         if(this.props.user_ratings.length>0){
@@ -374,7 +376,7 @@ getPlayerRating(obj){
 
 
   render() {
-
+  
     if(this.state.user == -1){
       return(
         <div>
@@ -429,6 +431,17 @@ if(obj.average_rating === 0){
       
       
     if(obj.id !== -1 && obj.position != -1){
+        
+        
+        let currentRating;
+      
+      if(this.props.players.user_ratings.length >0){
+      for(let i = 0; i < this.props.players.user_ratings.length;i++){
+          if (this.props.players.user_ratings[i].player_id == obj.id){
+              currentRating = this.props.players.user_ratings[i].rating;
+          }
+      }
+  }
       return(
         <div>
             <div className="modal-wrapper"
@@ -444,6 +457,7 @@ if(obj.average_rating === 0){
                     <p>
                     <img alt="Player" src={obj.player_image}/><br/>
                     <div className="playerInfo">Club: &nbsp;{obj.team_name} <br/>
+                    
                     Crowd Rating:<div className="crowdRating"><h1>{parseFloat(obj.average_rating).toFixed(1)}</h1></div></div>             
                     </p>
 
@@ -541,10 +555,12 @@ if(obj.average_rating === 0){
                     
 
                 </div>
+                Previous Rating: &nbsp; {currentRating} 
                 <div className="modal-footer">
                     <button className="btn-continue" onClick={() =>this.changeDisplay(obj)}>Submit</button>
                 </div>
             </div>
+            
         </div>
       );
     }else if( obj.id !== -1 && this.state.display === true){
