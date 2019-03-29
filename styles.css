@@ -15,8 +15,9 @@
 	position: absolute;
 	display: none;
 	width: 80%;
-	height: 90px;
+	height: 30%;
 	padding: 16px;
+        margin-bottom: 2%;
 	border: 5px solid #1f233d;
 	background-color: white;
 	z-index:1002;
@@ -118,13 +119,13 @@ p {
     position: absolute;
     width: 35%;
     height: 35%;
-    left: 10%;
+    left: 5%;
     top: 25%;
 }
 
 .home p {
     position: absolute;
-    left: 45%;
+    left: 47%;
     top: 20%;
     font-family: serif;
     font-weight: bold;
