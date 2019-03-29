@@ -203,7 +203,7 @@ class Game extends React.Component {
     }
 
   loadData(){
-    fetch('http://localhost/player_ratings_api/match/all_match_data.php', {
+    fetch('http://mysql02.comp.dkit.ie/D00196117/player_ratings_api/match/all_match_data.php', {
       method:'post',
       header: {
         'Accept' : 'application/json, text/plain, */*',
@@ -245,7 +245,7 @@ class Game extends React.Component {
   
   
   vote(rating ,player_id, match_id, user_id){
-    fetch('http://localhost/player_ratings_api/rating/add_rating.php', {
+    fetch('http://mysql02.comp.dkit.ie/D00196117/player_ratings_api/rating/add_rating.php', {
       method:'post',
       header: {
         'Accept' : 'application/json, text/plain, */*',
@@ -433,7 +433,7 @@ if(obj.average_rating === 0){
     if(obj.id !== -1 && obj.position != -1){
         
         
-        let currentRating;
+        let currentRating = 0;
       
       if(this.props.players.user_ratings.length >0){
       for(let i = 0; i < this.props.players.user_ratings.length;i++){
@@ -441,6 +441,7 @@ if(obj.average_rating === 0){
               currentRating = this.props.players.user_ratings[i].rating;
           }
       }
+      
   }
       return(
         <div>
@@ -460,7 +461,7 @@ if(obj.average_rating === 0){
                     
                     Crowd Rating:<div className="crowdRating"><h1>{parseFloat(obj.average_rating).toFixed(1)}</h1></div></div>             
                     </p>
-
+                    <h2>Current Rating: {currentRating}</h2>
                     <h3 class="h3Custom">Enter New Rating:</h3>
                     <br/>
                     <div className="ratePlayersDiv">
@@ -555,7 +556,7 @@ if(obj.average_rating === 0){
                     
 
                 </div>
-                Previous Rating: &nbsp; {currentRating} 
+                 
                 <div className="modal-footer">
                     <button className="btn-continue" onClick={() =>this.changeDisplay(obj)}>Submit</button>
                 </div>
@@ -602,10 +603,10 @@ if(obj.average_rating === 0){
                     <span className="close-modal-btn" onClick={this.props.close}>×</span>
                 </div>
                 <div className="modal-body">
-                    <p>
-                    
-                        Rating Complete!
-                    </p>
+                <br />
+                <h1>Rating complete!</h1>
+                <br /><br />
+                <h2>Please rate more players!</h2>
                 </div>
                 
             </div>
