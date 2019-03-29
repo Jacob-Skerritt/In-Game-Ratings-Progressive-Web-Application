@@ -587,8 +587,10 @@ if(obj.average_rating === 0){
                 </div>
                 <div className="modal-body">
                     <p>
-                    
-                        Rating Complete!
+                    <br/>
+                    <h2>Rating complete!</h2>
+                    <br/><br/>
+                    <h3>Please rate more players!</h3>
                     </p>
                 </div>
                 
