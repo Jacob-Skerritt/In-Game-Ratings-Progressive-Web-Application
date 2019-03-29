@@ -59,7 +59,7 @@
 }
 .playerInfo {
     position: absolute;
-    top: 25%;
+    top: 18%;
     left: 42%;
 }
 
@@ -131,6 +131,9 @@
 
 @media only screen and (max-width: 365px){
   .rwd-break { display:initial }
+  .modal-wrapper{
+      height: 68%;
+  }
 }
 
 

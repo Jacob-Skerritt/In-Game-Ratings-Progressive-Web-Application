@@ -1,10 +1,10 @@
 body {
-  font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 0px;
+    font: 14px "Century Gothic", Futura, sans-serif;
+    margin: 0px;
 }
 
 ol, ul {
-  padding-left: 30px;
+    padding-left: 30px;
 }
 
 /*.board-row:after {
@@ -16,61 +16,61 @@ ol, ul {
 }*/
 
 .board-row1 {
-  position: relative;
- display: inline-block;
- padding-right: 15px;
+    position: relative;
+    display: inline-block;
+    padding-right: 15px;
 }
 
 .board-row2 {
-  position: relative;
-  display: inline-block;
-  padding-right: 15px;
-  top: 100%;
+    position: relative;
+    display: inline-block;
+    padding-right: 15px;
+    top: 100%;
 }
 
 
 .team1-players {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 8px;
-  font-weight: bold;
-  height: 40px;
-  width: 40px;
-  margin-left: 7.5%;
-  margin-right: 3.5%;
-  margin-top: 5%;
-  background-color: #F4A351;
-  border-color: black;
-  border-radius: 50%;
-  position:relative;
+    background: #fff;
+    border: 1px solid #999;
+    float: left;
+    font-size: 8px;
+    font-weight: bold;
+    height: 40px;
+    width: 40px;
+    margin-left: 7.5%;
+    margin-right: 3.5%;
+    margin-top: 5%;
+    background-color: #F4A351;
+    border-color: black;
+    border-radius: 50%;
+    position:relative;
 }
 
 .team2-players {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 8px;
-  font-weight: bold;
-  height: 40px;
-  width: 40px;
-  margin-left: 7.5%;
-  margin-right: 3.5%;
-  margin-top: 5%;
-  background-color: #9BD9F4;
-  border-color: black;
-  border-radius: 50%;
-  position:relative;
+    background: #fff;
+    border: 1px solid #999;
+    float: left;
+    font-size: 8px;
+    font-weight: bold;
+    height: 40px;
+    width: 40px;
+    margin-left: 7.5%;
+    margin-right: 3.5%;
+    margin-top: 5%;
+    background-color: #9BD9F4;
+    border-color: black;
+    border-radius: 50%;
+    position:relative;
 }
 
 #star-player{
-  float: left;
-  font-size: 9px;
-  font-weight: bold;
-  position:relative;
-  margin-top: 3%;
-  margin-left: 8px;
-  margin-right: 8px;
+    float: left;
+    font-size: 9px;
+    font-weight: bold;
+    position:relative;
+    margin-top: 3%;
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
 #star-player img{
@@ -79,19 +79,19 @@ ol, ul {
 }
 
 .playerName{
-  position:absolute;
-  top:110%;
-  left:15%;
-  font-size: 12px;
-  text-align: left;
+    position:absolute;
+    top:110%;
+    left:15%;
+    font-size: 12px;
+    text-align: left;
 
 }
 
 .playerName1{
-  position:absolute;
-  top:95%;
-  left:15%;
-  font-size: 12px;
+    position:absolute;
+    top:95%;
+    left:15%;
+    font-size: 12px;
 }
 
 
@@ -152,45 +152,45 @@ ol, ul {
 }
 
 .square2 {
-  background: #FF0000;
-  border: 1px solid #999;
-  float: left;
-  font-size: 9px;
-  font-weight: bold;
-  line-height: 8px;
-  height: 25px;
-  width: 25px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  background-color: #FFFEFF;
-  border-radius: 50%;
-  position:absolute;
-  top: 40%;
-  left:75%;
-  border-color: black;
+    background: #FF0000;
+    border: 1px solid #999;
+    float: left;
+    font-size: 9px;
+    font-weight: bold;
+    line-height: 8px;
+    height: 25px;
+    width: 25px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    background-color: #FFFEFF;
+    border-radius: 50%;
+    position:absolute;
+    top: 40%;
+    left:75%;
+    border-color: black;
 }
 
 .square:focus {
-  outline: none;
+    outline: none;
 }
 
 .kbd-navigation .square:focus {
-  background: #ddd;
+    background: #ddd;
 }
 
 .square.button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  border-radius: 50%;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 50%;
 }
 
 
@@ -227,9 +227,9 @@ game-board-players {
 }
 
 button#1.team1-players {
-   position: absolute;
+    position: absolute;
 
-   left: 100%;
+    left: 100%;
 }
 
 .form-check{
@@ -239,74 +239,74 @@ button#1.team1-players {
 
 
 .container {
-  display: inline-block;
-  position: relative;
-  padding-left: 15px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 11px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  font-weight: bold;
-  font-size: 15px;
+    display: inline-block;
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 11px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: bold;
+    font-size: 15px;
 }
 
 /* Hide the browser's default radio button */
 .container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;  
-  
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;  
+
 }
 
 /* Create a custom radio button */
 .checkmark {
-  position: absolute;
-  top: 0;
-  left: -28%;
-  height: 15px;
-  width: 15px;
-  background-color: #eee;
-  border-radius: 50%;
-  transform: translate(125%,-100%);
-  border: 0.5px solid black;
+    position: absolute;
+    top: 0;
+    left: -28%;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+    border-radius: 50%;
+    transform: translate(125%,-100%);
+    border: 0.5px solid black;
 }
 
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
-  background-color: #ccc;
+    background-color: #ccc;
 }
 
 /* When the radio button is checked, add a blue background */
 .container input:checked ~ .checkmark {
-  background-color: #2196F3;
+    background-color: #2196F3;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
 .checkmark:after {
 
-  position: absolute;
-  display: none;
-  
+    position: absolute;
+    display: none;
+
 }
 
 /* Show the indicator (dot/circle) when checked */
 .container input:checked ~ .checkmark:after {
-  display: block;
+    display: block;
 }
 
 /* Style the indicator (dot/circle) */
 .container .checkmark:after {
-  top: 9px;
-  left: 9px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: white;
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
 }
 
 .playerInfo h1{
@@ -316,7 +316,11 @@ button#1.team1-players {
 }
 
 @media only screen and (min-width: 650px) {
-  .container {
-    margin: 0 auto;
-  }
+    .container {
+        margin: 0 auto;
+    }
+}
+
+.h3Custom{
+    margin: 15px 0px 5px 0px;
 }

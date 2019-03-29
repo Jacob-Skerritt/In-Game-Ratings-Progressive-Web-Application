@@ -365,7 +365,7 @@ getPlayerRating(obj){
             for(let i = 0; i < this.props.user_ratings.length;i++){
             if(this.props.user_ratings[i].player_id == obj.id)
             {
-              playerRating = this.props.user_ratings[i].rating;
+              playerRating = this.props.players.user_ratings[i].rating;
             }
           }
         }
@@ -444,12 +444,10 @@ if(obj.average_rating === 0){
                     <p>
                     <img alt="Player" src={obj.player_image}/><br/>
                     <div className="playerInfo">Club: &nbsp;{obj.team_name} <br/>
-                    Crowd Rating:<div className="crowdRating"><h1>{parseFloat(obj.average_rating).toFixed(1)}</h1></div></div>
-                    
-                    
-                                    
+                    Crowd Rating:<div className="crowdRating"><h1>{parseFloat(obj.average_rating).toFixed(1)}</h1></div></div>             
                     </p>
-                    <h3>Enter New Rating:</h3>
+
+                    <h3 class="h3Custom">Enter New Rating:</h3>
                     <br/>
                     <div className="ratePlayersDiv">
   <div className="form-check">
