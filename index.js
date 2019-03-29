@@ -442,7 +442,7 @@ if(obj.average_rating === 0){
                 </div>
                 <div className="modal-body">
                     <p>
-                    <img alt="Player" src={obj.player_image}/><br></br>
+                    <img alt="Player" src={obj.player_image}/><br/>
                     <div className="playerInfo">Club: &nbsp;{obj.team_name} <br/>
                     Crowd Rating:<div className="crowdRating"><h1>{parseFloat(obj.average_rating).toFixed(1)}</h1></div></div>
                     
@@ -451,7 +451,7 @@ if(obj.average_rating === 0){
                     </p>
                     <h3>Enter New Rating:</h3>
                     <br/>
-
+                    <div className="ratePlayersDiv">
   <div className="form-check">
   
     <label class="container">
@@ -492,6 +492,7 @@ if(obj.average_rating === 0){
       <span class="checkmark"></span>
       </label>
   </div>
+  <br class="rwd-break" /><br class="rwd-break" />
   
     <div className="form-check">
     <label class="container">
@@ -534,6 +535,7 @@ if(obj.average_rating === 0){
       <input type="radio" name="react-tips" value="10"  onChange={this.handleOptionChange} className="form-check-input"/>
       <span class="checkmark"></span>
       </label>
+  </div>
   </div>
   
 
