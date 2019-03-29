@@ -17,7 +17,7 @@ class GameInfo extends React.Component {
         </div>
         <div className="info">
           <h1>{this.props.players.team1_score}-{this.props.players.team2_score}</h1>
-          <p>{parseFloat(this.props.players.match_elapsed_time).toFixed(2)}</p>{" "}
+          <p>{this.props.players.match_elapsed_time}</p>{" "}
         </div>
       </div>
     );
@@ -203,7 +203,7 @@ class Game extends React.Component {
     }
 
   loadData(){
-    fetch('http://mysql02.comp.dkit.ie/D00196117/player_ratings_api/match/all_match_data.php', {
+    fetch('http://localhost/player_ratings_api/match/all_match_data.php', {
       method:'post',
       header: {
         'Accept' : 'application/json, text/plain, */*',
@@ -245,7 +245,7 @@ class Game extends React.Component {
   
   
   vote(rating ,player_id, match_id, user_id){
-    fetch('http://mysql02.comp.dkit.ie/D00196117/player_ratings_api/rating/add_rating.php', {
+    fetch('http://localhost/player_ratings_api/rating/add_rating.php', {
       method:'post',
       header: {
         'Accept' : 'application/json, text/plain, */*',
