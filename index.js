@@ -208,7 +208,7 @@ class GameOver extends React.Component{
                   <div className="gameOverText">
                   <h1>Game over!</h1>
                   <h2>{this.props.players.teams[0].team_name} Vs {this.props.players.teams[1].team_name}</h2>
-                  <h1>&nbsp;&nbsp;{this.props.players.team1_score}:{this.props.players.team2_score}</h1>
+                  <h1>&nbsp;&nbsp;{this.props.players.team2_score}:{this.props.players.team1_score}</h1>
                   <h3>Thank you for rating players in this match, we look forward to you joining us again.</h3>
                   
                   </div>
