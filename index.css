@@ -78,6 +78,21 @@ ol, ul {
     left:10%;
 }
 
+#trash-player{
+    float: left;
+    font-size: 9px;
+    font-weight: bold;
+    position:relative;
+    margin-top: 3%;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+#trash-player img{
+    position:relative;
+    left:10%;
+}
+
 .playerName{
     position:absolute;
     top:110%;

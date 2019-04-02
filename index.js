@@ -47,10 +47,27 @@ function Square(props) {
     }
     
     
-    if(props.value.id === props.starPlayer){
+    if(props.value.id === props.specialPlayers[0][0] && props.specialPlayers[0][0] !== -1 ){
+
         return(
                 <div  id="star-player" onClick={props.onClick}>
-                <img src="star1.png" id="star-player-image" />
+        <img src="star1.png" id="star-player-image" />
+                
+                        <div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
+      <div className ="playerName1">{props.value.player_name} </div>
+      { props.userRating.rating 
+      ?  <button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
+      :  <button className ="square2" onClick={props.onClick}>{"-"} </button>}
+     
+                </div>
+                );
+        
+    }else if( props.specialPlayers[1][0] != -1 && props.value.id === props.specialPlayers[1][0]){
+
+        return(
+                <div  id="trash-player" onClick={props.onClick}>
+        <img src="trashcan.png" id="trash-player-image" />
+                
                         <div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
       <div className ="playerName1">{props.value.player_name} </div>
       { props.userRating.rating 
@@ -123,12 +140,12 @@ class Board extends React.Component {
       }
 
     return (
-      <Square value={obj} userRating={obj2} id={track} class={teamClass} starPlayer={this.props.starPlayer} onClick={() => this.props.onClick(obj.id)} />
+      <Square value={obj} userRating={obj2} id={track} class={teamClass} specialPlayers={this.props.specialPlayers} onClick={() => this.props.onClick(obj.id)} />
     );
 
   }else{
     return (
-      <Square value={0}  userRating={obj2} id={track} class={teamClass} onClick={() => this.props.onClick()}/>
+      <Square value={0}  userRating={obj2} id={track} class={teamClass} specialPlayers={this.props.specialPlayers} onClick={() => this.props.onClick()}/>
     );
   }
   }
@@ -282,16 +299,25 @@ class Game extends React.Component {
     setTimeout(function() {this.closeModalHandler();}.bind(this), 1500);
   }
   
-  starPlayer(){
+  specialPlayers(){
       let max = 0;
-      let star = [];
+      let min = 6.2;
+      let starPlayer = [];
+      let trashPlayer = [];
+      let specialPlayers=[];
       
+      if(this.state.players.id !== -1){
       for(let i = 0; i< this.state.players.teams.length; i++){
           
           for(let c =0; c<this.state.players.teams[i].players.length; c++){
               if(this.state.players.teams[i].players[c].average_rating >= max){
                   max = this.state.players.teams[i].players[c].average_rating;
               }
+              
+              if(min > this.state.players.teams[i].players[c].average_rating && this.state.players.teams[i].players[c].average_rating !==0 ){
+                  min = this.state.players.teams[i].players[c].average_rating;
+              }
+              
           }
       }
       
@@ -300,16 +326,32 @@ class Game extends React.Component {
           
           for(let c = 0; c<this.state.players.teams[i].players.length; c++){
               if(this.state.players.teams[i].players[c].average_rating === max){
-                  star.push(this.state.players.teams[i].players[c].id);
+                  starPlayer.push(this.state.players.teams[i].players[c].id);
+              }
+              
+              if(this.state.players.teams[i].players[c].average_rating === min){
+                  trashPlayer.push(this.state.players.teams[i].players[c].id);
               }
           }
 
       }
+  }
       
-      if(star.length === 1){
-      return star[0];
-        }
-            else return -1;
+      if(starPlayer.length > 0){
+          specialPlayers[0] = starPlayer;
+      }else 
+      {
+          specialPlayers.push([-1]);
+      }
+      
+      if(trashPlayer.length > 0){
+          specialPlayers[1] = trashPlayer;
+      }else 
+      {
+          specialPlayers.push([-1]);
+      }
+      
+      return specialPlayers;
   }
   
   
@@ -327,7 +369,7 @@ class Game extends React.Component {
         <div className="game">
           <GameInfo players={this.state.players}/>
           <div className="game-board">
-            <Board players={this.state.players}  starPlayer={this.starPlayer()}  onClick={(i) => this.handleClick(i)}/>
+            <Board players={this.state.players}  specialPlayers={this.specialPlayers()}  onClick={(i) => this.handleClick(i)}/>
           </div>
               <TeamInfo players={this.state.players} onClick={(i) => this.handleClick(i)}/>
               { this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null }
@@ -342,7 +384,7 @@ class Game extends React.Component {
     <div className="game">
             <GameInfo players={this.state.players}/>
             <div className="game-board">
-                 <Board players={this.state.players}   onClick={(i) => this.handleClick(i)}/>
+                 <Board players={this.state.players}  specialPlayers={this.specialPlayers()} onClick={(i) => this.handleClick(i)}/>
             </div>
    </div>
     
