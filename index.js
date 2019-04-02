@@ -178,6 +178,28 @@ class Board extends React.Component {
     );
   }
 }
+
+
+
+class GameOver extends React.Component{
+    
+
+    render(){
+
+        return(                
+            <div className="gameOver-board">
+                  <div className="gameOverText">
+                  <h1>Game over!</h1>
+                  <h2>{this.props.players.teams[0].team_name} Vs {this.props.players.teams[1].team_name}</h2>
+                  <h1>&nbsp;&nbsp;{this.props.players.team1_score}:{this.props.players.team2_score}</h1>
+                  <h3>Thank you for rating players in this match, we look forward to you joining us again.</h3>
+                  
+                  </div>
+            </div>
+                
+                );
+    }
+}
 class Game extends React.Component {
   constructor(props) {
     super(props);
@@ -295,8 +317,10 @@ class Game extends React.Component {
   
   render() {
       
-     
-
+            if(this.state.players.match_elapsed_time === "fin"){
+           return (
+                   <GameOver players={this.state.players}/>);            
+        }else{
 
     if(Object.keys(this.state.players).length !== 0 && this.state.players.id !== -1){
       return (
@@ -323,7 +347,7 @@ class Game extends React.Component {
    </div>
     
     );}
-
+        }
 
   }
 }
