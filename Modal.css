@@ -40,7 +40,7 @@
 
 .modal-body {
     padding: 5px 20px;
-    height:60%;
+    overflow:auto;
 }
 .modal-body p{
 
@@ -66,8 +66,7 @@
 
 .modal-footer {
     background: white;
-    height: 35px;
-    padding: 10px;
+    position:relative;
 }
 
 .close-modal-btn {
@@ -104,6 +103,7 @@
     width: 60%; 
     height: 100%;
     margin: 0 auto;
+    margin-bottom: 5px;
 }
 
 .open-modal-btn {
@@ -116,6 +116,7 @@
 .ratePlayersDiv{
     margin-left: 10px;
     text-align:center;
+
 }
 
 
@@ -126,15 +127,17 @@
   }
   
   
-}
+}/*
 
-.rwd-break { display: none; }
+*/.rwd-break { display: none; }/*
 
-@media only screen and (max-width: 365px){
+*/@media only screen and (max-width: 320px){
   .rwd-break { display:initial }
-  .modal-wrapper{
-      height: 68%;
+
+  .ratePlayersDiv{
+      display: inline-block;
   }
+  
 }
 
 @media only screen and (min-width:640px){

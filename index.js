@@ -17,7 +17,7 @@ class GameInfo extends React.Component {
         </div>
         <div className="info">
           <h1>{this.props.players.team1_score}-{this.props.players.team2_score}</h1>
-          <p>{parseFloat(this.props.players.match_elapsed_time).toFixed(2)}</p>{" "}
+          <p>{this.props.players.match_elapsed_time}</p>{" "}
         </div>
       </div>
     );
@@ -359,6 +359,8 @@ class Modal extends React.Component{
 
   });}
   
+ 
+  
 getPlayerRating(obj){
     let playerRating =0;
         if(this.props.user_ratings.length>0){
@@ -374,7 +376,7 @@ getPlayerRating(obj){
 
 
   render() {
-
+  
     if(this.state.user == -1){
       return(
         <div>
@@ -429,6 +431,18 @@ if(obj.average_rating === 0){
       
       
     if(obj.id !== -1 && obj.position != -1){
+        
+        
+        let currentRating = 0;
+      
+      if(this.props.players.user_ratings.length >0){
+      for(let i = 0; i < this.props.players.user_ratings.length;i++){
+          if (this.props.players.user_ratings[i].player_id == obj.id){
+              currentRating = this.props.players.user_ratings[i].rating;
+          }
+      }
+      
+  }
       return(
         <div>
             <div className="modal-wrapper"
@@ -444,9 +458,10 @@ if(obj.average_rating === 0){
                     <p>
                     <img alt="Player" src={obj.player_image}/><br/>
                     <div className="playerInfo">Club: &nbsp;{obj.team_name} <br/>
+                    
                     Crowd Rating:<div className="crowdRating"><h1>{parseFloat(obj.average_rating).toFixed(1)}</h1></div></div>             
                     </p>
-
+                    <h2>Your Rating: {currentRating}</h2>
                     <h3 class="h3Custom">Enter New Rating:</h3>
                     <br/>
                     <div className="ratePlayersDiv">
@@ -541,10 +556,12 @@ if(obj.average_rating === 0){
                     
 
                 </div>
+                 
                 <div className="modal-footer">
                     <button className="btn-continue" onClick={() =>this.changeDisplay(obj)}>Submit</button>
                 </div>
             </div>
+            
         </div>
       );
     }else if( obj.id !== -1 && this.state.display === true){
@@ -586,12 +603,10 @@ if(obj.average_rating === 0){
                     <span className="close-modal-btn" onClick={this.props.close}>×</span>
                 </div>
                 <div className="modal-body">
-                    <p>
-                    <br/>
-                    <h2>Rating complete!</h2>
-                    <br/><br/>
-                    <h3>Please rate more players!</h3>
-                    </p>
+                <br />
+                <h1>Rating complete!</h1>
+                <br /><br />
+                <h2>Please rate more players!</h2>
                 </div>
                 
             </div>
