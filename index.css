@@ -324,3 +324,34 @@ button#1.team1-players {
 .h3Custom{
     margin: 15px 0px 5px 0px;
 }
+
+.gameOver-board {
+    position:absolute;
+    height: 105%;
+    text-align: center;
+    width: 100%;
+    background-image: url("Capture.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat, repeat;
+}
+
+
+.gameOverText{
+    width:80%;
+    text-align: center;
+    font-size: 1em;
+    position:absolute;
+    top:25%;
+    background-color: #ddd;
+    opacity:0.9;
+    border-radius: 10%;
+    border: 2px solid black;
+    left:10%;
+}
+
+.gameOver-board button{
+    padding-bottom: 10px;
+    width:50%;
+    margin-bottom: 10px;
+    font-size:1em;
+}
