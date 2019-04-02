@@ -266,7 +266,7 @@ class Game extends React.Component {
   }
 
   componentDidMount() {
-    this.intervalId = setInterval(() => this.loadData(), 3000);
+    this.intervalId = setInterval(() => this.loadData(), 1000);
     this.loadData();
   }
 
