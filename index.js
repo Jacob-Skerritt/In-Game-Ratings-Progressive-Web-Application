@@ -310,6 +310,7 @@ class Game extends React.Component {
       for(let i = 0; i< this.state.players.teams.length; i++){
           
           for(let c =0; c<this.state.players.teams[i].players.length; c++){
+              
               if(this.state.players.teams[i].players[c].average_rating >= max){
                   max = this.state.players.teams[i].players[c].average_rating;
               }
@@ -325,7 +326,11 @@ class Game extends React.Component {
        for(let i =0;i< this.state.players.teams.length;i++){
           
           for(let c = 0; c<this.state.players.teams[i].players.length; c++){
-              if(this.state.players.teams[i].players[c].average_rating === max){
+              
+              if(max < 6 && this.state.players.teams[i].players[c].average_rating ===0 && this.state.players.teams[i].players[c].position >=0){
+                  starPlayer.push(this.state.players.teams[i].players[c].id);
+              }
+              else if(this.state.players.teams[i].players[c].average_rating === max){
                   starPlayer.push(this.state.players.teams[i].players[c].id);
               }
               
