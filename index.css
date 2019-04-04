@@ -78,6 +78,21 @@ ol, ul {
     left:10%;
 }
 
+#trash-player{
+    float: left;
+    font-size: 9px;
+    font-weight: bold;
+    position:relative;
+    margin-top: 3%;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+#trash-player img{
+    position:relative;
+    left:10%;
+}
+
 .playerName{
     position:absolute;
     top:110%;
@@ -242,7 +257,7 @@ button#1.team1-players {
     display: inline-block;
     position: relative;
     padding-left: 15px;
-    margin-bottom: 12px;
+    margin-bottom: 5px;
     cursor: pointer;
     font-size: 12px;
     -webkit-user-select: none;
@@ -322,10 +337,10 @@ button#1.team1-players {
 }
 
 .h3Custom{
-    margin: 15px 0px 5px 0px;
+margin: 0 auto;
 }
 
-.gameOver-board {
+.gameOver-board, .preGame-board {
     position:absolute;
     height: 105%;
     text-align: center;
@@ -336,7 +351,7 @@ button#1.team1-players {
 }
 
 
-.gameOverText{
+.gameOverText, .preGameText{
     width:80%;
     text-align: center;
     font-size: 1em;
@@ -349,9 +364,37 @@ button#1.team1-players {
     left:10%;
 }
 
-.gameOver-board button{
+.preGameText{
+    top:15%;
+}
+
+/*.gameOver-board, .preGame-board button{
     padding-bottom: 10px;
     width:50%;
     margin-bottom: 10px;
     font-size:1em;
+}*/
+
+.preGameText img{
+    width: 30%;
+    height: 100px;
+    position: relative;
+    left: 5%;
+    margin-top: -30%;
+    margin-left: 8%;
+    margin-right: 12%;
+    opacity: 0.3;
 }
+
+#preGameTeamNames{
+    margin-top: 15%;
+}
+
+#preGameLocation{
+    margin-bottom: 1%;
+}
+
+#preGameCompetition{
+    margin:0;
+}
+
