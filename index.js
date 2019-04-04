@@ -113,18 +113,18 @@ class Board extends React.Component {
 
 
       if( i < 4){
-        for(let c = 0; c < this.props.players.teams[0].players.length;c++){
-          if(this.props.players.teams[0].players[c].position == track && track < 11)
+        for(let c = 0; c < this.props.players.teams[1].players.length;c++){
+          if(this.props.players.teams[1].players[c].position == track && track < 11)
           {
-            obj = this.props.players.teams[0].players[c];
+            obj = this.props.players.teams[1].players[c];
           }
         }
         teamClass = "team1-players";
       }else if( i >=4){
-        for(let c = 0; c < this.props.players.teams[1].players.length;c++){
-          if(this.props.players.teams[1].players[c].position ==10 -(track-11))
+        for(let c = 0; c < this.props.players.teams[0].players.length;c++){
+          if(this.props.players.teams[0].players[c].position ==10 -(track-11))
           {
-            obj = this.props.players.teams[1].players[c];
+            obj = this.props.players.teams[0].players[c];
 
           }
         }
@@ -207,7 +207,7 @@ class GameOver extends React.Component{
             <div className="gameOver-board">
                   <div className="gameOverText">
                   <h1>Game over!</h1>
-                  <h2>{this.props.players.teams[0].team_name} Vs {this.props.players.teams[1].team_name}</h2>
+                  <h2>{this.props.players.teams[1].team_name} Vs {this.props.players.teams[0].team_name}</h2>
                   <h1>&nbsp;&nbsp;{this.props.players.team2_score}:{this.props.players.team1_score}</h1>
                   <h3>Thank you for rating players in this match, we look forward to you joining us again.</h3>
                   
@@ -248,7 +248,7 @@ class Game extends React.Component {
         'Accept' : 'application/json, text/plain, */*',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({id: 1, user_id: this.state.userId})
+      body: JSON.stringify({id: 2, user_id: this.state.userId})
     }).then(res => res.json())
       .then((result) => {
           this.setState({ players: result});
@@ -735,20 +735,20 @@ class TeamInfo extends React.Component{
       <div id="team-info">
 
       <div id="team1-info">
-      <h3> {this.props.players.teams[0].team_name}</h3>
-      <ul>
-      {this.renderListPlayers(0)}
-       </ul>
-       <h3>Managers</h3>
-         <ul><li> {this.props.players.teams[0].manager} </li></ul>
-       </div>
-      <div id="team2-info">
       <h3> {this.props.players.teams[1].team_name}</h3>
       <ul>
       {this.renderListPlayers(1)}
+       </ul>
+       <h3>Managers</h3>
+         <ul><li> {this.props.players.teams[1].manager} </li></ul>
+       </div>
+      <div id="team2-info">
+      <h3> {this.props.players.teams[0].team_name}</h3>
+      <ul>
+      {this.renderListPlayers(0)}
       </ul>
       <h3> &nbsp; </h3>
-      <ul><li> {this.props.players.teams[1].manager} </li></ul>
+      <ul><li> {this.props.players.teams[0].manager} </li></ul>
       </div>
       </div>
 
