@@ -88,7 +88,6 @@ function Square(props) {
                 );
         
     }else if(props.userRating.player_id !== -1){
-      
      
   return (
 
@@ -199,38 +198,99 @@ class Board extends React.Component {
   render() {
     return (
       <div>
-
         {this.boardButtons()}
-
-
-
-
       </div>
     );
   }
 }
 
+class PreGame extends React.Component{
 
 
-class GameOver extends React.Component{
-    
+    CountDownTimer(dt, id)
+    {
+        var end = new Date(dt);
+
+        var _second = 1000;
+        var _minute = _second * 60;
+        var _hour = _minute * 60;
+        var _day = _hour * 24;
+        var timer;
+
+        function showRemaining() {
+            var now = new Date();
+            var distance = end - now;
+            if (distance < 0) {
+
+                clearInterval(timer);
+                document.getElementById(id).innerHTML = 'EXPIRED!';
+
+                return;
+            }
+            var days = Math.floor(distance / _day);
+            var hours = Math.floor((distance % _day) / _hour);
+            var minutes = Math.floor((distance % _hour) / _minute);
+            var seconds = Math.floor((distance % _minute) / _second);
+
+            document.getElementById(id).innerHTML = days + ' days ';
+            document.getElementById(id).innerHTML += hours + 'h ';
+            document.getElementById(id).innerHTML += minutes + 'm ';
+            document.getElementById(id).innerHTML += seconds + 's';
+        }
+
+        timer = setInterval(showRemaining, 1000);
+    }
 
     render(){
+          if(this.props.players.id !==-1){
+              let year = (this.props.players.match_date_time).slice(0,4);
+              let month = (this.props.players.match_date_time).slice(5,7);
+              let day = (this.props.players.match_date_time).slice(8,10);
+              let hour = (this.props.players.match_date_time).slice(11,13);
+              let min = (this.props.players.match_date_time).slice(14,16);
+              let match_time = month + "/"+ day + "/" + year + " " + hour + ":" + min + " GMT+0100";
+          
+            return(                
+                <div className="preGame-board">
+                    <div className="preGameText">
+                      <h2>Match Countdown!</h2>
+                      <h1 id="preGameTeamNames">{this.props.players.teams[1].team_name} Vs {this.props.players.teams[0].team_name}</h1>
+                      <img alt="Home Crest" src={this.props.players.teams[1].crest} /><img alt="Away Crest" src={this.props.players.teams[0].crest} />
+                      <h3 id="preGameLocation">{this.props.players.match_location}</h3>
+                      <h3 id="preGameCompetition">Champions League</h3>
+                      <h3>Rate all the players live!</h3>
+                      <h1 id="countdown">{this.CountDownTimer(match_time, 'countdown')}</h1>
+                    </div>
+                </div>
+            );
+          }else{
+          return(
+                <div className="gameOver-board">
+                    <div className="gameOverText">
+                        <h2>Match Countdown!</h2>
+                        <h1>Liverpool Vs Porto</h1>
+                    </div>
+                </div>   
+                );
+    }
+    }
+};
 
+class GameOver extends React.Component{
+    render(){
         return(                
             <div className="gameOver-board">
                   <div className="gameOverText">
                   <h1>Game over!</h1>
                   <h2>{this.props.players.teams[1].team_name} Vs {this.props.players.teams[0].team_name}</h2>
-                  <h1>&nbsp;&nbsp;{this.props.players.team2_score}:{this.props.players.team1_score}</h1>
-                  <h3>Thank you for rating players in this match, we look forward to you joining us again.</h3>
-                  
+                  <h1>&nbsp;&nbsp;{this.props.players.team1_score} - {this.props.players.team2_score}</h1>
+                  <h3>Thank you for rating players in this match, we look forward to you joining us again.</h3>                  
                   </div>
-            </div>
-                
-                );
+            </div>                
+        );
     }
-}
+};
+
 class Game extends React.Component {
   constructor(props) {
     super(props);
@@ -375,13 +435,16 @@ class Game extends React.Component {
   
   
   
-  
   render() {
-      
-            if(this.state.players.match_elapsed_time === "fin"){
-           return (
-                   <GameOver players={this.state.players}/>);            
-        }else{
+        
+    if(this.state.players.match_elapsed_time === "00:00"){
+        return(    
+        <PreGame players={this.state.players} /> );
+    }
+    else if(this.state.players.match_elapsed_time === "fin"){
+        return (
+            <GameOver players={this.state.players}/>);            
+    }else{
 
     if(Object.keys(this.state.players).length !== 0 && this.state.players.id !== -1){
       return (
@@ -416,7 +479,6 @@ class Game extends React.Component {
     
     );}
         }
-
   }
 }
 
@@ -450,22 +512,6 @@ class Modal extends React.Component{
       this.setState({user: e.target.value}, function(){
 
   });}
-  
- 
-  
-getPlayerRating(obj){
-    let playerRating =0;
-        if(this.props.user_ratings.length>0){
-            for(let i = 0; i < this.props.user_ratings.length;i++){
-            if(this.props.user_ratings[i].player_id == obj.id)
-            {
-              playerRating = this.props.players.user_ratings[i].rating;
-            }
-          }
-        }
-      return playerRating;
-}
-
 
   render() {
   
@@ -517,7 +563,7 @@ getPlayerRating(obj){
         }
       }
 
-if(obj.average_rating === 0){
+    if(obj.average_rating === 0){
           obj.average_rating =6;
       }
       
@@ -525,7 +571,7 @@ if(obj.average_rating === 0){
     if(obj.id !== -1 && obj.position != -1){
         
         
-        let currentRating = 0;
+     let currentRating = 0;
       
       if(this.props.players.user_ratings.length >0){
       for(let i = 0; i < this.props.players.user_ratings.length;i++){
@@ -535,6 +581,7 @@ if(obj.average_rating === 0){
       }
       
   }
+        
       return(
         <div>
             <div className="modal-wrapper"
@@ -542,140 +589,165 @@ if(obj.average_rating === 0){
                     transform: this.props.show ? 'translateY(0vh)' : 'translateY(-100vh)',
                     opacity: this.props.show ? '1' : '0'
                 }}>
-                <div className="modal-header">
-                    <h3>{obj.player_no}. {obj.player_name} <br/></h3>
-                    <span className="close-modal-btn" onClick={this.props.close}>×</span>
-                </div>
+                <span id="ratings-span" className="close-modal-btn" onClick={this.props.close}>×</span>
                 <div className="modal-body">
-                    <p>
-                    <img alt="Player" src={obj.player_image}/><br/>
-                    <div className="playerInfo">Club: &nbsp;{obj.team_name} <br/>
-                    
-                    Crowd Rating:<div className="crowdRating"><h1>{parseFloat(obj.average_rating).toFixed(1)}</h1></div></div>             
-                    </p>
-                    <h2>Your Rating: {currentRating}</h2>
+                
+                    <div className="modal-player-info">
+                        <img alt="Player" src={obj.player_image}/>
+                        <h2>{obj.player_no}.<br class="rwd-break" /> {obj.player_name}</h2>
+                        <p>{obj.team_name}</p>
+                        <p>Position</p>
+                    </div>
+                    <div className="modal-player-ratings">
+                        <table>
+                            <tr>
+                              <th>Crowd<br/> Rating</th>
+                              <th>Your<br/> Rating</th>
+                            </tr>
+                            <tr>
+                              <td>{parseFloat(obj.average_rating).toFixed(1)}</td>
+                              <td>{currentRating}</td>
+                            </tr>
+                      </table>
+                    </div>
+
                     <h3 class="h3Custom">Enter New Rating:</h3>
                     <br/>
-                    <div className="ratePlayersDiv">
-  <div className="form-check">
-  
-    <label class="container">
-        1
-      <input type="radio" name="react-tips" id="button1" value="1"  onChange={this.handleOptionChange} className="form-check-input" />
-      <span class="checkmark"></span>
-    </label>
-  </div>
-
-  <div className="form-check">
-    <label class="container">
-     2
-      <input type="radio" name="react-tips" value="2" onChange={this.handleOptionChange} className="form-check-input" />
-      <span class="checkmark"></span>
-      </label>
-  </div>
-
-  <div className="form-check">
-    <label class="container">
-          3
-      <input type="radio" name="react-tips" value="3" onChange={this.handleOptionChange} className="form-check-input"/>
-      <span class="checkmark"></span>
-      </label>
-  </div>
-  
-    <div className="form-check">
-   <label class="container">
-          4
-      <input type="radio" name="react-tips" value="4" onChange={this.handleOptionChange} className="form-check-input"/>
-      <span class="checkmark"></span>
-      </label>
-  </div>
-  
-    <div className="form-check">
-    <label class="container">
-          5
-      <input type="radio" name="react-tips" value="5"  onChange={this.handleOptionChange} className="form-check-input"/>
-      <span class="checkmark"></span>
-      </label>
-  </div>
-  <br class="rwd-break" /><br class="rwd-break" />
-  
-    <div className="form-check">
-    <label class="container">
-          6
-      <input type="radio" name="react-tips" value="6"  onChange={this.handleOptionChange} className="form-check-input"/>
-      <span class="checkmark"></span>
-      </label>
-  </div>
-  
-    <div className="form-check">
-    <label class="container">
-          7
-      <input type="radio" name="react-tips" value="7"  onChange={this.handleOptionChange} className="form-check-input"/>
-      <span class="checkmark"></span>
-      </label>
-  </div>
-  
-    <div className="form-check">
-    <label class="container">
-          8
-    
-      <input type="radio" name="react-tips" value="8"  onChange={this.handleOptionChange} className="form-check-input"/>
-      <span class="checkmark"></span>
-      </label>
-  </div>
-  
-    <div className="form-check">
-    <label class="container">
-          9
-    
-      <input type="radio" name="react-tips" value="9"  onChange={this.handleOptionChange} className="form-check-input"/>
-      <span class="checkmark"></span>
-      </label>
-  </div>
-  
-    <div className="form-check">
-    <label class="container">
-          10
-    
-      <input type="radio" name="react-tips" value="10"  onChange={this.handleOptionChange} className="form-check-input"/>
-      <span class="checkmark"></span>
-      </label>
-  </div>
-  </div>
-  
-
-
                     
+                    <div className="ratePlayersDiv">
+                                <div className="form-check">
 
-                </div>
-                 
+                                  <label class="container">
+                                      1
+                                    <input type="radio" name="react-tips" id="button1" value="1"  onChange={this.handleOptionChange} className="form-check-input" />
+                                    <span class="checkmark"></span>
+                                  </label>
+                                </div>
+
+                              <div className="form-check">
+                                <label class="container">
+                                 2
+                                  <input type="radio" name="react-tips" value="2" onChange={this.handleOptionChange} className="form-check-input" />
+                                  <span class="checkmark"></span>
+                                  </label>
+                              </div>
+
+                              <div className="form-check">
+                                <label class="container">
+                                      3
+                                  <input type="radio" name="react-tips" value="3" onChange={this.handleOptionChange} className="form-check-input"/>
+                                  <span class="checkmark"></span>
+                                  </label>
+                              </div>
+
+                                <div className="form-check">
+                               <label class="container">
+                                      4
+                                  <input type="radio" name="react-tips" value="4" onChange={this.handleOptionChange} className="form-check-input"/>
+                                  <span class="checkmark"></span>
+                                  </label>
+                              </div>
+
+                                <div className="form-check">
+                                <label class="container">
+                                      5
+                                  <input type="radio" name="react-tips" value="5"  onChange={this.handleOptionChange} className="form-check-input"/>
+                                  <span class="checkmark"></span>
+                                  </label>
+                              </div>
+                              <br class="rwd-break" /><br class="rwd-break" />
+
+                                <div className="form-check">
+                                <label class="container">
+                                      6
+                                  <input type="radio" name="react-tips" value="6"  onChange={this.handleOptionChange} className="form-check-input"/>
+                                  <span class="checkmark"></span>
+                                  </label>
+                              </div>
+
+                                <div className="form-check">
+                                <label class="container">
+                                      7
+                                  <input type="radio" name="react-tips" value="7"  onChange={this.handleOptionChange} className="form-check-input"/>
+                                  <span class="checkmark"></span>
+                                  </label>
+                              </div>
+
+                                <div className="form-check">
+                                <label class="container">
+                                      8
+
+                                  <input type="radio" name="react-tips" value="8"  onChange={this.handleOptionChange} className="form-check-input"/>
+                                  <span class="checkmark"></span>
+                                  </label>
+                              </div>
+
+                                <div className="form-check">
+                                <label class="container">
+                                      9
+
+                                  <input type="radio" name="react-tips" value="9"  onChange={this.handleOptionChange} className="form-check-input"/>
+                                  <span class="checkmark"></span>
+                                  </label>
+                              </div>
+
+                                <div className="form-check">
+                                <label class="container">
+                                      10
+
+                                  <input type="radio" name="react-tips" value="10"  onChange={this.handleOptionChange} className="form-check-input"/>
+                                  <span class="checkmark"></span>
+                                  </label>
+                              </div>
+                  </div>
+  
+            </div>
                 <div className="modal-footer">
-                    <button className="btn-continue" onClick={() =>this.changeDisplay(obj)}>Submit</button>
+                    <button className="btn-continue" onClick={() =>this.changeDisplay(obj)}>Rate Player</button>
                 </div>
             </div>
             
         </div>
       );
     }else if( obj.id !== -1 && this.state.display === true){
-      return(
+      //subs modal
+      let currentRating = 0;
+      
+      if(this.props.players.user_ratings.length >0){
+      for(let i = 0; i < this.props.players.user_ratings.length;i++){
+          if (this.props.players.user_ratings[i].player_id == obj.id){
+              currentRating = this.props.players.user_ratings[i].rating;
+                }
+            }
+      
+        }                                
+    return(
         <div>
             <div className="modal-wrapper"
                 style={{
                     transform: this.props.show ? 'translateY(0vh)' : 'translateY(-100vh)',
                     opacity: this.props.show ? '1' : '0'
                 }}>
-                <div className="modal-header">
-                    <h3>{obj.player_no}. {obj.player_name} <br/></h3>
-                    <span className="close-modal-btn" onClick={this.props.close}>×</span>
-                </div>
+                <span id="ratings-span" className="close-modal-btn" onClick={this.props.close}>×</span>
                 <div className="modal-body">
-                    <p>
-                    <img alt="Player" src={obj.player_image}/><br></br>
-                    <div className="playerInfo">Club: &nbsp;{obj.team_name} <br/>
-                        Crowd Rating:<br/><h2>{parseFloat(obj.average_rating).toFixed(1)}</h2></div>
-                    </p>
+                    <div className="modal-player-info">
+                    <img alt="Player" src={obj.player_image}/>
+                    <h2>{obj.player_no}.<br class="rwd-break" /> {obj.player_name}</h2>
+                    <p>{obj.team_name}</p>
+                    <p>Position</p>
                 </div>
-                <div className="modal-footer">
+                <div className="modal-player-ratings">
+                    <table>
+                        <tr>
+                            <th>Crowd<br/> Rating</th>
+                            <th>Your<br/> Rating</th>
+                            </tr>
+                        <tr>
+                            <td>{parseFloat(obj.average_rating).toFixed(1)}</td>
+                            <td>{currentRating}</td>
+                        </tr>
+                    </table>
+                 </div>
                 </div>
             </div>
         </div>
@@ -697,7 +769,7 @@ if(obj.average_rating === 0){
                 <div className="modal-body">
                 <br />
                 <h1>Rating complete!</h1>
-                <br /><br />
+                <br />
                 <h2>Please rate more players!</h2>
                 </div>
                 
