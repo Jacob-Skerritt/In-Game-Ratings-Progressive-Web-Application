@@ -42,10 +42,15 @@ class GameInfo extends React.Component {
 }
 
 function Square(props) {
-    if(props.value.average_rating === 0){
-        props.value.average_rating = 6;
-    }
+
+    let output;
     
+        if(props.value.average_rating === 0){
+        output = false;
+    }
+    else{
+        output = true;
+    }
     
     if(props.value.id === props.specialPlayers[0][0] && props.specialPlayers[0][0] !== -1 ){
 
@@ -53,7 +58,10 @@ function Square(props) {
                 <div  id="star-player" onClick={props.onClick}>
         <img src="star1.png" id="star-player-image" />
                 
-                        <div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
+                        
+      { output
+      ?<div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
+      :<div className="average1"> {"N/A"} </div>}
       <div className ="playerName1">{props.value.player_name} </div>
       { props.userRating.rating 
       ?  <button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
@@ -68,7 +76,9 @@ function Square(props) {
                 <div  id="trash-player" onClick={props.onClick}>
         <img src="trashcan.png" id="trash-player-image" />
                 
-                        <div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
+           { output
+      ?<div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
+      :<div className="average1"> {"N/A"} </div>}
       <div className ="playerName1">{props.value.player_name} </div>
       { props.userRating.rating 
       ?  <button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
@@ -83,7 +93,9 @@ function Square(props) {
   return (
 
     <button className={props.class} id={props.id} onClick={props.onClick} >
-        <div className="average">{parseFloat(props.value.average_rating).toFixed(1)} </div>
+         { output
+      ?<div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
+      :<div className="average1"> {"N/A"} </div>}
       <div className ="playerName">{props.value.player_name} </div>
       <button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
     </button>
@@ -93,7 +105,9 @@ function Square(props) {
     return (
 
       <button className={props.class} id={props.id} onClick={props.onClick} >
-        <div className="average">{parseFloat(props.value.average_rating).toFixed(1)}</div>
+            { output
+      ?<div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
+      :<div className="average1"> {"N/A"} </div>}
         <div className ="playerName">{props.value.player_name} </div>
         <button className ="square2" onClick={props.onClick}>{"-"} </button>
       </button>
