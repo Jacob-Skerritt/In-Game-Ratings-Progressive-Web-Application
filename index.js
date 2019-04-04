@@ -16,7 +16,7 @@ class GameInfo extends React.Component {
           <p>{this.props.players.teams[0].team_name}</p>
         </div>
         <div className="info">
-          <h1>{this.props.players.team1_score}-{this.props.players.team2_score}</h1>
+          <h1>{this.props.players.team2_score}-{this.props.players.team1_score}</h1>
           <p>{this.props.players.match_elapsed_time}</p>{" "}
         </div>
       </div>
@@ -437,7 +437,7 @@ class Game extends React.Component {
   
   render() {
         
-    if(this.state.players.match_elapsed_time === "00:00"){
+    if(this.state.players.match_elapsed_time <= "00:00"){
         return(    
         <PreGame players={this.state.players} /> );
     }
