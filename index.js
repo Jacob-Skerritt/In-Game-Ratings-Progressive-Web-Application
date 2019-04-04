@@ -60,8 +60,8 @@ function Square(props) {
                 
                         
       { output
-      ?<div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
-      :<div className="average1"> {"N/A"} </div>}
+      ?<div className="average">{parseFloat(props.value.average_rating).toFixed(1)} </div>
+      :<div className="average1"> {"?"} </div>}
       <div className ="playerName1">{props.value.player_name} </div>
       { props.userRating.rating 
       ?  <button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
@@ -78,7 +78,7 @@ function Square(props) {
                 
            { output
       ?<div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
-      :<div className="average1"> {"N/A"} </div>}
+      :<div className="average1"> {"?"} </div>}
       <div className ="playerName1">{props.value.player_name} </div>
       { props.userRating.rating 
       ?  <button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
@@ -94,8 +94,8 @@ function Square(props) {
 
     <button className={props.class} id={props.id} onClick={props.onClick} >
          { output
-      ?<div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
-      :<div className="average1"> {"N/A"} </div>}
+      ?<div className="average">{parseFloat(props.value.average_rating).toFixed(1)} </div>
+      :<div className="average1"> {"?"} </div>}
       <div className ="playerName">{props.value.player_name} </div>
       <button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
     </button>
@@ -106,8 +106,8 @@ function Square(props) {
 
       <button className={props.class} id={props.id} onClick={props.onClick} >
             { output
-      ?<div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
-      :<div className="average1"> {"N/A"} </div>}
+      ?<div className="average">{parseFloat(props.value.average_rating).toFixed(1)} </div>
+      :<div className="average1"> {"?"} </div>}
         <div className ="playerName">{props.value.player_name} </div>
         <button className ="square2" onClick={props.onClick}>{"-"} </button>
       </button>
