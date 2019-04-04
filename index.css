@@ -40,7 +40,7 @@ ol, ul {
     margin-left: 7.5%;
     margin-right: 3.5%;
     margin-top: 5%;
-    background-color: #F4A351;
+    background-color: #f96363;
     border-color: black;
     border-radius: 50%;
     position:relative;
@@ -57,7 +57,7 @@ ol, ul {
     margin-left: 7.5%;
     margin-right: 3.5%;
     margin-top: 5%;
-    background-color: #9BD9F4;
+    background-color: #70a7ef;
     border-color: black;
     border-radius: 50%;
     position:relative;
@@ -96,17 +96,22 @@ ol, ul {
 .playerName{
     position:absolute;
     top:110%;
-    left:15%;
-    font-size: 12px;
+    left:-5%;
+    font-size: 11px;
     text-align: left;
-
+    overflow: hidden;    
+    text-overflow: ellipsis;   
+    width: 72px;
 }
 
 .playerName1{
     position:absolute;
     top:95%;
-    left:15%;
+    left:-5%;
     font-size: 12px;
+    overflow: hidden;    
+    text-overflow: ellipsis;    
+    width: 75px;
 }
 
 
@@ -128,28 +133,28 @@ ol, ul {
     position:absolute;
     left:20%;
     top:22%;
-    width: 60%;
+    width: 75%;
 }
 
 #team-row-id-3{
     position:absolute;
     left:20%;
     top:34%;
-    width: 60%;
+    width: 75%;
 }
 
 #team-row-id-4{
     position:absolute;
     left:20%;
     top:51%;
-    width: 60%;
+    width: 75%;
 }
 
 #team-row-id-5{
     position:absolute;
     left:20%;
     top:63%;
-    width: 60%;
+    width: 75%;
 }
 
 #team-row-id-6{
@@ -230,15 +235,17 @@ game-board-players {
 .average {
     font-size: 13px;
     position: absolute;
-    top: 30%;
-    left: 25%;
+    top: 35%;
+    left: 22%;
+    text-align: center;
 }
 
 .average1 {
     font-size: 13px;
     position: absolute;
     top: 35%;
-    left: 40%;
+    left: 36%;
+    text-align: center;
 }
 
 button#1.team1-players {
@@ -386,6 +393,7 @@ margin: 0 auto;
     opacity: 0.3;
 }
 
+
 #preGameTeamNames{
     margin-top: 15%;
 }
@@ -396,5 +404,52 @@ margin: 0 auto;
 
 #preGameCompetition{
     margin:0;
+}
+
+
+.homeNameDisplay {
+    position: absolute;
+    top:-2.4%;
+    left: 4%;
+    height: 2.5%;
+    width: 40%;
+    text-align: left;
+    text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
+}
+
+.homeFormationDisplay {
+    position: absolute;
+    top:-2.4%;
+    left: 55%;
+    height: 2.5%;
+    width: 40%;
+    text-align: right;
+    text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
+}
+
+.awayNameDisplay {
+    position: absolute;
+    top:95.2%;
+    left: 55%;
+    height: 2.5%;
+    width: 40%;
+    text-align: right;
+    text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
+}
+
+.awayFormationDisplay {
+    position: absolute;
+    top:95.2%;
+    left: 4%;
+    height: 2.5%;
+    width: 40%;
+    text-align: left;
+    text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
+}
+
+
+
+.displayInfo {
+    color: white;
 }
 

@@ -42,10 +42,15 @@ class GameInfo extends React.Component {
 }
 
 function Square(props) {
-    if(props.value.average_rating === 0){
-        props.value.average_rating = 6;
-    }
+
+    let output;
     
+        if(props.value.average_rating === 0){
+        output = false;
+    }
+    else{
+        output = true;
+    }
     
     if(props.value.id === props.specialPlayers[0][0] && props.specialPlayers[0][0] !== -1 ){
 
@@ -53,8 +58,11 @@ function Square(props) {
                 <div  id="star-player" onClick={props.onClick}>
         <img src="star1.png" id="star-player-image" />
                 
-      <div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
-      <div className ="playerName1">{props.value.player_name} </div>
+                        
+      { output
+      ?<div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
+      :<div className="average1"> {"?"} </div>}
+      <div className ="playerName1">{props.value.player_no}.{props.value.player_name} </div>
       { props.userRating.rating 
       ?  <button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
       :  <button className ="square2" onClick={props.onClick}>{"-"} </button>}
@@ -68,8 +76,10 @@ function Square(props) {
                 <div  id="trash-player" onClick={props.onClick}>
         <img src="trashcan.png" id="trash-player-image" />
                 
-      <div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
-      <div className ="playerName1">{props.value.player_name} </div>
+           { output
+      ?<div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
+      :<div className="average1"> {"?"} </div>}
+      <div className ="playerName1">{props.value.player_no}.{props.value.player_name} </div>
       { props.userRating.rating 
       ?  <button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
       :  <button className ="square2" onClick={props.onClick}>{"-"} </button>}
@@ -82,8 +92,10 @@ function Square(props) {
   return (
 
     <button className={props.class} id={props.id} onClick={props.onClick} >
-        <div className="average">{parseFloat(props.value.average_rating).toFixed(1)} </div>
-      <div className ="playerName">{props.value.player_name} </div>
+         { output
+      ?<div className="average">{parseFloat(props.value.average_rating).toFixed(1)} </div>
+      :<div className="average1"> {"?"} </div>}
+      <div className ="playerName">{props.value.player_no}.{props.value.player_name} </div>
       <button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
     </button>
 
@@ -92,8 +104,10 @@ function Square(props) {
     return (
 
       <button className={props.class} id={props.id} onClick={props.onClick} >
-        <div className="average">{parseFloat(props.value.average_rating).toFixed(1)}</div>
-        <div className ="playerName">{props.value.player_name} </div>
+            { output
+      ?<div className="average">{parseFloat(props.value.average_rating).toFixed(1)} </div>
+      :<div className="average1"> {"?"} </div>}
+        <div className ="playerName">{props.value.player_no}.{props.value.player_name} </div>
         <button className ="square2" onClick={props.onClick}>{"-"} </button>
       </button>
 
@@ -112,18 +126,18 @@ class Board extends React.Component {
 
 
       if( i < 4){
-        for(let c = 0; c < this.props.players.teams[0].players.length;c++){
-          if(this.props.players.teams[0].players[c].position == track && track < 11)
+        for(let c = 0; c < this.props.players.teams[1].players.length;c++){
+          if(this.props.players.teams[1].players[c].position == track && track < 11)
           {
-            obj = this.props.players.teams[0].players[c];
+            obj = this.props.players.teams[1].players[c];
           }
         }
         teamClass = "team1-players";
       }else if( i >=4){
-        for(let c = 0; c < this.props.players.teams[1].players.length;c++){
-          if(this.props.players.teams[1].players[c].position ==10 -(track-11))
+        for(let c = 0; c < this.props.players.teams[0].players.length;c++){
+          if(this.props.players.teams[0].players[c].position ==10 -(track-11))
           {
-            obj = this.props.players.teams[1].players[c];
+            obj = this.props.players.teams[0].players[c];
 
           }
         }
@@ -268,8 +282,8 @@ class GameOver extends React.Component{
             <div className="gameOver-board">
                   <div className="gameOverText">
                   <h1>Game over!</h1>
-                  <h2>{this.props.players.teams[0].team_name} Vs {this.props.players.teams[1].team_name}</h2>
-                  <h1>&nbsp;&nbsp;{this.props.players.team2_score}:{this.props.players.team1_score}</h1>
+                  <h2>{this.props.players.teams[1].team_name} Vs {this.props.players.teams[0].team_name}</h2>
+                  <h1>&nbsp;&nbsp;{this.props.players.team1_score} - {this.props.players.team2_score}</h1>
                   <h3>Thank you for rating players in this match, we look forward to you joining us again.</h3>                  
                   </div>
             </div>                
@@ -370,6 +384,7 @@ class Game extends React.Component {
       for(let i = 0; i< this.state.players.teams.length; i++){
           
           for(let c =0; c<this.state.players.teams[i].players.length; c++){
+              
               if(this.state.players.teams[i].players[c].average_rating >= max){
                   max = this.state.players.teams[i].players[c].average_rating;
               }
@@ -385,7 +400,11 @@ class Game extends React.Component {
        for(let i =0;i< this.state.players.teams.length;i++){
           
           for(let c = 0; c<this.state.players.teams[i].players.length; c++){
-              if(this.state.players.teams[i].players[c].average_rating === max){
+              
+              if(max < 6 && this.state.players.teams[i].players[c].average_rating ===0 && this.state.players.teams[i].players[c].position >=0){
+                  starPlayer.push(this.state.players.teams[i].players[c].id);
+              }
+              else if(this.state.players.teams[i].players[c].average_rating === max){
                   starPlayer.push(this.state.players.teams[i].players[c].id);
               }
               
@@ -431,7 +450,14 @@ class Game extends React.Component {
       return (
         <div className="game">
           <GameInfo players={this.state.players}/>
+            
           <div className="game-board">
+          <div className="displayInfo">
+              <p className="homeNameDisplay">{this.state.players.teams[1].team_name}</p>
+              <p className="homeFormationDisplay">4-3-3</p>
+              <p className="awayNameDisplay">{this.state.players.teams[0].team_name}</p>
+              <p className="awayFormationDisplay">4-3-3</p> 
+            </div>
             <Board players={this.state.players}  specialPlayers={this.specialPlayers()}  onClick={(i) => this.handleClick(i)}/>
           </div>
               <TeamInfo players={this.state.players} onClick={(i) => this.handleClick(i)}/>
@@ -802,20 +828,20 @@ class TeamInfo extends React.Component{
       <div id="team-info">
 
       <div id="team1-info">
-      <h3> {this.props.players.teams[0].team_name}</h3>
-      <ul>
-      {this.renderListPlayers(0)}
-       </ul>
-       <h3>Managers</h3>
-         <ul><li> {this.props.players.teams[0].manager} </li></ul>
-       </div>
-      <div id="team2-info">
       <h3> {this.props.players.teams[1].team_name}</h3>
       <ul>
       {this.renderListPlayers(1)}
+       </ul>
+       <h3>Managers</h3>
+         <ul><li> {this.props.players.teams[1].manager} </li></ul>
+       </div>
+      <div id="team2-info">
+      <h3> {this.props.players.teams[0].team_name}</h3>
+      <ul>
+      {this.renderListPlayers(0)}
       </ul>
       <h3> &nbsp; </h3>
-      <ul><li> {this.props.players.teams[1].manager} </li></ul>
+      <ul><li> {this.props.players.teams[0].manager} </li></ul>
       </div>
       </div>
 
