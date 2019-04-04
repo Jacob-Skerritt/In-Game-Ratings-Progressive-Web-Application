@@ -60,9 +60,9 @@ function Square(props) {
                 
                         
       { output
-      ?<div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
-      :<div className="average1"> {"N/A"} </div>}
-      <div className ="playerName1">{props.value.player_name} </div>
+      ?<div className="average">{parseFloat(props.value.average_rating).toFixed(1)} </div>
+      :<div className="average1"> {"?"} </div>}
+      <div className ="playerName1">{props.value.player_no}.{props.value.player_name} </div>
       { props.userRating.rating 
       ?  <button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
       :  <button className ="square2" onClick={props.onClick}>{"-"} </button>}
@@ -77,9 +77,9 @@ function Square(props) {
         <img src="trashcan.png" id="trash-player-image" />
                 
            { output
-      ?<div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
-      :<div className="average1"> {"N/A"} </div>}
-      <div className ="playerName1">{props.value.player_name} </div>
+      ?<div className="average">{parseFloat(props.value.average_rating).toFixed(1)} </div>
+      :<div className="average1"> {"?"} </div>}
+      <div className ="playerName1">{props.value.player_no}.{props.value.player_name} </div>
       { props.userRating.rating 
       ?  <button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
       :  <button className ="square2" onClick={props.onClick}>{"-"} </button>}
@@ -94,9 +94,9 @@ function Square(props) {
 
     <button className={props.class} id={props.id} onClick={props.onClick} >
          { output
-      ?<div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
-      :<div className="average1"> {"N/A"} </div>}
-      <div className ="playerName">{props.value.player_name} </div>
+      ?<div className="average">{parseFloat(props.value.average_rating).toFixed(1)} </div>
+      :<div className="average1"> {"?"} </div>}
+      <div className ="playerName">{props.value.player_no}.{props.value.player_name} </div>
       <button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
     </button>
 
@@ -107,8 +107,8 @@ function Square(props) {
       <button className={props.class} id={props.id} onClick={props.onClick} >
             { output
       ?<div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
-      :<div className="average1"> {"N/A"} </div>}
-        <div className ="playerName">{props.value.player_name} </div>
+      :<div className="average1"> {"?"} </div>}
+        <div className ="playerName">{props.value.player_no}.{props.value.player_name} </div>
         <button className ="square2" onClick={props.onClick}>{"-"} </button>
       </button>
 
@@ -387,7 +387,14 @@ class Game extends React.Component {
       return (
         <div className="game">
           <GameInfo players={this.state.players}/>
+            
           <div className="game-board">
+          <div className="displayInfo">
+              <p className="homeNameDisplay">{this.state.players.teams[1].team_name}</p>
+              <p className="homeFormationDisplay">4-3-3</p>
+              <p className="awayNameDisplay">{this.state.players.teams[0].team_name}</p>
+              <p className="awayFormationDisplay">4-3-3</p> 
+            </div>
             <Board players={this.state.players}  specialPlayers={this.specialPlayers()}  onClick={(i) => this.handleClick(i)}/>
           </div>
               <TeamInfo players={this.state.players} onClick={(i) => this.handleClick(i)}/>
