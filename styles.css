@@ -110,7 +110,7 @@ p {
 
 .home {
     position: absolute;
-    width: 45%;
+    width: 40%;
     height: 100%;
     text-align: center;
 }
@@ -119,8 +119,8 @@ p {
     position: absolute;
     width: 35%;
     height: 35%;
-    left: 5%;
     top: 25%;
+    left: 5%;
 }
 
 .home p {
@@ -137,7 +137,7 @@ p {
     position: absolute;
     width: 40%;
     height: 100%;
-    left: 58%;
+    left: 60%;
     text-align: left;
     
 }
@@ -153,11 +153,10 @@ p {
 .away p {
     position: absolute;
     top: 20%;
-   
     font-family: serif;
     font-weight: bold;
     color: white;
-     font-size: 18px;
+    font-size: 18px;
 }
 
 .gameInfo {
@@ -172,25 +171,21 @@ p {
 
 .info {
     position: absolute;
-    width: 15%;
+    width: 20%;
     height: 100%;
     left: 40%;
     text-align: center;
-    font-family: serif;
     color: white;
-    top: 10%;
 }
 
 .info h1 {
     position: relative;
-    top:5%;
+    top:15%;
 }
 
 .info p {
     position: relative;
-    top: -50%;
-    font-family: serif;
-    top: -5%;
+    top: 0%;
     font-weight: bold;
 
 }

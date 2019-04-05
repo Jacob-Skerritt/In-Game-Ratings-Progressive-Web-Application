@@ -40,7 +40,7 @@ ol, ul {
     margin-left: 7.5%;
     margin-right: 3.5%;
     margin-top: 5%;
-    background-color: #F4A351;
+    background-color: #f96363;
     border-color: black;
     border-radius: 50%;
     position:relative;
@@ -57,7 +57,7 @@ ol, ul {
     margin-left: 7.5%;
     margin-right: 3.5%;
     margin-top: 5%;
-    background-color: #9BD9F4;
+    background-color: #70a7ef;
     border-color: black;
     border-radius: 50%;
     position:relative;
@@ -96,17 +96,22 @@ ol, ul {
 .playerName{
     position:absolute;
     top:110%;
-    left:15%;
-    font-size: 12px;
+    left:-5%;
+    font-size: 11px;
     text-align: left;
-
+    overflow: hidden;    
+    text-overflow: ellipsis;   
+    width: 72px;
 }
 
 .playerName1{
     position:absolute;
     top:95%;
-    left:15%;
+    left:-5%;
     font-size: 12px;
+    overflow: hidden;    
+    text-overflow: ellipsis;    
+    width: 75px;
 }
 
 
@@ -128,28 +133,28 @@ ol, ul {
     position:absolute;
     left:20%;
     top:22%;
-    width: 60%;
+    width: 75%;
 }
 
 #team-row-id-3{
     position:absolute;
     left:20%;
     top:34%;
-    width: 60%;
+    width: 75%;
 }
 
 #team-row-id-4{
     position:absolute;
     left:20%;
     top:51%;
-    width: 60%;
+    width: 75%;
 }
 
 #team-row-id-5{
     position:absolute;
     left:20%;
     top:63%;
-    width: 60%;
+    width: 75%;
 }
 
 #team-row-id-6{
@@ -230,15 +235,17 @@ game-board-players {
 .average {
     font-size: 13px;
     position: absolute;
-    top: 30%;
-    left: 25%;
+    top: 35%;
+    left: 22%;
+    text-align: center;
 }
 
 .average1 {
     font-size: 13px;
     position: absolute;
     top: 35%;
-    left: 40%;
+    left: 36%;
+    text-align: center;
 }
 
 button#1.team1-players {
@@ -257,9 +264,9 @@ button#1.team1-players {
     display: inline-block;
     position: relative;
     padding-left: 15px;
-    margin-bottom: 12px;
+    margin-bottom: 5px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 16px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -282,13 +289,17 @@ button#1.team1-players {
 .checkmark {
     position: absolute;
     top: 0;
-    left: -28%;
-    height: 13px;
-    width: 13px;
+    left: -47%;
+    height: 20px;
+    width: 19px;
     background-color: #eee;
     border-radius: 50%;
-    transform: translate(125%,-100%);
+    transform: translate(110%,-100%);
     border: 0.5px solid black;
+}
+
+#checkmark10{
+    transform: translate(130%,-100%) !important;
 }
 
 /* On mouse-over, add a grey background color */
@@ -337,21 +348,24 @@ button#1.team1-players {
 }
 
 .h3Custom{
-    margin: 15px 0px 5px 0px;
+    margin: 7% auto;
+    font-size: 1.6em;
+    margin-bottom: 5%;
 }
 
-.gameOver-board {
+.gameOver-board, .preGame-board {
     position:absolute;
     height: 105%;
     text-align: center;
     width: 100%;
     background-image: url("Capture.png");
+    /*background-color: #0D2031;*/
     background-size: 100% 100%;
     background-repeat: no-repeat, repeat;
 }
 
 
-.gameOverText{
+.gameOverText, .preGameText{
     width:80%;
     text-align: center;
     font-size: 1em;
@@ -364,9 +378,155 @@ button#1.team1-players {
     left:10%;
 }
 
-.gameOver-board button{
+.preGameText{
+    top:20%;
+}
+
+/*.gameOver-board, .preGame-board button{
     padding-bottom: 10px;
     width:50%;
     margin-bottom: 10px;
     font-size:1em;
+}*/
+
+.preGameText img{
+    width: 30%;
+    height: 100px;
+    position: relative;
+    left: 5%;
+    margin-top: -30%;
+    margin-left: 8%;
+    margin-right: 12%;
+    opacity: 0.3;
+}
+
+
+#preGameTeamNames{
+    margin-top: 15%;
+}
+
+#preGameLocation{
+    margin-bottom: 1%;
+}
+
+#preGameCompetition{
+    margin:0;
+}
+
+
+.homeNameDisplay {
+    position: absolute;
+    top:-2.4%;
+    left: 4%;
+    height: 2.5%;
+    width: 40%;
+    text-align: left;
+    text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
+}
+
+.homeFormationDisplay {
+    position: absolute;
+    top:-2.4%;
+    left: 55%;
+    height: 2.5%;
+    width: 40%;
+    text-align: right;
+    text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
+}
+
+.awayNameDisplay {
+    position: absolute;
+    top:95.2%;
+    left: 55%;
+    height: 2.5%;
+    width: 40%;
+    text-align: right;
+    text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
+}
+
+.awayFormationDisplay {
+    position: absolute;
+    top:95.2%;
+    left: 4%;
+    height: 2.5%;
+    width: 40%;
+    text-align: left;
+    text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
+}
+
+.displayInfo {
+    color: white;
+}
+
+.preGameLogo{
+    width: 80%;
+    text-align: center;
+    font-size: 1em;
+    position: absolute;
+    top: 4%;
+    background-color: #ddd;
+    opacity: 0.9;
+    border-radius: 15%;
+    border: 2px solid black;
+    left: 10%;
+}
+
+.preGameLogo img{
+    width: 30%;
+    height: 50%;
+    position: relative;
+    float: left;
+    padding: 2%;
+    border-radius: 20%;
+}
+
+.preGameLogo h2{
+    font-size: 2.5em;
+    text-align: start;
+    margin: 0;
+    margin-left: 37%;
+}
+
+
+/*iphone5*/
+@media only screen and (max-width: 320px){
+    .preGameLogo{
+        top:1%;
+    }
+    
+    .preGameText{
+        top:22%;
+    }
+}
+
+
+/*ipad*/
+@media only screen and (min-width:640px){
+    .preGameText {
+        top: 30%;
+        left: 25%;
+        width: 50%;
+    }
+   
+    .preGameLogo h2 {
+        font-size: 2.5em;
+        margin-top: 5%;
+    }
+    .preGameLogo img {
+        width: 40%;
+    }
+    
+    .preGameLogo {
+        width: 70%;
+        font-size: 2em;
+        top: 8%;
+        left: 15%;
+    }
+}
+
+
+
+/*phone 678plus*/
+@media only screen and (min-width:414px){
+
 }
