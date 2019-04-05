@@ -224,6 +224,7 @@ iphone5
         margin: 4% 0 6% 30%;
         font-size: 1.2em;
     }
+    
   
 }
 
@@ -246,37 +247,37 @@ iphone5
     }
     
     #ratings-span {
-    margin-left: 40%;
-    font-size: 6em;
-    margin-top: -3%;
+        margin-left: 40%;
+        font-size: 6em;
+        margin-top: -3%;
     }
     
     .btn-continue {
-    margin: 3% auto;
-    font-size: 2.6em;
+        margin: 3% auto;
+        font-size: 2.6em;
     }
     
     .h3Custom {
-    margin: 3% auto;
-    font-size: xx-large;
+        margin: 3% auto;
+        font-size: xx-large;
     }
     
     .checkmark {
-    left: -20px;
-    height: 25px;
-    width: 25px;
+        left: -20px;
+        height: 25px;
+        width: 25px;
     }
     
     .container {
-    font-size: 25px;
+     font-size: 25px;
     }
 }
 
 
 /*phone 678plus*/
 @media only screen and (min-width:414px){
-.modal-player-info p {
-margin: 7%;
-}
+    .modal-player-info p {
+      margin: 7%;
+    }
 }
 

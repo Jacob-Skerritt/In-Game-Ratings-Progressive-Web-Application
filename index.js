@@ -252,6 +252,10 @@ class PreGame extends React.Component{
           
             return(                
                 <div className="preGame-board">
+                    <div class="preGameLogo">
+                        <img src="logo2.PNG" />
+                        <h2>In Game Ratings</h2>
+                    </div>
                     <div className="preGameText">
                       <h2>Match Countdown!</h2>
                       <h1 id="preGameTeamNames">{this.props.players.teams[1].team_name} Vs {this.props.players.teams[0].team_name}</h1>
@@ -316,7 +320,7 @@ class Game extends React.Component {
     }
 
   loadData(){
-    fetch('http://mysql02.comp.dkit.ie/D00196117/player_ratings_api/match/all_match_data.php', {
+    fetch('http://localhost/player_ratings_api/match/all_match_data.php', {
       method:'post',
       header: {
         'Accept' : 'application/json, text/plain, */*',
@@ -358,7 +362,7 @@ class Game extends React.Component {
   
   
   vote(rating ,player_id, match_id, user_id){
-    fetch('http://mysql02.comp.dkit.ie/D00196117/player_ratings_api/rating/add_rating.php', {
+    fetch('http://localhost/player_ratings_api/rating/add_rating.php', {
       method:'post',
       header: {
         'Accept' : 'application/json, text/plain, */*',
@@ -437,7 +441,7 @@ class Game extends React.Component {
   
   render() {
         
-    if(this.state.players.match_elapsed_time === "00:00"){
+    if(this.state.players.match_elapsed_time <= "00:00"){
         return(    
         <PreGame players={this.state.players} /> );
     }
