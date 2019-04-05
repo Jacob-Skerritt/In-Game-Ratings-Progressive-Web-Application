@@ -567,9 +567,7 @@ class Modal extends React.Component{
         }
       }
 
-    if(obj.average_rating === 0){
-          obj.average_rating =6;
-      }
+
       
       
     if(obj.id !== -1 && obj.position != -1){
@@ -577,14 +575,14 @@ class Modal extends React.Component{
         
      let currentRating = 0;
       
-      if(this.props.players.user_ratings.length >0){
-      for(let i = 0; i < this.props.players.user_ratings.length;i++){
-          if (this.props.players.user_ratings[i].player_id == obj.id){
-              currentRating = this.props.players.user_ratings[i].rating;
-          }
-      }
+    if(this.props.players.user_ratings.length >0){
+        for(let i = 0; i < this.props.players.user_ratings.length;i++){
+        if (this.props.players.user_ratings[i].player_id == obj.id){
+            currentRating = this.props.players.user_ratings[i].rating;
+            }
+        }
       
-  }
+    }
         
       return(
         <div>
@@ -602,6 +600,7 @@ class Modal extends React.Component{
                         <p>{obj.team_name}</p>
                         <p>Position</p>
                     </div>
+                    
                     <div className="modal-player-ratings">
                         <table>
                             <tr>
@@ -609,7 +608,9 @@ class Modal extends React.Component{
                               <th>Your<br/> Rating</th>
                             </tr>
                             <tr>
-                              <td>{parseFloat(obj.average_rating).toFixed(1)}</td>
+                                { obj.average_rating !=0
+                                ?<td>{parseFloat(obj.average_rating).toFixed(1)} </td>
+                                :<td>{"?"}</td> }    
                               <td>{currentRating}</td>
                             </tr>
                       </table>
@@ -747,7 +748,9 @@ class Modal extends React.Component{
                             <th>Your<br/> Rating</th>
                             </tr>
                         <tr>
-                            <td>{parseFloat(obj.average_rating).toFixed(1)}</td>
+                            { obj.average_rating !=0
+                            ?<td>{parseFloat(obj.average_rating).toFixed(1)} </td>
+                            :<td>{"?"}</td> } 
                             <td>{currentRating}</td>
                         </tr>
                     </table>

@@ -138,12 +138,13 @@
     text-align: left;
     margin: 5% auto;
     font-size: 5.5vw; 
+    margin-left: 35%;
 }
 
 .modal-player-info p {
 text-align: justify;
 line-height: 0.7;
-margin: 8% 0 6% 30%;
+margin: 8% 0 6% 35%;
 font-size: 1.5em;
 font-weight: inherit;
 }
@@ -159,16 +160,21 @@ font-weight: inherit;
     table-layout: fixed;
     border-collapse: collapse;
     margin:2% auto;
-    width:80%
+    width:90%;
+    border: solid black 1px;
 }
 
 .modal-player-ratings table th{
     height:5%;
     font-size: 6vw;
+    border: solid black 1px;
+    border-bottom: none;
 }
 
 .modal-player-ratings table td{
     font-size: 9vw;
+    border: solid black 1px;
+    border-top: none;
 }
 #ratings-span{
     color: black;
@@ -219,10 +225,12 @@ iphone5
     font-size: 6.5vw;
     margin: 4% auto;
     white-space: nowrap;
+    margin-left: 39%;
     }
     .modal-player-info p {
         margin: 4% 0 6% 30%;
         font-size: 1.2em;
+        margin-left: 39%;
     }
     
   
