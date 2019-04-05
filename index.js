@@ -780,7 +780,7 @@ class Modal extends React.Component{
                 <div className="modal-body">
                 <br />
                 <h1>Rating complete!</h1>
-                <br />
+                <img src="public/images/misc/rate02.png"/>
                 <h2>Please rate more players!</h2>
                 </div>
                 
