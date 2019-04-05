@@ -223,7 +223,7 @@ class PreGame extends React.Component{
             if (distance < 0) {
 
                 clearInterval(timer);
-                document.getElementById(id).innerHTML = 'EXPIRED!';
+                document.getElementById(id).innerHTML = 'Game On!';
 
                 return;
             }
@@ -550,13 +550,14 @@ class Modal extends React.Component{
 
     }
     else if(this.props.id !== -1 && this.state.display === true){
-      let obj = {id: -1, player_name: "N/A", average_rating: 0, position: -1};
+      let obj = {id: -1, player_name: "N/A", average_rating: 0, position: -1,crest:""};
       
       
       for(let i = 0; i < this.props.players.teams[0].players.length;i++){
         if(this.props.players.teams[0].players[i].id == this.props.id)
         {
           obj = this.props.players.teams[0].players[i];
+          obj.crest = this.props.players.teams[0].crest;
         }
       }
 
@@ -564,6 +565,7 @@ class Modal extends React.Component{
         if(this.props.players.teams[1].players[i].id == this.props.id)
         {
           obj = this.props.players.teams[1].players[i];
+          obj.crest = this.props.players.teams[1].crest;
         }
       }
 
@@ -599,6 +601,7 @@ class Modal extends React.Component{
                         <h2>{obj.player_no}.<br class="rwd-break" /> {obj.player_name}</h2>
                         <p>{obj.team_name}</p>
                         <p>Position</p>
+                        <img class="playerDetailsCrest" alt="Team Crest" src={obj.crest} />
                     </div>
                     
                     <div className="modal-player-ratings">
@@ -740,6 +743,7 @@ class Modal extends React.Component{
                     <h2>{obj.player_no}.<br class="rwd-break" /> {obj.player_name}</h2>
                     <p>{obj.team_name}</p>
                     <p>Position</p>
+                    <img class="playerDetailsCrest" alt="Team Crest" src={obj.crest} />
                 </div>
                 <div className="modal-player-ratings">
                     <table>

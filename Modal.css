@@ -138,13 +138,13 @@
     text-align: left;
     margin: 5% auto;
     font-size: 5.5vw; 
-    margin-left: 35%;
+    margin-left: 29%;
 }
 
 .modal-player-info p {
 text-align: justify;
 line-height: 0.7;
-margin: 8% 0 6% 35%;
+margin: 8% 0 6% 32%;
 font-size: 1.5em;
 font-weight: inherit;
 }
@@ -195,7 +195,14 @@ font-weight: inherit;
     border: 1px solid black;
 }*/
 
-
+.playerDetailsCrest{
+    position: absolute;
+    top: 1%;
+    right: -8%;
+    opacity: 0.1;
+    width: 114% !important;
+    height: 269% !important;
+}
 
 /*others*/
 @media only screen and (min-width: 350px) {
@@ -283,6 +290,15 @@ iphone5
     
     .container {
      font-size: 25px;
+    }
+    
+    .playerDetailsCrest {
+        position: absolute;
+        top: -9%;
+        right: -10%;
+        opacity: 0.1;
+        width: 100% !important;
+        height: 525% !important;
     }
 }
 
