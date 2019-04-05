@@ -322,7 +322,7 @@ class Game extends React.Component {
         'Accept' : 'application/json, text/plain, */*',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({id: 2, user_id: this.state.userId})
+      body: JSON.stringify({id: 3, user_id: this.state.userId})
     }).then(res => res.json())
       .then((result) => {
           this.setState({ players: result});
