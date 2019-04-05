@@ -266,7 +266,7 @@ button#1.team1-players {
     padding-left: 15px;
     margin-bottom: 5px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 16px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -289,13 +289,17 @@ button#1.team1-players {
 .checkmark {
     position: absolute;
     top: 0;
-    left: -28%;
-    height: 13px;
-    width: 13px;
+    left: -47%;
+    height: 20px;
+    width: 19px;
     background-color: #eee;
     border-radius: 50%;
-    transform: translate(125%,-100%);
+    transform: translate(110%,-100%);
     border: 0.5px solid black;
+}
+
+#checkmark10{
+    transform: translate(130%,-100%) !important;
 }
 
 /* On mouse-over, add a grey background color */
@@ -344,7 +348,9 @@ button#1.team1-players {
 }
 
 .h3Custom{
-margin: 0 auto;
+    margin: 7% auto;
+    font-size: 1.6em;
+    margin-bottom: 5%;
 }
 
 .gameOver-board, .preGame-board {
