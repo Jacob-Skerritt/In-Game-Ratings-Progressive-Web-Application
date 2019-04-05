@@ -144,7 +144,7 @@
 .modal-player-info p {
 text-align: justify;
 line-height: 0.7;
-margin: 8% 0 6% 32%;
+margin: 7% 0 4% 32%;
 font-size: 1.5em;
 font-weight: inherit;
 }
@@ -166,13 +166,13 @@ font-weight: inherit;
 
 .modal-player-ratings table th{
     height:5%;
-    font-size: 6vw;
+    font-size: 6.5vw;
     border: solid black 1px;
     border-bottom: none;
 }
 
 .modal-player-ratings table td{
-    font-size: 9vw;
+    font-size: 8vw;
     border: solid black 1px;
     border-top: none;
 }
@@ -202,6 +202,7 @@ font-weight: inherit;
     opacity: 0.1;
     width: 114% !important;
     height: 269% !important;
+    z-index: -5;
 }
 
 /*others*/

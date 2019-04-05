@@ -607,8 +607,8 @@ class Modal extends React.Component{
                     <div className="modal-player-ratings">
                         <table>
                             <tr>
-                              <th>Crowd<br/> Rating</th>
-                              <th>Your<br/> Rating</th>
+                              <th>Crowd</th>
+                              <th>You</th>
                             </tr>
                             <tr>
                                 { obj.average_rating !=0
@@ -704,7 +704,7 @@ class Modal extends React.Component{
                                       10
 
                                   <input type="radio" name="react-tips" value="10"  onChange={this.handleOptionChange} className="form-check-input"/>
-                                  <span class="checkmark"></span>
+                                  <span id="checkmark10" class="checkmark"></span>
                                   </label>
                               </div>
                   </div>
