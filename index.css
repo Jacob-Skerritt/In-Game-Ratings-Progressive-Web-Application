@@ -469,7 +469,7 @@ margin: 0 auto;
     width: 30%;
     height: 50%;
     position: relative;
-    float: inline-start;
+    float: left;
     padding: 2%;
     border-radius: 20%;
 }
