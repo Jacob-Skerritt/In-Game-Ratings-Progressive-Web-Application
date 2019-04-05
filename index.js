@@ -252,6 +252,10 @@ class PreGame extends React.Component{
           
             return(                
                 <div className="preGame-board">
+                    <div class="preGameLogo">
+                        <img src="logo2.PNG" />
+                        <h2>In Game Ratings</h2>
+                    </div>
                     <div className="preGameText">
                       <h2>Match Countdown!</h2>
                       <h1 id="preGameTeamNames">{this.props.players.teams[1].team_name} Vs {this.props.players.teams[0].team_name}</h1>
@@ -316,7 +320,7 @@ class Game extends React.Component {
     }
 
   loadData(){
-    fetch('http://mysql02.comp.dkit.ie/D00196117/player_ratings_api/match/all_match_data.php', {
+    fetch('http://localhost/player_ratings_api/match/all_match_data.php', {
       method:'post',
       header: {
         'Accept' : 'application/json, text/plain, */*',
@@ -358,7 +362,7 @@ class Game extends React.Component {
   
   
   vote(rating ,player_id, match_id, user_id){
-    fetch('http://mysql02.comp.dkit.ie/D00196117/player_ratings_api/rating/add_rating.php', {
+    fetch('http://localhost/player_ratings_api/rating/add_rating.php', {
       method:'post',
       header: {
         'Accept' : 'application/json, text/plain, */*',
@@ -563,9 +567,7 @@ class Modal extends React.Component{
         }
       }
 
-    if(obj.average_rating === 0){
-          obj.average_rating =6;
-      }
+
       
       
     if(obj.id !== -1 && obj.position != -1){
@@ -573,14 +575,14 @@ class Modal extends React.Component{
         
      let currentRating = 0;
       
-      if(this.props.players.user_ratings.length >0){
-      for(let i = 0; i < this.props.players.user_ratings.length;i++){
-          if (this.props.players.user_ratings[i].player_id == obj.id){
-              currentRating = this.props.players.user_ratings[i].rating;
-          }
-      }
+    if(this.props.players.user_ratings.length >0){
+        for(let i = 0; i < this.props.players.user_ratings.length;i++){
+        if (this.props.players.user_ratings[i].player_id == obj.id){
+            currentRating = this.props.players.user_ratings[i].rating;
+            }
+        }
       
-  }
+    }
         
       return(
         <div>
@@ -598,6 +600,7 @@ class Modal extends React.Component{
                         <p>{obj.team_name}</p>
                         <p>Position</p>
                     </div>
+                    
                     <div className="modal-player-ratings">
                         <table>
                             <tr>
@@ -605,7 +608,9 @@ class Modal extends React.Component{
                               <th>Your<br/> Rating</th>
                             </tr>
                             <tr>
-                              <td>{parseFloat(obj.average_rating).toFixed(1)}</td>
+                                { obj.average_rating !=0
+                                ?<td>{parseFloat(obj.average_rating).toFixed(1)} </td>
+                                :<td>{"?"}</td> }    
                               <td>{currentRating}</td>
                             </tr>
                       </table>
@@ -743,7 +748,9 @@ class Modal extends React.Component{
                             <th>Your<br/> Rating</th>
                             </tr>
                         <tr>
-                            <td>{parseFloat(obj.average_rating).toFixed(1)}</td>
+                            { obj.average_rating !=0
+                            ?<td>{parseFloat(obj.average_rating).toFixed(1)} </td>
+                            :<td>{"?"}</td> } 
                             <td>{currentRating}</td>
                         </tr>
                     </table>
