@@ -253,8 +253,8 @@ class PreGame extends React.Component{
             return(                
                 <div className="preGame-board">
                     <div class="preGameLogo">
-                        <img src="logo2.PNG" />
-                        <h2>In Game Ratings</h2>
+                    <img src="public/images/misc/InGameRatingsLogo.png" />
+                        <h2>In-Game Ratings</h2>
                     </div>
                     <div className="preGameText">
                       <h2>Match Countdown!</h2>
@@ -600,7 +600,7 @@ class Modal extends React.Component{
                         <img alt="Player" src={obj.player_image}/>
                         <h2>{obj.player_no}.<br class="rwd-break" /> {obj.player_name}</h2>
                         <p>{obj.team_name}</p>
-                        <p>Position</p>
+                        <p>{obj.player_role}</p>
                         <img class="playerDetailsCrest" alt="Team Crest" src={obj.crest} />
                     </div>
                     
