@@ -171,6 +171,48 @@ ol, ul {
     width: 30%;
 }
 
+#star-player .event-image-line1{
+    position:absolute;
+    top:-5%;
+    left:-4%;
+}
+
+#star-player .event-image-line2{
+    position:absolute;
+    top:22%;
+    left:-4%;
+}
+
+#trash-player .event-image-line1{
+    position:absolute;
+    top:0%;
+    left:17%;
+}
+
+#trash-player .event-image-line2{
+    position:absolute;
+    top:0%;
+    left:17%;
+}
+
+button .event-image-line1{
+    position:absolute;
+    top:0%;
+    left:-85%;
+    float:left;
+}
+
+
+button .event-image-line2{
+    position:absolute;
+    top:37%;
+    left:-65%;
+    float:left;
+}
+
+
+
+
 .square2 {
     background: #FF0000;
     border: 1px solid #999;
