@@ -131,30 +131,30 @@ ol, ul {
 
 #team-row-id-2{
     position:absolute;
-    left:20%;
+    left:10%;
     top:22%;
-    width: 75%;
+    width: 85%;
 }
 
 #team-row-id-3{
     position:absolute;
-    left:20%;
+    left:10%;
     top:34%;
-    width: 75%;
+    width: 85%;
 }
 
 #team-row-id-4{
     position:absolute;
-    left:20%;
+    left:10%;
     top:51%;
-    width: 75%;
+    width: 85%;
 }
 
 #team-row-id-5{
     position:absolute;
-    left:20%;
+    left:10%;
     top:63%;
-    width: 75%;
+    width: 85%;
 }
 
 #team-row-id-6{
@@ -208,6 +208,25 @@ button .event-image-line2{
     top:37%;
     left:-65%;
     float:left;
+}
+
+.event-image-line1 img{
+    width:27%;
+}
+
+.eventYellow img{
+    position: absolute;
+    left: 24%;
+    top: -9%;
+}
+
+.eventGoal img{
+    position: relative;
+    left: 5%;
+    top: -10%;
+}
+.eventSub{
+    
 }
 
 
@@ -529,6 +548,39 @@ button#1.team1-players {
     margin-left: 37%;
 }
 
+.eventGoalStar img{
+    position: absolute !important;
+    width: 40%;
+    top: 0% !important;
+    left: 11% !important;
+}
+
+.eventYellowStar img{
+    width: 40%;
+    left: -37% !important;
+}
+
+.eventYellowTrash img{
+    width: 40%;
+    left: -51% !important;
+}
+
+.eventGoalTrash img{
+    position: absolute !important;
+    width: 40%;
+    left: 2% !important;
+    top: 8% !important;
+}
+
+.eventSub img{
+    width: 30%;
+    position: absolute;
+    left: 41%;
+    top: 127%;
+    transform: rotate(225deg);
+    
+}
+
 
 /*iphone5*/
 @media only screen and (max-width: 320px){
@@ -572,4 +624,25 @@ button#1.team1-players {
 /*phone 678plus*/
 @media only screen and (min-width:414px){
 
+}
+
+
+#team-row-id-2 .team1-players {
+    margin-right:15px;
+    margin-left: 30px;
+}
+
+#team-row-id-3 .team1-players {
+    margin-right:15px;
+    margin-left: 30px;
+}
+
+#team-row-id-4 .team2-players {
+    margin-right:15px;
+    margin-left: 30px;
+}
+
+#team-row-id-5 .team2-players {
+    margin-right:15px;
+    margin-left: 30px;
 }
