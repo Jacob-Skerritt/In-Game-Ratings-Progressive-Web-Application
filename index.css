@@ -215,15 +215,14 @@ button .event-image-line2{
 }
 
 .eventYellow img{
-    position: absolute;
-    left: 24%;
-    top: -9%;
+    position: relative;
+    left: -3%;
 }
 
 .eventGoal img{
     position: relative;
-    left: 5%;
-    top: -10%;
+    left: -3%;
+    margin-top:-12%;
 }
 .eventSub{
     
@@ -549,7 +548,7 @@ button#1.team1-players {
 }
 
 .eventGoalStar img{
-    position: absolute !important;
+    position: relative;
     width: 40%;
     top: 0% !important;
     left: 11% !important;
@@ -566,7 +565,7 @@ button#1.team1-players {
 }
 
 .eventGoalTrash img{
-    position: absolute !important;
+    position: relative;
     width: 40%;
     left: 2% !important;
     top: 8% !important;
