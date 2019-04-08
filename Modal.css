@@ -9,6 +9,7 @@
     position: fixed;
     left: 10%;
     border-radius: 3%;
+    z-index:4;
 }
 
 .modal-header {
