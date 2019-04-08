@@ -16,7 +16,7 @@ class GameInfo extends React.Component {
           <p>{this.props.players.teams[0].team_name}</p>
         </div>
         <div className="info">
-          <h1>{this.props.players.team1_score}-{this.props.players.team2_score}</h1>
+          <h1>{this.props.players.team2_score}-{this.props.players.team1_score}</h1>
           <p>{this.props.players.match_elapsed_time}</p>{" "}
         </div>
       </div>
@@ -52,7 +52,56 @@ function Square(props) {
         output = true;
     }
     
+    
+    
     if(props.value.id === props.specialPlayers[0][0] && props.specialPlayers[0][0] !== -1 ){
+        
+        let goal=0,ownGoal=0;
+        let yellowCard=0;
+        let redCard = false;
+         let sub = false;
+        
+        if(props.value.events.length>0){
+            
+            for(let c=0; c<props.value.events.length;c++){
+                
+                if(props.value.events[c].event_id == 3 ){
+                    goal++;
+                }
+                
+                if(props.value.events[c].event_id == 6){
+                    ownGoal++;
+                }
+                
+                
+                
+                if(props.value.events[c].event_id ==4){
+                    yellowCard++;
+                }
+                
+                if(props.value.events[c].event_id ==5){
+                   redCard= true;
+                }
+                
+                if(props.value.events[c].sub_player == props.value.player_name || props.value.events[c].starting_player == props.value.player_name){
+                   sub = true;
+                }
+                
+            }
+            
+        }
+        
+        if(goal === 0){
+            goal = null;
+        }
+        
+        if(ownGoal ===0){
+            ownGoal=null;
+        }
+        
+        if(yellowCard === 0){
+            yellowCard = null;
+        }
 
         return(
                 <div  id="star-player" onClick={props.onClick}>
@@ -62,6 +111,32 @@ function Square(props) {
       { output
       ?<div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
       :<div className="average1"> {"?"} </div>}
+      
+      <div className="event-image-line1" >
+      
+      { yellowCard
+      ?<img src="yellowCard.png" /> 
+      :null}
+      
+      { goal
+      ?<img src="goalSolid.png"  />
+      :null}
+      
+      { sub
+      ?<img src="substitution.png"  />
+      :null}
+      
+      </div>
+      
+      <div className="event-image-line2" >
+      { redCard
+      ?<img src="redCard.png" /> 
+      :null}
+      
+      { ownGoal
+      ?<img src="ownGoal.png"  />
+      :null}
+      </div>
       <div className ="playerName1">{props.value.player_no}.{props.value.player_name} </div>
       { props.userRating.rating 
       ?  <button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
@@ -71,6 +146,50 @@ function Square(props) {
                 );
         
     }else if( props.specialPlayers[1][0] != -1 && props.value.id === props.specialPlayers[1][0]){
+        let goal=0,ownGoal=0;
+        let yellowCard=0;
+        let redCard = false;
+         let sub = false;
+        
+        if(props.value.events.length>0){
+            
+            for(let c=0; c<props.value.events.length;c++){
+                
+                if(props.value.events[c].event_id == 3 ){
+                    goal++;
+                }
+                
+                if(props.value.events[c].event_id == 6 ){
+                    ownGoal++;
+                }
+                
+                if(props.value.events[c].event_id ==4){
+                    yellowCard++;
+                }
+                
+                if(props.value.events[c].event_id ==5){
+                   redCard= true;
+                }
+                
+                if(props.value.events[c].sub_player == props.value.player_name || props.value.events[c].starting_player == props.value.player_name){
+                   sub = true;
+                }
+                
+            }
+            
+        }
+        
+        if(goal === 0){
+            goal = null;
+        }
+        
+        if(ownGoal ===0){
+            ownGoal=null;
+        }
+        
+        if(yellowCard === 0){
+            yellowCard = null;
+        }
 
         return(
                 <div  id="trash-player" onClick={props.onClick}>
@@ -79,6 +198,35 @@ function Square(props) {
            { output
       ?<div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
       :<div className="average1"> {"?"} </div>}
+      
+      <div className="event-image-line1" >
+      
+      { yellowCard
+      ?<img src="yellowCard.png" /> 
+      :null}
+      
+      { goal
+      ?<img src="goalSolid.png"  />
+      :null}
+      
+      { sub
+      ?<img src="substitution.png"  />
+      :null}
+      
+      
+
+      </div>
+      
+      <div className="event-image-line2" >
+      { redCard
+      ?<img src="redCard.png" /> 
+      :null}
+      
+      { ownGoal
+      ?<img src="ownGoal.png"  />
+      :null}
+      </div>
+      
       <div className ="playerName1">{props.value.player_no}.{props.value.player_name} </div>
       { props.userRating.rating 
       ?  <button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
@@ -87,7 +235,60 @@ function Square(props) {
                 </div>
                 );
         
-    }else if(props.userRating.player_id !== -1){
+    }else if( props.value !== 0){
+        
+        let rating = false;
+        
+        if(props.userRating.player_id !== -1){
+            rating = true;
+        }
+        
+        let goal=0,ownGoal=0;
+        let yellowCard=0;
+        let redCard = false;
+        let sub = false;
+        
+        if(props.value.events.length>0){
+            
+            for(let c=0; c<props.value.events.length;c++){
+                
+                if(props.value.events[c].event_id == 3 ){
+                    goal++;
+                }
+                
+                if(props.value.events[c].event_id == 6){
+                    ownGoal++;
+                }
+                
+                if(props.value.events[c].event_id ==4){
+                    yellowCard++;
+                }
+                
+                if(props.value.events[c].event_id ==5){
+                   redCard= true;
+                }
+                
+                if(props.value.events[c].sub_player == props.value.player_name || props.value.events[c].starting_player == props.value.player_name){
+                    sub = true;
+                }
+                
+            }
+            
+        }
+        
+        if(goal === 0){
+            goal = null;
+        }
+        
+        if(ownGoal ===0){
+            ownGoal=null;
+        }
+        
+        if(yellowCard === 0){
+            yellowCard = null;
+        }
+        
+
      
   return (
 
@@ -95,19 +296,50 @@ function Square(props) {
          { output
       ?<div className="average">{parseFloat(props.value.average_rating).toFixed(1)} </div>
       :<div className="average1"> {"?"} </div>}
+      
+      <div className="event-image-line1" >
+      
+      { yellowCard
+      ?<img src="yellowCard.png" /> 
+      :null}
+      
+      { goal
+      ?<img src="goalSolid.png"  />
+      :null}
+      
+      { sub
+      ?<img src="substitution.png"  />
+      :null}
+      
+      
+
+      </div>
+      
+      <div className="event-image-line2" >
+      { redCard
+      ?<img src="redCard.png" /> 
+      :null}
+      
+      { ownGoal
+      ?<img src="ownGoal.png"  />
+      :null}
+      </div>
+      
       <div className ="playerName">{props.value.player_no}.{props.value.player_name} </div>
-      <button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
+      {rating
+      ?<button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
+      :<button className ="square2" onClick={props.onClick}>- </button>}
+      
     </button>
 
   );}else{
+
     //If no user rating has been made for this particular player then a button with the default value "0" will be output instead of the a button with the users ratings.
     return (
 
       <button className={props.class} id={props.id} onClick={props.onClick} >
-            { output
-      ?<div className="average">{parseFloat(props.value.average_rating).toFixed(1)} </div>
-      :<div className="average1"> {"?"} </div>}
-        <div className ="playerName">{props.value.player_no}.{props.value.player_name} </div>
+        <div className="average1"> {"?"} </div>
+        <div className ="playerName">N/A </div>
         <button className ="square2" onClick={props.onClick}>{"-"} </button>
       </button>
 
@@ -121,8 +353,10 @@ class Board extends React.Component {
   renderSquare(i,track) {
        let obj2={player_id: -1};
        let teamClass;
-    if(this.props.players.id !== -1){
-      let obj = {id: -1, player_name: "N/A", average_rating: 0, position: -1};
+       let obj = {id: -1, player_name: "N/A", average_rating: 0, position: -1, events: []};
+    
+        if(this.props.players.id !== -1){
+      
 
 
       if( i < 4){
@@ -139,6 +373,7 @@ class Board extends React.Component {
           {
             obj = this.props.players.teams[0].players[c];
 
+
           }
         }
         teamClass ="team2-players";
@@ -151,6 +386,21 @@ class Board extends React.Component {
           }
         }
       }
+      let events_array= new Array() ;
+            if(this.props.players.events.length >0){
+          for(let c3=0; c3 <this.props.players.events.length;c3++){
+              if(this.props.players.events[c3].player_id == obj.id){
+                  events_array.push(this.props.players.events[c3]);
+              }
+              
+              if(this.props.players.events[c3].starting_player == obj.player_name || this.props.players.events[c3].sub_player == obj.player_name){
+                  events_array.push(this.props.players.events[c3]);
+              }
+              
+          }
+          
+      }
+      obj.events = events_array;
 
     return (
       <Square value={obj} userRating={obj2} id={track} class={teamClass} specialPlayers={this.props.specialPlayers} onClick={() => this.props.onClick(obj.id)} />
@@ -826,7 +1076,87 @@ class TeamInfo extends React.Component{
     for(let i =0; i <this.props.players.teams[team].players.length;i++){
       if(this.props.players.teams[team].players[i].position == -1){
         let listId="list" + i;
-        list.push(<li  id={listId} onClick={() => this.props.onClick(this.props.players.teams[team].players[i].id)}>{this.props.players.teams[team].players[i].player_name} </li>);
+        
+        
+        let goal=0,ownGoal=0;
+        let yellowCard=0;
+        let redCard = false;
+        let sub = false;
+        
+        if(this.props.players.events.length>0){
+            
+            for(let c=0; c<this.props.players.events.length;c++){
+                
+                if(this.props.players.events[c].player_id ==this.props.players.teams[team].players[i].id ){
+                if(this.props.players.events[c].event_id == 3 ){
+                    goal++;
+                }
+                
+                if(this.props.players.events[c].event_id == 6){
+                    ownGoal++;
+                }
+                
+                if(this.props.players.events[c].event_id ==4){
+                    yellowCard++;
+                }
+                
+                if(this.props.players.events[c].event_id ==5){
+                   redCard= true;
+                }
+                
+                
+                
+            }
+            if(this.props.players.events[c].sub_player == this.props.players.teams[team].players[i].player_name || this.props.players.events[c].starting_player == this.props.players.teams[team].players[i].player_name){
+                    sub = true;
+                }
+        }
+            
+        }
+        
+        if(goal === 0){
+            goal = null;
+        }
+        
+        if(ownGoal ===0){
+            ownGoal=null;
+        }
+        
+        if(yellowCard === 0){
+            yellowCard = null;
+        }
+        
+        
+        
+        
+        
+        list.push
+        (
+            <li  
+                id={listId} 
+                onClick={() => this.props.onClick(this.props.players.teams[team].players[i].id)}>
+                {this.props.players.teams[team].players[i].player_name} 
+                { goal
+      ?<img src="goalSolid.png"  />
+      :null}
+      
+      { ownGoal
+      ?<img src="ownGoal.png"  />
+      :null}
+      
+      { yellowCard
+      ?<img src="yellowCard.png" /> 
+      :null}
+      
+      { redCard
+      ?<img src="redCard.png" />
+      :null}
+      
+      { sub
+      ?<img src="substitution_white.png"  />
+      :null}
+            </li>
+        );
       }
     }
 
