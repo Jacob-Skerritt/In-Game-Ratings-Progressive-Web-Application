@@ -70,7 +70,7 @@ function Square(props) {
                 }
                 
                 if(props.value.events[c].event_id == 6){
-                    ownGoal++;
+                    ownGoal;
                 }
                 
                 
@@ -80,7 +80,7 @@ function Square(props) {
                 }
                 
                 if(props.value.events[c].event_id ==5){
-                   redCard= true;
+                   redCard= null;
                 }
                 
                 if(props.value.events[c].sub_player == props.value.player_name || props.value.events[c].starting_player == props.value.player_name){
@@ -162,7 +162,7 @@ function Square(props) {
                 }
                 
                 if(props.value.events[c].event_id == 6 ){
-                    ownGoal++;
+                    ownGoal;
                 }
                 
                 if(props.value.events[c].event_id ==4){
@@ -170,7 +170,7 @@ function Square(props) {
                 }
                 
                 if(props.value.events[c].event_id ==5){
-                   redCard= true;
+                   redCard= null;
                 }
                 
                 if(props.value.events[c].sub_player == props.value.player_name || props.value.events[c].starting_player == props.value.player_name){
@@ -259,7 +259,7 @@ function Square(props) {
                 }
                 
                 if(props.value.events[c].event_id == 6){
-                    ownGoal++;
+                    ownGoal;
                 }
                 
                 if(props.value.events[c].event_id ==4){
@@ -267,7 +267,7 @@ function Square(props) {
                 }
                 
                 if(props.value.events[c].event_id ==5){
-                   redCard= true;
+                   redCard= null;
                 }
                 
                 if(props.value.events[c].sub_player == props.value.player_name || props.value.events[c].starting_player == props.value.player_name){
@@ -548,7 +548,7 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isShowing: false,
+      isShowing: true,
       players: {id:-1},
       buttonId: -1,
       userId: -1,
@@ -628,7 +628,7 @@ class Game extends React.Component {
   
   specialPlayers(){
       let max = 0;
-      let min = 6.2;
+      let min = 10;
       let starPlayer = [];
       let trashPlayer = [];
       let specialPlayers=[];
@@ -698,8 +698,8 @@ class Game extends React.Component {
         return (
             <GameOver players={this.state.players}/>);            
     }else{
-
-    if(Object.keys(this.state.players).length !== 0 && this.state.players.id !== -1){
+        
+ if(Object.keys(this.state.players).length !== 0 && this.state.players.id !== -1){
       return (
         <div className="game">
           <GameInfo players={this.state.players}/>
@@ -714,7 +714,7 @@ class Game extends React.Component {
             <Board players={this.state.players}  specialPlayers={this.specialPlayers()}  onClick={(i) => this.handleClick(i)}/>
           </div>
               <TeamInfo players={this.state.players} onClick={(i) => this.handleClick(i)}/>
-              { this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null }
+              { this.state.isShowing ? <div className="back-drop"></div> : null }
           <Modal className="modal" id={this.state.buttonId} vote={(rating ,player_id, match_id,user_id) =>this.vote(rating ,player_id, match_id,user_id)} show={this.state.isShowing} close={this.closeModalHandler} players={this.state.players} />    
                   
      </div>
@@ -762,9 +762,12 @@ class Modal extends React.Component{
 };
 
   onChange(e){
-      this.setState({user: e.target.value}, function(){
-
-  });}
+      this.setState({user: e.target.value}, function(){});
+      this.props.close();
+      
+    }
+    
+    
 
   render() {
   
@@ -778,7 +781,7 @@ class Modal extends React.Component{
                 }}>
                 <div className="modal-header">
                     <h3>User Selection</h3>
-                    <span className="close-modal-btn" onClick={this.props.close}>×</span>
+                    
                 </div>
                 <div className="modal-body">
                     <p>
@@ -786,7 +789,7 @@ class Modal extends React.Component{
                         Please Select User -  <br/>
                         <div>&nbsp;</div>
                         User: &nbsp;
-                        <select id="users" onChange={this.onChange.bind(this)}>
+                        <select id="users" onChange={this.onChange.bind(this)} >
                         <option> 0 - No User </option>
                         {this.props.players.users.map(function(user, index){return <option value={user.id}>{user.id} - {user.username}</option> })}
                         </select>
@@ -1054,10 +1057,6 @@ class Modal extends React.Component{
                   <p>
                       Database Error: Contact Admin!
                   </p>
-              </div>
-              <div className="modal-footer">
-                  <button className="btn-cancel" onClick={this.props.close}>CLOSE</button>
-                  <button className="btn-continue">CONTINUE</button>
               </div>
           </div>
       </div>
