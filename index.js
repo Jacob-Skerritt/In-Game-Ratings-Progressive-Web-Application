@@ -70,7 +70,7 @@ function Square(props) {
                 }
                 
                 if(props.value.events[c].event_id == 6){
-                    ownGoal;
+                    ownGoal++;
                 }
                 
                 
@@ -162,7 +162,7 @@ function Square(props) {
                 }
                 
                 if(props.value.events[c].event_id == 6 ){
-                    ownGoal;
+                    ownGoal++;
                 }
                 
                 if(props.value.events[c].event_id ==4){
@@ -256,7 +256,7 @@ function Square(props) {
                 }
                 
                 if(props.value.events[c].event_id == 6){
-                    ownGoal;
+                    ownGoal++;
                 }
                 
                 if(props.value.events[c].event_id ==4){
