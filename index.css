@@ -214,22 +214,6 @@ button .event-image-line2{
     width:27%;
 }
 
-.eventYellow img{
-    position: absolute;
-    left: 24%;
-    top: -9%;
-}
-
-.eventGoal img{
-    position: relative;
-    left: 5%;
-    top: -10%;
-}
-.eventSub{
-    
-}
-
-
 
 
 .square2 {
@@ -532,6 +516,12 @@ button#1.team1-players {
     left: 10%;
 }
 
+
+.eventSub{
+    position:relative;
+}
+
+
 .preGameLogo img{
     width: 30%;
     height: 50%;
@@ -548,8 +538,22 @@ button#1.team1-players {
     margin-left: 37%;
 }
 
+.eventYellow img{
+    position: relative !important;
+    left: -2%;
+    top: -9%;
+}
+
+
+
+.eventGoal img{
+    position: relative;
+    left: 5%;
+    top: -10%;
+}
+
 .eventGoalStar img{
-    position: absolute !important;
+    position: relative !important;
     width: 40%;
     top: 0% !important;
     left: 11% !important;
@@ -566,7 +570,7 @@ button#1.team1-players {
 }
 
 .eventGoalTrash img{
-    position: absolute !important;
+    position: relative !important;
     width: 40%;
     left: 2% !important;
     top: 8% !important;
@@ -574,7 +578,7 @@ button#1.team1-players {
 
 .eventSub img{
     width: 30%;
-    position: absolute;
+    position: relative;
     left: 41%;
     top: 127%;
     transform: rotate(225deg);
