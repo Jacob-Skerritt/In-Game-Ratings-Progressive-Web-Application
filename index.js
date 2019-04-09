@@ -112,33 +112,33 @@ function Square(props) {
       ?<div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
       :<div className="average1"> {"?"} </div>}
       
-      <div className="event-image-line1" >
-      <div className="eventYellowStar"> 
-      { yellowCard
-      ?<img src="public/images/events/yellowCard.png" /> 
-      :null}</div>
-      
-      <div className="eventGoalStar"> 
       { goal
-      ?<img src="public/images/events/goalSolid.png"  />
-      :null}</div>
+      ?<div className="eventGoal"><img src="public/images/events/goalSolid.png"  /></div>
+      :null}
       
-      <div className="eventSubStar"> 
-      { sub
-      ?<img src="public/images/events/substitution.png"  />
-      :null}</div>
+       { ownGoal
+       ?<div className="eventOwnGoal"><img src="public/images/events/ownGoal.png"  /> </div>
+      :null}
+
       
-      </div>
       
-      <div className="event-image-line2" >
+      
+      
       { redCard
-      ?<img src="public/images/events/redCard.png" /> 
+      ?<div className="eventRedCard"><img src="public/images/events/redCard.png" /> </div>
       :null}
       
-      { ownGoal
-      ?<img src="public/images/events/ownGoal.png"  />
+      { yellowCard
+      ?<div className="eventYellowCard"><img src="public/images/events/yellowCard.png" /> </div>
       :null}
-      </div>
+
+
+      { sub
+      ?<div className="eventSub"> <img src="public/images/events/substitution.png"  /></div>
+      :null}
+
+
+      
       <div className ="playerName1">{props.value.player_no}.{props.value.player_name} </div>
       { props.userRating.rating 
       ?  <button className ="square2" onClick={props.onClick}>{props.userRating.rating} </button>
@@ -201,33 +201,30 @@ function Square(props) {
       ?<div className="average1">{parseFloat(props.value.average_rating).toFixed(1)} </div>
       :<div className="average1"> {"?"} </div>}
       
-      <div className="event-image-line1" >
-      <div className="eventYellowTrash"> 
-      { yellowCard
-      ?<img src="public/images/events/yellowCard.png" /> 
-      :null}</div>
-      <div className="eventGoalTrash"> 
       { goal
-      ?<img src="public/images/events/goalSolid.png"  />
-      :null}</div>
-      <div className="eventSubTrash"> 
-      { sub
-      ?<img src="public/images/events/substitution.png"  />
-      :null}</div>
+      ?<div className="eventGoal"><img src="public/images/events/goalSolid.png"  /></div>
+      :null}
       
-      
+       { ownGoal
+       ?<div className="eventOwnGoal"><img src="public/images/events/ownGoal.png"  /> </div>
+      :null}
 
-      </div>
       
-      <div className="event-image-line2" >
+      
+      
+      
       { redCard
-      ?<img src="public/images/events/redCard.png" /> 
+      ?<div className="eventRedCard"><img src="public/images/events/redCard.png" /> </div>
       :null}
       
-      { ownGoal
-      ?<img src="public/images/events/ownGoal.png"  />
+      { yellowCard
+      ?<div className="eventYellowCard"><img src="public/images/events/yellowCard.png" /> </div>
       :null}
-      </div>
+
+
+      { sub
+      ?<div className="eventSub"> <img src="public/images/events/substitution.png"  /></div>
+      :null}
       
       <div className ="playerName1">{props.value.player_no}.{props.value.player_name} </div>
       { props.userRating.rating 
@@ -299,30 +296,33 @@ function Square(props) {
       ?<div className="average">{parseFloat(props.value.average_rating).toFixed(1)} </div>
       :<div className="average1"> {"?"} </div>}
       
-      <div className="event-image-line1" >
       
-      <div className="eventYellow">      { yellowCard
-      ?<img src="public/images/events/yellowCard.png" /> 
-      :null}</div>
-      <div className="eventGoal">      { goal
-      ?<img src="public/images/events/goalSolid.png"  />
-      :null}</div>
-      <div className="eventSub">      { sub
-      ?<img src="public/images/events/substitution.png"  />
-      :null}</div>
+
+      { goal
+      ?<div className="eventGoal"><img src="public/images/events/goalSolid.png"  /></div>
+      :null}
+      
+       { ownGoal
+       ?<div className="eventOwnGoal"><img src="public/images/events/ownGoal.png"  /> </div>
+      :null}
+
       
       
-      </div>
       
-      <div className="event-image-line2" >
+      
       { redCard
-      ?<img src="public/images/events/redCard.png" /> 
+      ?<div className="eventRedCard"><img src="public/images/events/redCard.png" /> </div>
       :null}
       
-      { ownGoal
-      ?<img src="public/images/events/ownGoal.png"  />
+      { yellowCard
+      ?<div className="eventYellowCard"><img src="public/images/events/yellowCard.png" /> </div>
       :null}
-      </div>
+
+
+      { sub
+      ?<div className="eventSub"> <img src="public/images/events/substitution.png"  /></div>
+      :null}
+      
       
       <div className ="playerName">{props.value.player_no}.{props.value.player_name} </div>
       {rating

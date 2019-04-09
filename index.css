@@ -171,62 +171,103 @@ ol, ul {
     width: 30%;
 }
 
-#star-player .event-image-line1{
+button .eventGoal{
     position:absolute;
-    top:-5%;
-    left:-4%;
+    top:-10%;
+    left:-15%;  
 }
 
-#star-player .event-image-line2{
+button .eventOwnGoal{
     position:absolute;
-    top:22%;
-    left:-4%;
+    top:28%;
+    left:-28%;  
 }
 
-#trash-player .event-image-line1{
+button .eventSub{
+    position:absolute;
+    top:70%;
+    left:-15%;  
+}
+
+button .eventYellowCard{
+    position:absolute;
+    top:-10%;
+    left:70%;  
+}
+
+button .eventRedCard{
+    position:absolute;
+    top:-10%;
+    left:70%;  
+    z-index:2;
+}
+
+#star-player .eventGoal{
     position:absolute;
     top:0%;
-    left:17%;
+    left:14%;  
 }
 
-#trash-player .event-image-line2{
+#star-player .eventOwnGoal{
     position:absolute;
-    top:0%;
-    left:17%;
+    top:30%;
+    left:0%;  
 }
 
-button .event-image-line1{
+#star-player .eventSub{
     position:absolute;
-    top:0%;
-    left:-85%;
-    float:left;
+    top:62%;
+    left:5%;  
 }
 
-
-button .event-image-line2{
+#star-player .eventYellowCard{
     position:absolute;
-    top:37%;
-    left:-65%;
-    float:left;
+    top:5%;
+    left:65%;  
 }
 
-.event-image-line1 img{
-    width:27%;
+#star-player .eventRedCard{
+    position:absolute;
+    top:5%;
+    left:65%;  
+    z-index:2;
 }
 
-.eventYellow img{
-    position: relative;
-    left: -3%;
+
+#trash-player .eventGoal{
+    position:absolute;
+    top:5%;
+    left:0%;  
 }
 
-.eventGoal img{
-    position: relative;
-    left: -3%;
-    margin-top:-12%;
+#trash-player .eventOwnGoal{
+    position:absolute;
+    top:35%;
+    left:0%;  
 }
-.eventSub{
-    
+
+#trash-player .eventSub{
+    position:absolute;
+    top:67%;
+    left:5%;  
 }
+
+#trash-player .eventYellowCard{
+    position:absolute;
+    top:5%;
+    left:70%;  
+}
+
+#trash-player .eventRedCard{
+    position:absolute;
+    top:5%;
+    left:70%;  
+    z-index:2;
+}
+
+
+
+
 
 
 
@@ -551,53 +592,6 @@ button#1.team1-players {
     text-align: start;
     margin: 0;
     margin-left: 37%;
-}
-
-.eventYellow img{
-    position: relative !important;
-    left: -2%;
-    top: -9%;
-}
-
-
-
-.eventGoal img{
-    position: relative;
-    left: 5%;
-    top: -10%;
-}
-
-.eventGoalStar img{
-    position: relative;
-    width: 40%;
-    top: 0% !important;
-    left: 11% !important;
-}
-
-.eventYellowStar img{
-    width: 40%;
-    left: -37% !important;
-}
-
-.eventYellowTrash img{
-    width: 40%;
-    left: -51% !important;
-}
-
-.eventGoalTrash img{
-    position: relative;
-    width: 40%;
-    left: 2% !important;
-    top: 8% !important;
-}
-
-.eventSub img{
-    width: 30%;
-    position: relative;
-    left: 41%;
-    top: 127%;
-    transform: rotate(225deg);
-    
 }
 
 
