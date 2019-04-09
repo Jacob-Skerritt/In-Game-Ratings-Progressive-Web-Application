@@ -70,7 +70,7 @@ function Square(props) {
                 }
                 
                 if(props.value.events[c].event_id == 6){
-                    ownGoal++;
+                    ownGoal;
                 }
                 
                 
@@ -162,7 +162,7 @@ function Square(props) {
                 }
                 
                 if(props.value.events[c].event_id == 6 ){
-                    ownGoal++;
+                    ownGoal;
                 }
                 
                 if(props.value.events[c].event_id ==4){
@@ -256,7 +256,7 @@ function Square(props) {
                 }
                 
                 if(props.value.events[c].event_id == 6){
-                    ownGoal++;
+                    ownGoal;
                 }
                 
                 if(props.value.events[c].event_id ==4){
@@ -1135,23 +1135,23 @@ class TeamInfo extends React.Component{
                 onClick={() => this.props.onClick(this.props.players.teams[team].players[i].id)}>
                 {this.props.players.teams[team].players[i].player_name} 
                 { goal
-      ?<img src="goalSolid.png"  />
+                ?<img src="public/images/events/goalSolid.png"/>
       :null}
       
       { ownGoal
-      ?<img src="ownGoal.png"  />
+      ?<img src="public/images/events/ownGoal.png"  />
       :null}
       
       { yellowCard
-      ?<img src="yellowCard.png" /> 
+      ?<img src="public/images/events/yellowCard.png" /> 
       :null}
       
       { redCard
-      ?<img src="redCard.png" />
+      ?<img src="public/images/events/redCard.png" />
       :null}
       
       { sub
-      ?<img src="substitution_white.png"  />
+      ?<img src="public/images/events/substitution.png"  />
       :null}
             </li>
         );

@@ -572,6 +572,12 @@ button#1.team1-players {
     left: 10%;
 }
 
+
+.eventSub{
+    position:relative;
+}
+
+
 .preGameLogo img{
     width: 30%;
     height: 50%;

@@ -87,6 +87,10 @@ p {
     font-size: 12px;
 }
 
+#team-info img{
+    width:7%;
+}
+
 #team2-info{
     position:absolute;
     text-align:left;
