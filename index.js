@@ -543,8 +543,9 @@ class GameOver extends React.Component{
         for(let i =0; i <teamSort.length;i++){
             list.push(<li>
                         <img src={teamSort[i].player_image}/>
-                        {teamSort[i].player_name}<br/>
-                        crowd:{teamSort[i].average_rating} you: ?
+                        <p>{teamSort[i].player_name}<br/>
+                        crowd:{teamSort[i].average_rating}<br/>
+                        you: ?</p>
                       </li>)
 		        }
             return list;
