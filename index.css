@@ -465,7 +465,7 @@ button#1.team1-players {
     background-repeat: no-repeat, repeat;
 }
 
-.preGameText, .gameOverInfo, #ratingResults{
+.preGameText, .gameOverInfo, #ratingResults, .preGameFacts{
     width:80%;
     text-align: center;
     font-size: 0.85em;
@@ -484,11 +484,6 @@ button#1.team1-players {
     margin:3% auto;
 }
 
-#ratingResults{
-    top: 19%;
-    height:80%;
-    overflow: hidden;
-}
 
 .gameOverText{
     font-size: 1.7em;
@@ -511,7 +506,7 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
 
 
 .preGameText{
-    top:21%;
+    top:19%;
 }
 
 /*.gameOver-board, .preGame-board button{
@@ -628,6 +623,49 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     margin-left: 37%;
 }
 
+.preGameFacts{
+   top:59%;
+}
+
+#ratingResults{
+    top: 19%;
+/*    height:100%;*/
+/*    overflow: hidden;*/
+    border-radius: 2%;
+    width: 90%;
+    left: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+#ratingResults > ul{
+    text-align: initial;
+    padding-left:1%;
+    margin: 1%;
+}
+
+#ratingResults ul li{
+    width:100%;
+    display:flex;
+    margin: inherit;
+    border: 0.1px solid black;
+    border-radius: 5%;
+    width: 97%;
+}
+
+#ratingResults ul li img{
+    width:25%;
+    float:left;
+    clear:both;
+}
+
+
+
+
+
+
+
 
 /*iphone5*/
 @media only screen and (max-width: 320px){
@@ -649,10 +687,51 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     .gameOverText {
         font-size: 1.5em;
     }
+    
+    .preGameFacts{
+        top:74%;
+    }
 
 
 }
 
+
+
+
+/*iphone 9*/
+@media only screen and (min-width:360px) and (min-height: 700px){
+    .preGameFacts {
+        top: 54%;
+    }
+}
+
+
+/*phone 678plus*/
+@media only screen and (min-width:375px){
+    .preGameFacts {
+        top: 58%;
+    }
+}
+
+#team-row-id-2 .team1-players {
+    margin-right:15px;
+    margin-left: 30px;
+}
+
+#team-row-id-3 .team1-players {
+    margin-right:15px;
+    margin-left: 30px;
+}
+
+#team-row-id-4 .team2-players {
+    margin-right:15px;
+    margin-left: 30px;
+}
+
+#team-row-id-5 .team2-players {
+    margin-right:15px;
+    margin-left: 30px;
+}
 
 /*ipad*/
 @media only screen and (min-width:640px){
@@ -689,34 +768,12 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     #preGameLocation{
         margin-top:-4%;
     }
-}
-
-
-
-/*phone 678plus*/
-@media only screen and (min-width:414px){
-
-}
-
-
-#team-row-id-2 .team1-players {
-    margin-right:15px;
-    margin-left: 30px;
-}
-
-#team-row-id-3 .team1-players {
-    margin-right:15px;
-    margin-left: 30px;
-}
-
-#team-row-id-4 .team2-players {
-    margin-right:15px;
-    margin-left: 30px;
-}
-
-#team-row-id-5 .team2-players {
-    margin-right:15px;
-    margin-left: 30px;
+    
+    .preGameFacts {
+       top: 44%;
+       width: 60%;
+       left: 20%;
+    }
 }
 
 
@@ -755,4 +812,6 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
         left: 27.5%;
         height: 19%;
     }
+    
+
 }

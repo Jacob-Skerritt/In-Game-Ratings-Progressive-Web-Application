@@ -514,6 +514,9 @@ class PreGame extends React.Component{
                       <h3>Rate all the players live!</h3>
                       <h1 id="countdown">{this.CountDownTimer(match_time, 'countdown')}</h1>
                     </div>
+                    <div className="preGameFacts">
+                    <p>Pre game facts go here</p>
+                    </div>
                 </div>
             );
           }else{
@@ -535,7 +538,11 @@ class GameOver extends React.Component{
         let list=[];
         
         for(let i =0; i <this.props.players.teams[team].players.length;i++){
-            list.push(<li>{this.props.players.teams[team].players[i].player_name} {this.props.players.teams[team].players[i].average_rating}</li>)
+            list.push(<li>
+                        <img src={this.props.players.teams[team].players[i].player_image}/>
+                        {this.props.players.teams[team].players[i].player_name}<br/>
+                        crowd:{this.props.players.teams[team].players[i].average_rating} you: ?
+                      </li>)
 		        }
         return list;
     }
