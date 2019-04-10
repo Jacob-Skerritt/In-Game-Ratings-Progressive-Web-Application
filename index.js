@@ -70,7 +70,7 @@ function Square(props) {
                 }
                 
                 if(props.value.events[c].event_id == 6){
-                    ownGoal;
+                    ownGoal++;
                 }
                 
                 
@@ -162,7 +162,7 @@ function Square(props) {
                 }
                 
                 if(props.value.events[c].event_id == 6 ){
-                    ownGoal;
+                    ownGoal++;
                 }
                 
                 if(props.value.events[c].event_id ==4){
@@ -256,7 +256,7 @@ function Square(props) {
                 }
                 
                 if(props.value.events[c].event_id == 6){
-                    ownGoal;
+                    ownGoal++;
                 }
                 
                 if(props.value.events[c].event_id ==4){
@@ -790,8 +790,8 @@ class Modal extends React.Component{
                         <div>&nbsp;</div>
                         User: &nbsp;
                         <select id="users" onChange={this.onChange.bind(this)} >
-                        <option> 0 - No User </option>
-                        {this.props.players.users.map(function(user, index){return <option value={user.id}>{user.id} - {user.username}</option> })}
+                        <option> No User </option>
+                        {this.props.players.users.map(function(user, index){return <option value={user.id}>{user.username}</option> })}
                         </select>
                     </p>
                 </div>
