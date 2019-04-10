@@ -8,15 +8,15 @@ class GameInfo extends React.Component {
     return (
       <div className="gameInfo">
         <div className="home">
-          <img alt="Home Crest" src={this.props.players.teams[1].crest} />
-          <p>{this.props.players.teams[1].team_name}</p>
-        </div>
-        <div className="away">
-          <img alt="Away Crest" src={this.props.players.teams[0].crest} />
+          <img alt="Home Crest" src={this.props.players.teams[0].crest} />
           <p>{this.props.players.teams[0].team_name}</p>
         </div>
+        <div className="away">
+          <img alt="Away Crest" src={this.props.players.teams[1].crest} />
+          <p>{this.props.players.teams[1].team_name}</p>
+        </div>
         <div className="info">
-          <h1>{this.props.players.team2_score}-{this.props.players.team1_score}</h1>
+          <h1>{this.props.players.team1_score}-{this.props.players.team2_score}</h1>
           <p>{this.props.players.match_elapsed_time}</p>{" "}
         </div>
       </div>
@@ -359,18 +359,18 @@ class Board extends React.Component {
 
 
       if( i < 4){
-        for(let c = 0; c < this.props.players.teams[1].players.length;c++){
-          if(this.props.players.teams[1].players[c].position == track && track < 11)
+        for(let c = 0; c < this.props.players.teams[0].players.length;c++){
+          if(this.props.players.teams[0].players[c].position == track && track < 11)
           {
-            obj = this.props.players.teams[1].players[c];
+            obj = this.props.players.teams[0].players[c];
           }
         }
         teamClass = "team1-players";
       }else if( i >=4){
-        for(let c = 0; c < this.props.players.teams[0].players.length;c++){
-          if(this.props.players.teams[0].players[c].position ==10 -(track-11))
+        for(let c = 0; c < this.props.players.teams[1].players.length;c++){
+          if(this.props.players.teams[1].players[c].position ==10 -(track-11))
           {
-            obj = this.props.players.teams[0].players[c];
+            obj = this.props.players.teams[1].players[c];
 
 
           }
@@ -507,10 +507,10 @@ class PreGame extends React.Component{
                     </div>
                     <div className="preGameText">
                       <h2>Match Countdown!</h2>
-                      <h1 id="preGameTeamNames">{this.props.players.teams[1].team_name} Vs {this.props.players.teams[0].team_name}</h1>
-                      <img alt="Home Crest" src={this.props.players.teams[1].crest} /><img alt="Away Crest" src={this.props.players.teams[0].crest} />
+                      <h1 id="preGameTeamNames">{this.props.players.teams[0].team_name} Vs {this.props.players.teams[1].team_name}</h1>
+                      <img alt="Home Crest" src={this.props.players.teams[0].crest} /><img alt="Away Crest" src={this.props.players.teams[1].crest} />
                       <h3 id="preGameLocation">{this.props.players.match_location}</h3>
-                      <h3 id="preGameCompetition">Champions League</h3>
+                      <h3 id="preGameCompetition">Premier League</h3>
                       <h3>Rate all the players live!</h3>
                       <h1 id="countdown">{this.CountDownTimer(match_time, 'countdown')}</h1>
                     </div>
@@ -530,15 +530,39 @@ class PreGame extends React.Component{
 };
 
 class GameOver extends React.Component{
+    
+    renderListPlayers(team){
+        let list=[];
+        
+        for(let i =0; i <this.props.players.teams[team].players.length;i++){
+            list.push(<li>{this.props.players.teams[team].players[i].player_name} {this.props.players.teams[team].players[i].average_rating}</li>)
+		        }
+        return list;
+    }
     render(){
         return(                
             <div className="gameOver-board">
-                  <div className="gameOverText">
-                  <h1>Game over!</h1>
-                  <h2>{this.props.players.teams[1].team_name} Vs {this.props.players.teams[0].team_name}</h2>
-                  <h1>&nbsp;&nbsp;{this.props.players.team1_score} - {this.props.players.team2_score}</h1>
-                  <h3>Thank you for rating players in this match, we look forward to you joining us again.</h3>                  
+                <div className="gameOverInfo">
+                <h1>Game Over!</h1>
+                    <div className="gameOverText">
+                          <div>{this.props.players.teams[0].team_name}</div>
+                          <div>Vs</div>  
+                          <div>{this.props.players.teams[1].team_name}</div>
+                    </div>
+                    <div className="gameOverText">
+                          <div>{this.props.players.team1_score}</div>
+                          <div> - </div>
+                          <div>{this.props.players.team2_score}</div>                  
                   </div>
+                </div>
+                <div id="ratingResults">
+                <ul>
+                {this.renderListPlayers(1)}     
+                </ul>
+                <ul>
+                {this.renderListPlayers(0)}     
+                </ul>
+                </div>
             </div>                
         );
     }
@@ -575,7 +599,7 @@ class Game extends React.Component {
         'Accept' : 'application/json, text/plain, */*',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({id: 2, user_id: this.state.userId})
+      body: JSON.stringify({id: 4, user_id: this.state.userId})
     }).then(res => res.json())
       .then((result) => {
           this.setState({ players: result});
@@ -706,9 +730,9 @@ class Game extends React.Component {
             
           <div className="game-board">
           <div className="displayInfo">
-              <p className="homeNameDisplay">{this.state.players.teams[1].team_name}</p>
+              <p className="homeNameDisplay">{this.state.players.teams[0].team_name}</p>
               <p className="homeFormationDisplay">4-3-3</p>
-              <p className="awayNameDisplay">{this.state.players.teams[0].team_name}</p>
+              <p className="awayNameDisplay">{this.state.players.teams[1].team_name}</p>
               <p className="awayFormationDisplay">4-3-3</p> 
             </div>
             <Board players={this.state.players}  specialPlayers={this.specialPlayers()}  onClick={(i) => this.handleClick(i)}/>
@@ -747,11 +771,9 @@ class Modal extends React.Component{
   }
   
     changeDisplay(obj){
-      this.setState({
-          display: false,
-      });
+
       this.props.vote(this.state.selectedOption,obj.id, this.props.players.id, this.state.user);
-      setTimeout(function() {this.setState({display: true})}.bind(this), 2500);
+
  
   }
   
@@ -1055,7 +1077,7 @@ class Modal extends React.Component{
               </div>
               <div className="modal-body">
                   <p>
-                      Database Error: Contact Admin!
+                      Oopsy, there was an error, please try again
                   </p>
               </div>
           </div>
@@ -1167,20 +1189,20 @@ class TeamInfo extends React.Component{
       <div id="team-info">
 
       <div id="team1-info">
-      <h3> {this.props.players.teams[1].team_name}</h3>
-      <ul>
-      {this.renderListPlayers(1)}
-       </ul>
-       <h3>Managers</h3>
-         <ul><li> {this.props.players.teams[1].manager} </li></ul>
-       </div>
-      <div id="team2-info">
       <h3> {this.props.players.teams[0].team_name}</h3>
       <ul>
       {this.renderListPlayers(0)}
+       </ul>
+       <h3>Managers</h3>
+         <ul><li> {this.props.players.teams[0].manager} </li></ul>
+       </div>
+      <div id="team2-info">
+      <h3> {this.props.players.teams[1].team_name}</h3>
+      <ul>
+      {this.renderListPlayers(1)}
       </ul>
       <h3> &nbsp; </h3>
-      <ul><li> {this.props.players.teams[0].manager} </li></ul>
+      <ul><li> {this.props.players.teams[1].manager} </li></ul>
       </div>
       </div>
 

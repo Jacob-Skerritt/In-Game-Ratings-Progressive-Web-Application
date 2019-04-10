@@ -465,22 +465,53 @@ button#1.team1-players {
     background-repeat: no-repeat, repeat;
 }
 
-
-.gameOverText, .preGameText{
+.preGameText, .gameOverInfo, #ratingResults{
     width:80%;
     text-align: center;
-    font-size: 1em;
+    font-size: 0.85em;
     position:absolute;
-    top:25%;
+    top:2%;
     background-color: #ddd;
     opacity:0.9;
     border-radius: 10%;
     border: 2px solid black;
     left:10%;
 }
+.gameOverInfo{
+    height: 15%;
+}
+.gameOverInfo > h1:nth-child(1){
+    margin:3% auto;
+}
+
+#ratingResults{
+    top: 19%;
+    height:80%;
+    overflow: hidden;
+}
+
+.gameOverText{
+    font-size: 1.7em;
+    display: grid;
+    grid-template-columns: 1fr 0.4fr 1fr;
+}
+
+div.gameOverText:nth-child(2) > div:nth-child(1), div.gameOverText:nth-child(3) > div:nth-child(1){
+    text-align: right;
+}
+
+div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) > div:nth-child(3){
+    text-align: left;
+}
+.gameOverText h1{
+    margin-bottom: 2%;
+}
+
+
+
 
 .preGameText{
-    top:20%;
+    top:21%;
 }
 
 /*.gameOver-board, .preGame-board button{
@@ -570,6 +601,7 @@ button#1.team1-players {
     border-radius: 15%;
     border: 2px solid black;
     left: 10%;
+    height:14%;
 }
 
 
@@ -580,7 +612,7 @@ button#1.team1-players {
 
 .preGameLogo img{
     width: 30%;
-    height: 50%;
+    height: 90%;
     position: relative;
     float: left;
     padding: 2%;
@@ -602,8 +634,20 @@ button#1.team1-players {
     }
     
     .preGameText{
-        top:22%;
+        top:18%;
     }
+    .preGameLogo h2 {
+        font-size: 2em;
+    }
+    
+    #preGameTeamNames{
+        font-size: 1.8em;
+    }
+    
+    .gameOverText {
+        font-size: 1.5em;
+    }
+
 
 }
 
@@ -659,3 +703,4 @@ button#1.team1-players {
     margin-right:15px;
     margin-left: 30px;
 }
+
