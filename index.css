@@ -539,11 +539,13 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
 
 #preGameLocation{
     margin-bottom: 1%;
+    margin-top:-5%;
 }
 
 #preGameCompetition{
     margin:0;
 }
+
 
 
 .homeNameDisplay {
@@ -655,24 +657,37 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
 /*ipad*/
 @media only screen and (min-width:640px){
     .preGameText {
-        top: 30%;
-        left: 25%;
-        width: 50%;
+        top: 17%;
+        left: 15%;
+        width: 70%;
     }
    
     .preGameLogo h2 {
-        font-size: 2.5em;
+        font-size: 1.5em;
         margin-top: 5%;
     }
     .preGameLogo img {
-        width: 40%;
+        width: 30%;
+        height:85%;
     }
     
     .preGameLogo {
-        width: 70%;
+        width: 45%;
         font-size: 2em;
-        top: 8%;
-        left: 15%;
+        top: 3%;
+        left: 27.5%;
+        height:12%;
+    }
+    
+    .preGameText > h2:nth-child(1){
+        font-size:2.5em;
+    }
+    #preGameTeamNames{
+        font-size: 2.3em;
+        margin-top: 6%;
+    }
+    #preGameLocation{
+        margin-top:-4%;
     }
 }
 
@@ -704,3 +719,40 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     margin-left: 30px;
 }
 
+
+/*PC*/
+@media only screen and (min-width:1000px){
+    #preGameTeamNames{
+        font-size: 5em;
+    }
+    
+    .preGameText h3{
+        font-size:3em;
+    }
+    .preGameText {
+        top: 24%;
+    }
+    
+    .preGameText img{
+        height:200px;
+        margin-right: 6%;
+        margin-left: 0%;
+    }
+    #preGameTeamNames{
+        font-size: 5em;
+    }
+    .preGameLogo h2 {
+        font-size: 2.7em;
+        margin-top: 1%;
+    }
+
+    .preGameLogo img {
+        width: 38%;
+        height: 85%;
+    }
+    .preGameLogo {
+        font-size: 2em;
+        left: 27.5%;
+        height: 19%;
+    }
+}
