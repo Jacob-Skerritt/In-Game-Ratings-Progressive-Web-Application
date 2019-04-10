@@ -535,16 +535,19 @@ class PreGame extends React.Component{
 class GameOver extends React.Component{
     
     renderListPlayers(team){
+        
+        let teamSort = this.props.players.teams[team].players;
+        teamSort.sort(function(a,b){return b.average_rating - a.average_rating});
         let list=[];
         
-        for(let i =0; i <this.props.players.teams[team].players.length;i++){
+        for(let i =0; i <teamSort.length;i++){
             list.push(<li>
-                        <img src={this.props.players.teams[team].players[i].player_image}/>
-                        {this.props.players.teams[team].players[i].player_name}<br/>
-                        crowd:{this.props.players.teams[team].players[i].average_rating} you: ?
+                        <img src={teamSort[i].player_image}/>
+                        {teamSort[i].player_name}<br/>
+                        crowd:{teamSort[i].average_rating} you: ?
                       </li>)
 		        }
-        return list;
+            return list;
     }
     render(){
         return(                
@@ -564,10 +567,10 @@ class GameOver extends React.Component{
                 </div>
                 <div id="ratingResults">
                 <ul>
-                {this.renderListPlayers(1)}     
+                {this.renderListPlayers(0)}     
                 </ul>
                 <ul>
-                {this.renderListPlayers(0)}     
+                {this.renderListPlayers(1)}     
                 </ul>
                 </div>
             </div>                
