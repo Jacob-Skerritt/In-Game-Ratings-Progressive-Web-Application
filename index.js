@@ -543,9 +543,8 @@ class GameOver extends React.Component{
         for(let i =0; i <teamSort.length;i++){
             list.push(<li>
                         <img src={teamSort[i].player_image}/>
-                        <p>{teamSort[i].player_name}<br/>
-                        crowd:{parseFloat(teamSort[i].average_rating).toFixed(1)}<br/>
-                        you: ?</p>
+                        <p>{teamSort[i].player_name}</p>
+                        <p>{parseFloat(teamSort[i].average_rating).toFixed(1)}</p>
                       </li>)
 		        }
             return list;
@@ -556,9 +555,9 @@ class GameOver extends React.Component{
                 <div className="gameOverInfo">
                 <h1>Game Over!</h1>
                     <div className="gameOverText">
-                          <div>{this.props.players.teams[0].team_name}</div>
+                          <div>Man Utd.</div>
                           <div>Vs</div>  
-                          <div>{this.props.players.teams[1].team_name}</div>
+                          <div>Man City</div>
                     </div>
                     <div className="gameOverText">
                           <div>{this.props.players.team1_score}</div>
@@ -567,11 +566,14 @@ class GameOver extends React.Component{
                   </div>
                 </div>
                 <div id="ratingResults">
+                <h2>Crowd rating results!</h2>
                 <ul>
-                {this.renderListPlayers(0)}     
+                    <h1>Man Utd.</h1>
+                    {this.renderListPlayers(0)}     
                 </ul>
                 <ul>
-                {this.renderListPlayers(1)}     
+                    <h1>Man City</h1>
+                    {this.renderListPlayers(1)}     
                 </ul>
                 </div>
             </div>                
