@@ -544,7 +544,7 @@ class GameOver extends React.Component{
             list.push(<li>
                         <img src={teamSort[i].player_image}/>
                         <p>{teamSort[i].player_name}<br/>
-                        crowd:{teamSort[i].average_rating}<br/>
+                        crowd:{parseFloat(teamSort[i].average_rating).toFixed(1)}<br/>
                         you: ?</p>
                       </li>)
 		        }
@@ -782,11 +782,24 @@ class Modal extends React.Component{
   }
   
     changeDisplay(obj){
-
-      this.props.vote(this.state.selectedOption,obj.id, this.props.players.id, this.state.user);
-
- 
+      this.props.vote(this.state.selectedOption,obj.id, this.props.players.id, this.state.user); 
   }
+  
+  rateDiseappear(obj){
+          
+    var boxOne = document.getElementsByClassName('btn-continue')[0];
+    var boxTwo = document.getElementsByClassName('ratingConfirmMessage')[0];
+    boxOne.classList.add('puff-out-center');
+    boxTwo.classList.add('puff-in-center');
+    boxTwo.style.display="block";
+    
+    this.changeDisplay(obj);
+    setTimeout(function(){boxOne.classList.remove('puff-out-center');},2000); 
+    setTimeout(function(){boxTwo.classList.remove('puff-in-center');boxTwo.style.display="none";},2000);
+  }
+  
+
+      
   
   handleOptionChange = changeEvent => {
   this.setState({
@@ -795,10 +808,12 @@ class Modal extends React.Component{
 };
 
   onChange(e){
-      this.setState({user: e.target.value}, function(){});
       this.props.close();
-      
+      this.setState({user: e.target.value}, function(){});            
     }
+    
+    
+
     
     
 
@@ -996,7 +1011,8 @@ class Modal extends React.Component{
   
             </div>
                 <div className="modal-footer">
-                    <button className="btn-continue" onClick={() =>this.changeDisplay(obj)}>Rate Player</button>
+                    <button id="rateSubmit" className="btn-continue" onClick={() =>this.rateDiseappear(obj)}>Rate Player</button>
+                    <p className="ratingConfirmMessage"><img src="public/images/events/tick.png"/> Rating submitted!</p>
                 </div>
             </div>
             
