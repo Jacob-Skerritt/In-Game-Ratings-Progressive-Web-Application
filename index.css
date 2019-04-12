@@ -709,13 +709,13 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
 
 .ratingConfirmMessage{
     display:none;
-    margin-top: -2%;
-    font-size: 2em;
+    margin-top: -4%;
+    font-size: 186%;
     margin-bottom: 1%;
     color: #00FF60;
     position: absolute;
     top: 16%;
-    margin-left: 3%;
+    margin-left: 7%;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
@@ -866,6 +866,11 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
         top:63%;
         height:35%;
     }
+    
+    .ratingConfirmMessage {
+        margin-top: -7%;
+        font-size: 160%;
+    }
 
 
 }
@@ -962,13 +967,20 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
         left: 15%;
         height: 50%;
     }
+    .ratingConfirmMessage{
+        font-size: 2.5em;
+        margin-top: -1%;
+    }
 }
 
 /*kindle fire*/
 @media only screen and (min-width:790px){
     .preGameFacts {
        top: 39%;
-
+    }
+    .ratingConfirmMessage{
+        font-size: 2.7em;
+        margin-top: -1%;
     }
 }
 
