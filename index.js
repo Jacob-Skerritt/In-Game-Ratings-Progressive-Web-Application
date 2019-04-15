@@ -10,10 +10,18 @@ class GameInfo extends React.Component {
         <div className="home">
           <img alt="Home Crest" src={this.props.players.teams[0].crest} />
           <p>{this.props.players.teams[0].team_name}</p>
+          <div className="homeEvents">
+            <p> {this.props.players.events[4].sub_player} {this.props.players.events[1].id}'</p>
+            <br/>
+            <p> {this.props.players.events[4].starting_player} {this.props.players.events[1].id}'</p>
+          </div>
         </div>
         <div className="away">
           <img alt="Away Crest" src={this.props.players.teams[1].crest} />
           <p>{this.props.players.teams[1].team_name}</p>
+          <div className="awayEvents">
+            <p>{this.props.players.events[3].starting_player} {this.props.players.events[3].id}' </p>
+          </div>
         </div>
         <div className="info">
           <h1>{this.props.players.team1_score}-{this.props.players.team2_score}</h1>

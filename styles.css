@@ -123,14 +123,14 @@ p {
     position: absolute;
     width: 35%;
     height: 35%;
-    top: 25%;
+    top: 15%;
     left: 5%;
 }
 
 .home p {
     position: absolute;
     left: 47%;
-    top: 20%;
+    top: 10%;
     font-family: serif;
     font-weight: bold;
     color: white;
@@ -150,13 +150,13 @@ p {
     position: absolute;
     width: 35%;
     height: 35%;
-    top: 25%;
+    top: 15%;
     left: 60%;
 }
 
 .away p {
     position: absolute;
-    top: 20%;
+    top: 10%;
     font-family: serif;
     font-weight: bold;
     color: white;
@@ -184,73 +184,16 @@ p {
 
 .info h1 {
     position: relative;
-    top:15%;
+    top:5%;
 }
 
 .info p {
     position: relative;
-    top: 0%;
+    top: -10%;
     font-weight: bold;
 
 }
 
-.teamName1 {
-    position: absolute;
-    height: 3%;
-    width: 45%;
-    left: 1%;
-}
-
-.teamName1 p {
-    position: absolute;
-    color: white;
-    top: -80%;
-    left: 5%;
-}
-
-.formation1 {
-    position: absolute;
-    height: 3%;
-    width: 25%;
-    left: 75%;
-}
-
-.formation1 p {
-    position: absolute;
-    color: white;
-    top: -80%;
-    left: 50%;
-}
-
-.teamName2 {
-    position: absolute;
-    height: 3%;
-    width: 45%;
-    top: 97.5%;
-    left: 1%;
-}
-
-.teamName2 p {
-    position: absolute;
-    color: white;
-    top: -80%;
-    left: 5%;
-}
-
-.formation2 {
-    position: absolute;
-    height: 3%;
-    width: 25%;
-    top: 97.5%;
-    left: 75%;
-}
-
-.formation2 p {
-    position: absolute;
-    color: white;
-    top: -80%;
-    left: 50%;
-}
 #plImg{
     width:50%;
     height:80%;
@@ -270,7 +213,42 @@ ul{
 
 }
 
+.homeEvents {
+    position: relative;
+    top: 40%;
+    left: 35%;
+    width: 65%;
+    height: 60%;
+}
+
+.homeEvents p {
+    font-size: 10px;
+    float: right;
+    position: relative;
+    top: 20%;
+    left: 5%;
+    margin-top: -10px;
+}
+
+.awayEvents {
+    position: relative;
+    top: 40%;
+    left: -5%;
+    width: 65%;
+    height: 60%;
+}
+
+.awayEvents p {
+    font-size: 10px;
+    float: left;
+    position: relative;
+    top: 20%;
+    left: 5%;
+    margin-top: -10px;
+}
+
+.homeEvents p {
+    font-size: 11px;
+}
 
 
- 
-  
