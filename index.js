@@ -515,6 +515,14 @@ class PreGame extends React.Component{
                       <h3>Rate all the players live!</h3>
                       <h1 id="countdown">{this.CountDownTimer(match_time, 'countdown')}</h1>
                     </div>
+                    <div className="preGameFacts">
+                    <iframe frameborder="10"  scrolling="no" width="300" height="500" 
+                    src="https://www.fctables.com/england/premier-league/iframe/?type=table&lang_
+                    id=2&country=67&template=10&team=&timezone=UTC&time=24&po=1&ma=1&wi=1&dr=0&los=
+                    1&gf=0&ga=0&gd=0&pts=1&ng=0&form=0&width=300&height=700&font=Verdana&fs=9&lh=18&bg=
+                    FFFFFF&fc=333333&logo=1&tlink=1&ths=1&thb=1&thba=FFFFFF&thc=000000&bc=
+                    dddddd&hob=f5f5f5&hobc=ebe7e7&lc=333333&sh=1&hfb=1&hbc=3bafda&hfc=FFFFFF"/>
+                    </div>
                      
                 </div>
             );
@@ -532,16 +540,49 @@ class PreGame extends React.Component{
 };
 
 class GameOver extends React.Component{
+    
+    renderListPlayers(team){
+        
+        let teamSort = this.props.players.teams[team].players;
+        teamSort.sort(function(a,b){return b.average_rating - a.average_rating});
+        let list=[];
+        
+        for(let i =0; i <teamSort.length;i++){
+            list.push(<li>
+                        <img src={teamSort[i].player_image}/>
+                        <p>{teamSort[i].player_name}</p>
+                        <p>{parseFloat(teamSort[i].average_rating).toFixed(1)}</p>
+                      </li>)
+		        }
+            return list;
+    }
     render(){
         return(                
             <div className="gameOver-board">
-                  <div className="gameOverText">
-                  <h1>Game over!</h1>
-                  <h2>{this.props.players.teams[0].team_name} Vs {this.props.players.teams[1].team_name}</h2>
-                  <h1>&nbsp;&nbsp;{this.props.players.team1_score} - {this.props.players.team2_score}</h1>
-                  <h3>Thank you for rating players in this match, we look forward to you joining us again.</h3>                  
+                <div className="gameOverInfo">
+                <h1>Game Over!</h1>
+                    <div className="gameOverText">
+                          <div>Man Utd.</div>
+                          <div>Vs</div>  
+                          <div>Man City</div>
+                    </div>
+                    <div className="gameOverText">
+                          <div>{this.props.players.team1_score}</div>
+                          <div> - </div>
+                          <div>{this.props.players.team2_score}</div>                  
                   </div>
-                  
+                </div>
+                <div id="ratingResults">
+                <h2>Crowd rating results!</h2>
+                <ul>
+                    <h1>Man Utd.</h1>
+                    {this.renderListPlayers(0)}     
+                </ul>
+                <ul>
+                    <h1>Man City</h1>
+                    {this.renderListPlayers(1)}     
+                </ul>
+                </div>
             </div>                
         );
     }
@@ -725,9 +766,9 @@ class Game extends React.Component {
     
       );
     }else{return (
-                
-     <img alt="Work" src="work1.jpg" />
-    
+                <div id="work">     
+     <img alt="Work" src="work2.png" />
+     </div>
     );}
         }
   }
@@ -745,13 +786,24 @@ class Modal extends React.Component{
   }
   
     changeDisplay(obj){
-      this.setState({
-          display: false,
-      });
-      this.props.vote(this.state.selectedOption,obj.id, this.props.players.id, this.state.user);
-      setTimeout(function() {this.setState({display: true})}.bind(this), 2500);
- 
+      this.props.vote(this.state.selectedOption,obj.id, this.props.players.id, this.state.user); 
   }
+  
+  rateDiseappear(obj){
+          
+    var boxOne = document.getElementsByClassName('btn-continue')[0];
+    var boxTwo = document.getElementsByClassName('ratingConfirmMessage')[0];
+    boxOne.classList.add('puff-out-center');
+    boxTwo.classList.add('puff-in-center');
+    boxTwo.style.display="block";
+    
+    this.changeDisplay(obj);
+    setTimeout(function(){boxOne.classList.remove('puff-out-center');},2000); 
+    setTimeout(function(){boxTwo.classList.remove('puff-in-center');boxTwo.style.display="none";},2000);
+  }
+  
+
+      
   
   handleOptionChange = changeEvent => {
   this.setState({
@@ -760,10 +812,12 @@ class Modal extends React.Component{
 };
 
   onChange(e){
-      this.setState({user: e.target.value}, function(){});
       this.props.close();
-      
+      this.setState({user: e.target.value}, function(){});            
     }
+    
+    
+
     
     
 
@@ -961,7 +1015,8 @@ class Modal extends React.Component{
   
             </div>
                 <div className="modal-footer">
-                    <button className="btn-continue" onClick={() =>this.changeDisplay(obj)}>Rate Player</button>
+                    <button id="rateSubmit" className="btn-continue" onClick={() =>this.rateDiseappear(obj)}>Rate Player</button>
+                    <p className="ratingConfirmMessage"><img src="public/images/events/tick.png"/> Rating submitted!</p>
                 </div>
             </div>
             
@@ -1053,7 +1108,7 @@ class Modal extends React.Component{
               </div>
               <div className="modal-body">
                   <p>
-                      Database Error: Contact Admin!
+                      Oopsy, there was an error, please try again
                   </p>
               </div>
           </div>
