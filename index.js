@@ -499,7 +499,8 @@ class PreGame extends React.Component{
               let min = (this.props.players.match_date_time).slice(14,16);
               let match_time = month + "/"+ day + "/" + year + " " + hour + ":" + min + " GMT+0100";
           
-            return(                
+            return(    
+                    
                 <div className="preGame-board">
                     <div class="preGameLogo">
                     <img src="public/images/misc/InGameRatingsLogo.png" />
@@ -515,19 +516,14 @@ class PreGame extends React.Component{
                       <h1 id="countdown">{this.CountDownTimer(match_time, 'countdown')}</h1>
                     </div>
                     <div className="preGameFacts">
-                    <p>Pre game facts go here</p>
-                    <p>
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porttitor convallis porta. Pellentesque blandit lorem eget fringilla laoreet. Phasellus pulvinar ex sit amet sapien lacinia finibus. In hac habitasse platea dictumst. Curabitur at convallis eros. Aenean porttitor auctor sem. Morbi varius purus arcu, molestie consequat ipsum vestibulum feugiat. Integer vitae dictum ante. Fusce ac lectus gravida, venenatis risus non, dictum turpis. Aenean eu risus a arcu laoreet pharetra sit amet id ante. Quisque rutrum sem a faucibus ornare. Phasellus ligula elit, pharetra rhoncus tellus fermentum, pellentesque rhoncus lectus.
-
-Aliquam dapibus nulla sed augue porttitor auctor. Aliquam interdum congue auctor. Pellentesque vel vehicula nulla, a tempus mauris. Aliquam vestibulum lacus at lectus iaculis, eget tempor magna posuere. Quisque nibh velit, venenatis a enim mollis, cursus condimentum felis. Aliquam finibus dui ut magna vulputate efficitur a eget erat. Pellentesque nec ex venenatis nunc rutrum sollicitudin pulvinar et erat. Nam id tincidunt nulla. Donec mollis ante est, dictum sagittis turpis imperdiet vitae. Sed sit amet eros lacus. Donec id ipsum sodales, tincidunt orci viverra, tristique eros. Pellentesque massa velit, ornare eu semper in, laoreet id felis. Nullam diam mauris, suscipit non varius tristique, ornare et ante. Sed a blandit risus. Phasellus vestibulum nunc eget iaculis consectetur.
-
-Sed rhoncus in felis non commodo. Vivamus dictum mauris non condimentum auctor. Phasellus vel tellus id sem tempor pellentesque ac quis urna. Nullam pretium nisl a mollis ornare. Duis tincidunt dui diam, eu convallis nisi scelerisque quis. Integer ullamcorper massa at urna euismod, vitae eleifend sem eleifend. Mauris tincidunt rutrum sodales. Donec maximus nunc at diam ultricies, id pretium nisl venenatis. Etiam faucibus rhoncus erat non vehicula. Curabitur consectetur magna ut erat venenatis convallis. Ut eleifend, mi ac lobortis interdum, odio orci ultrices libero, id tristique orci metus eget lorem. Etiam mattis varius turpis ac venenatis. Duis eu dictum dui. Aenean tristique justo est, ut rutrum turpis placerat a.
-
-Pellentesque rutrum lacinia ex et efficitur. Sed rhoncus, turpis vestibulum consectetur facilisis, elit nisi ultrices lacus, a efficitur odio leo id velit. Phasellus elit eros, gravida sed metus ut, pretium faucibus nunc. Fusce tristique quam sed lorem iaculis ultrices. Nulla eget sapien non turpis placerat auctor. Suspendisse tempus ex non felis tempor tempus. Morbi sodales nibh et tincidunt vulputate. Duis euismod nisl vitae arcu iaculis, id porttitor lectus maximus. Aenean ut urna lectus. Vestibulum tempor accumsan tempus. Nullam malesuada quis nisl ut aliquam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed sit amet sem hendrerit, cursus nisl in, fringilla nunc. Maecenas massa eros, dapibus vestibulum risus eget, ultricies vestibulum ligula. Etiam vitae pretium ipsum. Fusce nec finibus odio, a sollicitudin ex.
-
-Sed hendrerit nec nisl vel eleifend. Etiam vitae pellentesque velit. Ut vitae auctor purus, in rutrum mi. Aliquam erat volutpat. Maecenas egestas enim et sapien dignissim, a convallis purus finibus. Mauris sit amet augue lorem. Ut vulputate metus in metus pretium faucibus. Quisque fermentum luctus diam ac ultrices. Phasellus ultrices mauris eu mauris tempor congue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur ex purus, imperdiet a nisl non, pellentesque elementum neque. Aliquam auctor vitae augue sed facilisis. </p>
+                    <iframe frameborder="10"  scrolling="no" width="300" height="500" 
+                    src="https://www.fctables.com/england/premier-league/iframe/?type=table&lang_
+                    id=2&country=67&template=10&team=&timezone=UTC&time=24&po=1&ma=1&wi=1&dr=0&los=
+                    1&gf=0&ga=0&gd=0&pts=1&ng=0&form=0&width=300&height=700&font=Verdana&fs=9&lh=18&bg=
+                    FFFFFF&fc=333333&logo=1&tlink=1&ths=1&thb=1&thba=FFFFFF&thc=000000&bc=
+                    dddddd&hob=f5f5f5&hobc=ebe7e7&lc=333333&sh=1&hfb=1&hbc=3bafda&hfc=FFFFFF"/>
                     </div>
+                     
                 </div>
             );
           }else{
@@ -771,15 +767,9 @@ class Game extends React.Component {
     
       );
     }else{return (
-                
-    <div className="game">
-        
-            <GameInfo players={this.state.players}/>
-            <div className="game-board">
-                
-            </div>
-   </div>
-    
+                <div id="work">     
+     <img alt="Work" src="work2.png" />
+     </div>
     );}
         }
   }
