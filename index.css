@@ -506,7 +506,9 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
 
 
 .preGameText{
-    top:19%;
+    top: 19%;
+    height: 39%;
+    overflow: auto;
 }
 
 /*.gameOver-board, .preGame-board button{
@@ -838,6 +840,7 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
 @media only screen and (max-width: 320px){
     .preGameLogo{
         top:1%;
+        height: 16%;
     }
     
     .preGameText > h2:nth-child(1){
@@ -848,7 +851,8 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     }
     
     .preGameText{
-        top:16%;
+        top:18%;
+        height: 44%;
     }
     .preGameLogo h2 {
         font-size: 2em;
@@ -863,8 +867,8 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     }
     
     .preGameFacts{
-        top:63%;
-        height:35%;
+        top: 64%;
+        height: 30%;
     }
     
     .ratingConfirmMessage {
@@ -901,6 +905,10 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     .gameOverInfo {
         height: 14%;
     }
+    
+    .preGameText{
+        height: 32%;
+    }
 }
 
 
@@ -914,6 +922,10 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     
     .gameOverInfo {
         height: 15%;
+    }
+    
+    .preGameText{
+        height: 36%;
     }
 }
 
@@ -947,6 +959,10 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     .gameOverInfo {
         height: 13%;
     }
+    
+    .preGameText{
+        height:30%;
+    }
 }
 
 /*iphone X/XS*/
@@ -963,6 +979,7 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
         top: 17%;
         left: 15%;
         width: 70%;
+        height: 25%;
     }
    
     .preGameLogo h2 {
@@ -1053,6 +1070,10 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     
     #ratingResults > ul > li > p:nth-child(3) {
         font-size: 400%;
+    }
+    
+    .preGameText{
+        height: 20%;
     }
 }
 
