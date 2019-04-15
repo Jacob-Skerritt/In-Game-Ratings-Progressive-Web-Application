@@ -14,7 +14,11 @@ ol, ul {
   position: relative;
   display: inline-block;
 }*/
-
+#work{
+    
+    margin-top: 50%;
+    margin-left: 10%;
+}
 .board-row1 {
     position: relative;
     display: inline-block;
@@ -264,13 +268,6 @@ button .eventRedCard{
     left:70%;  
     z-index:2;
 }
-
-
-
-
-
-
-
 
 .square2 {
     background: #FF0000;
@@ -869,6 +866,8 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     .preGameFacts{
         top: 64%;
         height: 40%;
+        overflow: auto;
+        
     }
     
     .ratingConfirmMessage {
