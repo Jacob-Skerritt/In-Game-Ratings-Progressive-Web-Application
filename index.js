@@ -738,7 +738,7 @@ class Game extends React.Component {
   
   render() {
         
-    if(this.state.players.match_elapsed_time <= "00:00"){
+    if(this.state.players.match_elapsed_time == "preGame"){
         return(    
         <PreGame players={this.state.players} /> );
     }
@@ -931,6 +931,10 @@ class Modal extends React.Component{
                             </tr>
                       </table>
                     </div>
+                    { this.props.players.match_elapsed_time ==="00:00"
+                    ?<h2>Ratings available when game is live!</h2>
+                    :<div>
+                    
 
                     <h3 class="h3Custom">Enter New Rating:</h3>
                     <br/>
@@ -1021,12 +1025,16 @@ class Modal extends React.Component{
                                   </label>
                               </div>
                   </div>
-  
+                  </div> }   
             </div>
+            
+                { this.props.players.match_elapsed_time ==="00:00"
+                ?<p></p>
+                    :
                 <div className="modal-footer">
                     <button id="rateSubmit" className="btn-continue" onClick={() =>this.rateDiseappear(obj)}>Rate Player</button>
                     <p className="ratingConfirmMessage"><img src="public/images/events/tick.png"/> Rating submitted!</p>
-                </div>
+                </div>} 
             </div>
             
         </div>

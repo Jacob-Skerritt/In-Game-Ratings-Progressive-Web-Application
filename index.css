@@ -473,7 +473,7 @@ button#1.team1-players {
     top:2%;
     background-color: #ddd;
     opacity:0.9;
-    border-radius: 10%;
+    border-radius: 3%;
     border: 2px solid black;
     left:10%;
 }
@@ -597,7 +597,7 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     top: 4%;
     background-color: #ddd;
     opacity: 0.9;
-    border-radius: 15%;
+    border-radius: 3%;
     border: 2px solid black;
     left: 10%;
     height:14%;
@@ -868,7 +868,7 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     
     .preGameFacts{
         top: 64%;
-        height: 30%;
+        height: 40%;
     }
     
     .ratingConfirmMessage {
