@@ -604,12 +604,15 @@ class GameOver extends React.Component{
         let list=[];
         
         for(let i =0; i <teamSort.length;i++){
-            list.push(<li>
+            if(teamSort[i].position >=-1){
+                list.push(<li>
                         <img src={teamSort[i].player_image}/>
                         <p>{teamSort[i].player_name}</p>
                         <p>{parseFloat(teamSort[i].average_rating).toFixed(1)}</p>
                       </li>)
 		        }
+      }
+            
             return list;
     }
     render(){
