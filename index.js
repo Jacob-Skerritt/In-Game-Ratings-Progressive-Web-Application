@@ -902,9 +902,6 @@ class Modal extends React.Component{
     
     
 
-    
-    
-
   render() {
       
     if(localStorage.getItem('player_ratings_username') === null){
@@ -916,15 +913,18 @@ class Modal extends React.Component{
                     opacity: this.props.show ? '1' : '0'
                 }}>
                 <div className="modal-header">
-                    <h2>Nickname Creation</h2>
+                <img src="inGameRatingsLogo.png"/>
+                    <h2>In-Game Ratings</h2>
                     
                 </div>
                 <div id="modal-body-nickname">
+                <p>Enter username to rate players</p>
+                
  
-                        <input id="nickname" type="text" placeholder="Enter Nickname" />
+                        <input id="nickname" type="text" placeholder="Username" autofocus/>
                         <br/>
                         <br/>
-                        <button id="submit-nickname" className="btn-continue" onClick={() =>this.addNickname(document.getElementById('nickname').value)}> Enter Nickname </button>
+                        <button id="submit-nickname" className="btn-continue" onClick={() =>this.addNickname(document.getElementById('nickname').value)}> Rate players! </button>
 
                 </div>
                 
@@ -992,7 +992,10 @@ class Modal extends React.Component{
                         <table>
                             <tr>
                               <th>Crowd</th>
-                              <th>{localStorage.getItem('player_ratings_username').slice(0,localStorage.getItem('player_ratings_username').indexOf('#'))}</th>
+                              { localStorage.getItem('player_ratings_username').slice(0,localStorage.getItem('player_ratings_username').indexOf('#')).length ==0
+                                ?<th>You</th>
+                                :<th>{localStorage.getItem('player_ratings_username').slice(0,localStorage.getItem('player_ratings_username').indexOf('#'))}</th>}
+                              
                             </tr>
                             <tr>
                                 { obj.average_rating !=0

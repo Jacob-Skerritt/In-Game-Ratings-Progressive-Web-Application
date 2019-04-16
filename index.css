@@ -934,6 +934,21 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
 .preGameFacts > h3:nth-child(3){
     margin-bottom:-3%;
 }
+
+
+.modal-header > h2:nth-child(1){
+    float:right;
+    font-size:130%;
+}
+
+.modal-header > img:nth-child(1){
+    width: 22%;
+    height: 190%;
+    position: relative;
+    float: left;
+    margin-top: -4%;
+    margin-right: -2%;
+}
 /*iphone5*/
 @media only screen and (max-width: 320px){
     .preGameLogo{
