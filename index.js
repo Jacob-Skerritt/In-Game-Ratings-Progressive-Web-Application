@@ -516,30 +516,68 @@ class PreGame extends React.Component{
                       <h1 id="countdown">{this.CountDownTimer(match_time, 'countdown')}</h1>
                     </div>
                     <div className="preGameFacts">
-                    <h3>Previous match up scores</h3>
-                    <p>Man Utd. 3 - 2 Man City<br/>Man Utd. 1 - 4 Man City</p>
+                    <h3>Previous match up results</h3>
+                        <div id="previousMatches">
+                            <table>
+                                <tr>
+                                    <th>Man Utd.</th>
+                                    <th>Vs</th>
+                                    <th>Man City</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td><td>-</td><td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td><td>-</td><td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td><td>-</td><td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td><td>-</td><td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td><td>-</td><td>0</td>
+                                </tr>
+                            </table>
+                        </div>
+                                            <h3>Predicted team line up</h3>
+                    <div id="predictedTeamLineUp">                    
+                        <ul>
+                            <h1>Man Utd.</h1>
+                            <li>(GK)De Gea</li>
+                            <li>(RB)Young</li>
+                            <li>(CB)Smalling</li>
+                            <li>(CB)Lindelof</li>
+                            <li>(LB)Shaw</li>
+                            <li>(CM)Fred</li>
+                            <li>(DM)McTominay</li>
+                            <li>(CM)Pogba</li>
+                            <li>(RW)Lingard</li>
+                            <li>(ST)Rashford</li>
+                            <li>(LW)Martial</li>
+                        </ul>
+                        <ul>
+                            <h1>Man City</h1>
+                            <li>(GK)Ederson</li>
+                            <li>(RB)Walker</li>
+                            <li>(CB)Otamendi</li>
+                            <li>(CB)Laporte</li>
+                            <li>(LB)Mendy</li>
+                            <li>(CM)De Bruyne</li>
+                            <li>(DM)Fernandinho</li>
+                            <li>(CM)Gundogan</li>
+                            <li>(RW)B.Silva</li>
+                            <li>(ST)Aguero</li>
+                            <li>(LW)Sterling</li>
+                        </ul>
+                    </div>
                     <h3>Premiership standings</h3>
 
                     <iframe id="frameyMcFrameFace" frameborder="0" 
                     src="https://www.fctables.com/england/premier-league/iframe/?type=table&lang_id=2&country=67&template=10&team=180231&timezone=Europe/London&time=24&po=1&ma=1&wi=1&dr=1&los=1&gf=1&ga=1&gd=1&pts=1&ng=1&form=1&width=450&height=580&font=Verdana&fs=12&lh=12&bg=FFFFFF&fc=333333&logo=1&tlink=1&ths=1&thb=1&thba=FFFFFF&thc=000000&bc=dddddd&hob=f5f5f5&hobc=ebe7e7&lc=333333&sh=1&hfb=1&hbc=3bafda&hfc=FFFFFF"/>
                     
-                    <h4>predicted team line up</h4>
-                    <ul>
-                    <li>Man Utd</li>
-                    <li>Gary Breen</li>
-                    <li>Gary Breen</li>
-                    <li>Gary Breen</li>
-                    <li>Gary Breen</li>
-                    <li>Gary Breen</li>
-                    <li>Gary Breen</li>
-                    <li>Gary Breen</li>
-                    <li>Gary Breen</li>
-                    <li>Gary Breen</li>
-                    <li>Gary Breen</li>
-                    <li>Gary Breen</li>
-                    <li></li>
-                    </ul>
-                    
+
                     </div>
                      
                 </div>
@@ -549,7 +587,7 @@ class PreGame extends React.Component{
                 <div className="gameOver-board">
                     <div className="gameOverText">
                         <h2>Match Countdown!</h2>
-                        <h1>Liverpool Vs Porto</h1>
+                        <h1>Man Utd Vs Man city</h1>
                     </div>
                 </div>   
                 );
@@ -798,11 +836,8 @@ class Modal extends React.Component{
     super(props);
     this.state = {
       selectedOption: "6",
-      display: true   
+      display: true
     };
-    
-    
-
   }
   
     changeDisplay(obj){
@@ -957,7 +992,7 @@ class Modal extends React.Component{
                         <table>
                             <tr>
                               <th>Crowd</th>
-                              <th>You</th>
+                              <th>{localStorage.getItem('player_ratings_username').slice(0,localStorage.getItem('player_ratings_username').indexOf('#'))}</th>
                             </tr>
                             <tr>
                                 { obj.average_rating !=0
@@ -968,7 +1003,7 @@ class Modal extends React.Component{
                       </table>
                     </div>
                     { this.props.players.match_elapsed_time ==="00:00"
-                    ?<h2>Ratings available when game is live!</h2>
+                    ?<h2>Rating players available when game is live!</h2>
                     :<div>
                     
 
@@ -1106,8 +1141,8 @@ class Modal extends React.Component{
                 <div className="modal-player-ratings">
                     <table>
                         <tr>
-                            <th>Crowd<br/> Rating</th>
-                            <th>Your<br/> Rating</th>
+                            <th>Crowd</th>
+                            <th>{localStorage.getItem('player_ratings_username').slice(0,localStorage.getItem('player_ratings_username').indexOf('#'))}</th>
                             </tr>
                         <tr>
                             { obj.average_rating !=0
