@@ -516,8 +516,30 @@ class PreGame extends React.Component{
                       <h1 id="countdown">{this.CountDownTimer(match_time, 'countdown')}</h1>
                     </div>
                     <div className="preGameFacts">
-                    <iframe id="frameyMcFrameFace" frameborder="0"  scrolling="auto" width="450" 
+                    <h3>Previous match up scores</h3>
+                    <p>Man Utd. 3 - 2 Man City<br/>Man Utd. 1 - 4 Man City</p>
+                    <h3>Premiership standings</h3>
+
+                    <iframe id="frameyMcFrameFace" frameborder="0" 
                     src="https://www.fctables.com/england/premier-league/iframe/?type=table&lang_id=2&country=67&template=10&team=180231&timezone=Europe/London&time=24&po=1&ma=1&wi=1&dr=1&los=1&gf=1&ga=1&gd=1&pts=1&ng=1&form=1&width=450&height=580&font=Verdana&fs=12&lh=12&bg=FFFFFF&fc=333333&logo=1&tlink=1&ths=1&thb=1&thba=FFFFFF&thc=000000&bc=dddddd&hob=f5f5f5&hobc=ebe7e7&lc=333333&sh=1&hfb=1&hbc=3bafda&hfc=FFFFFF"/>
+                    
+                    <h4>predicted team line up</h4>
+                    <ul>
+                    <li>Man Utd</li>
+                    <li>Gary Breen</li>
+                    <li>Gary Breen</li>
+                    <li>Gary Breen</li>
+                    <li>Gary Breen</li>
+                    <li>Gary Breen</li>
+                    <li>Gary Breen</li>
+                    <li>Gary Breen</li>
+                    <li>Gary Breen</li>
+                    <li>Gary Breen</li>
+                    <li>Gary Breen</li>
+                    <li>Gary Breen</li>
+                    <li></li>
+                    </ul>
+                    
                     </div>
                      
                 </div>
@@ -588,7 +610,7 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isShowing: true,
+      isShowing: false,
       players: {id:-1},
       buttonId: -1,
       userId: -1,
@@ -615,7 +637,7 @@ class Game extends React.Component {
         'Accept' : 'application/json, text/plain, */*',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({id: 4, user_id: this.state.userId})
+      body: JSON.stringify({id: 4, username: localStorage.getItem('player_ratings_username')})
     }).then(res => res.json())
       .then((result) => {
           this.setState({ players: result});
@@ -650,18 +672,16 @@ class Game extends React.Component {
   }
   
   
-  vote(rating ,player_id, match_id, user_id){
+  vote(rating ,player_id, match_id){
     fetch('http://localhost/player_ratings_api/rating/add_rating.php', {
       method:'post',
       header: {
         'Accept' : 'application/json, text/plain, */*',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({match_id: match_id, player_id: player_id, rating: rating, user_id: user_id})
+      body: JSON.stringify({match_id: match_id, player_id: player_id, rating: rating, username: localStorage.getItem('player_ratings_username')})
     });
-    this.setState({
-      userId : user_id,
-    });
+
     
     setTimeout(function() {this.closeModalHandler();}.bind(this), 1500);
   }
@@ -729,8 +749,11 @@ class Game extends React.Component {
   
   
   render() {
-        
-    if(this.state.players.match_elapsed_time == "preGame"){
+      
+        if(localStorage.getItem('player_ratings_username')=== null){
+            this.state.isShowing = true;
+        }
+    if(this.state.players.match_elapsed_time === "preGame"){
         return(    
         <PreGame players={this.state.players} /> );
     }
@@ -755,7 +778,7 @@ class Game extends React.Component {
           </div>
               <TeamInfo players={this.state.players} onClick={(i) => this.handleClick(i)}/>
               { this.state.isShowing ? <div className="back-drop"></div> : null }
-          <Modal className="modal" id={this.state.buttonId} vote={(rating ,player_id, match_id,user_id) =>this.vote(rating ,player_id, match_id,user_id)} show={this.state.isShowing} close={this.closeModalHandler} players={this.state.players} />    
+          <Modal className="modal" id={this.state.buttonId} vote={(rating ,player_id, match_id) =>this.vote(rating ,player_id, match_id)} show={this.state.isShowing} close={this.closeModalHandler} players={this.state.players} />    
                   
      </div>
     
@@ -774,14 +797,17 @@ class Modal extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      user: -1,
       selectedOption: "6",
       display: true   
     };
+    
+    
 
   }
   
     changeDisplay(obj){
+        
+    
       this.props.vote(this.state.selectedOption,obj.id, this.props.players.id, this.state.user); 
   }
   
@@ -799,17 +825,44 @@ class Modal extends React.Component{
   }
   
 
-      
-  
+     
   handleOptionChange = changeEvent => {
-  this.setState({
+     
+        this.setState({
     selectedOption: changeEvent.target.value
   });
+
 };
 
-  onChange(e){
+  addNickname(nickname){
+      var $usernames;
+          fetch('http://localhost/player_ratings_api/user/user_count.php', {
+      method:'post',
+      header: {
+        'Accept' : 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({username: nickname})
+    }).then(res => res.json())
+      .then((result) => {
+          $usernames = result;
+        nickname = nickname +"#" + $usernames.usernames;
+    fetch('http://localhost/player_ratings_api/user/create.php', {
+      method:'post',
+      header: {
+        'Accept' : 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({username: nickname})
+    });
+    localStorage.setItem('player_ratings_username', nickname);
+    
       this.props.close();
-      this.setState({user: e.target.value}, function(){});            
+        }
+      )
+      
+
+                  
     }
     
     
@@ -818,8 +871,8 @@ class Modal extends React.Component{
     
 
   render() {
-  
-    if(this.state.user == -1){
+      
+    if(localStorage.getItem('player_ratings_username') === null){
       return(
         <div>
             <div className="modal-wrapper"
@@ -828,20 +881,16 @@ class Modal extends React.Component{
                     opacity: this.props.show ? '1' : '0'
                 }}>
                 <div className="modal-header">
-                    <h3>User Selection</h3>
+                    <h2>Nickname Creation</h2>
                     
                 </div>
-                <div className="modal-body">
-                    <p>
-                        
-                        Please Select User -  <br/>
-                        <div>&nbsp;</div>
-                        User: &nbsp;
-                        <select id="users" onChange={this.onChange.bind(this)} >
-                        <option> No User </option>
-                        {this.props.players.users.map(function(user, index){return <option value={user.id}>{user.username}</option> })}
-                        </select>
-                    </p>
+                <div id="modal-body-nickname">
+ 
+                        <input id="nickname" type="text" placeholder="Enter Nickname" />
+                        <br/>
+                        <br/>
+                        <button id="submit-nickname" className="btn-continue" onClick={() =>this.addNickname(document.getElementById('nickname').value)}> Enter Nickname </button>
+
                 </div>
                 
             </div>
@@ -939,7 +988,7 @@ class Modal extends React.Component{
                               <div className="form-check">
                                 <label class="container">
                                  2
-                                  <input type="radio" name="react-tips" value="2" onChange={this.handleOptionChange} className="form-check-input" />
+                                  <input type="radio"  className="form-check-input" name="react-tips" value="2" onChange={this.handleOptionChange}  />
                                   <span class="checkmark"></span>
                                   </label>
                               </div>
