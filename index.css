@@ -489,8 +489,10 @@ button#1.team1-players {
     left:10%;
 }
 .gameOverInfo{
-    height: 15%;
+    /*height: 15%;*/
     overflow: auto;
+    display: block;
+    position:relative;
 }
 .gameOverInfo > h1:nth-child(1){
     margin:3% auto;
@@ -501,7 +503,7 @@ button#1.team1-players {
 .gameOverText{
     font-size: 2em;
     display: grid;
-    grid-template-columns: 1fr 0.4fr 1fr;
+    grid-template-columns: 1fr 0.5fr 1fr;
 }
 
 div.gameOverText:nth-child(2) > div:nth-child(1), div.gameOverText:nth-child(3) > div:nth-child(1){
@@ -645,8 +647,8 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
 }
 
 #ratingResults{
-    top: 19%;
-    height: 65%;
+/*    top: 19%;*/
+    height: 70%;
     overflow: auto;
     border-radius: 2%;
     width: 90%;
@@ -654,6 +656,8 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-auto-row:1fr;
+    position:relative;
+    margin-top: 2%;
 /*    grid-template-rows:1fr;
     grid-template-columns: 1fr 1fr;*/
 }
@@ -712,6 +716,7 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    z-index:1;
 }
 
 #ratingResults > ul > li > p:nth-child(3){
@@ -942,6 +947,38 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     margin-right: 6%;
     margin-top: 0%;
 }
+
+#resultEvents{
+    display:grid;
+    grid-template-rows:1fr;
+    grid-template-columns: 0.5fr 0.5fr;
+    width: 100%;
+    text-align:initial;
+    margin: -2% auto;
+}
+#resultEvents > ul > li > img{
+    width:16px;
+}
+
+#resultEvents > ul{
+    padding-left: 17%;
+}
+
+#resultsStar{
+    z-index: 0;
+    margin-left: -12% !important;
+    position: fixed;
+    width: 8% !important;
+    margin-top: 7% !important;
+}
+
+
+
+
+
+
+
+
 /*iphone5*/
 @media only screen and (max-width: 320px){
     .preGameLogo{
@@ -984,17 +1021,22 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
         font-size: 160%;
     }
     
-    #ratingResults {
+/*    #ratingResults {
         top: 22%;
-    }
-    
+    }*/
+/*    
     .gameOverInfo {
         height: 18%;
-    }
+    }*/
     
     #ratingResults > h2 {
         margin: 1%;
-        font-size: 210%;
+        font-size: 180%;
+    }
+    
+    #resultsStar{
+        margin-left: -13% !important;
+        margin-top: 9% !important;
     }
 
 }
@@ -1010,9 +1052,9 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     top: 54%;
     }
     
-    .gameOverInfo {
+/*    .gameOverInfo {
         height: 14%;
-    }
+    }*/
     
     .preGameText{
         height: 32%;
@@ -1028,9 +1070,9 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
         height: 39%;
     }
     
-    .gameOverInfo {
+/*    .gameOverInfo {
         height: 15%;
-    }
+    }*/
     
     .preGameText{
         height: 36%;
@@ -1064,9 +1106,9 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
         height:47%;
     }
     
-    .gameOverInfo {
+/*    .gameOverInfo {
         height: 13%;
-    }
+    }*/
     
     .preGameText{
         height:30%;
@@ -1076,9 +1118,9 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
 /*iphone X/XS*/
 @media only screen and (min-width:410px) and (min-height: 730px){
     
-    .gameOverInfo {
+/*    .gameOverInfo {
         height: 14%;
-    }
+    }*/
 }
 
 /*ipad*/
@@ -1130,7 +1172,7 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     }
     
     .gameOverInfo {
-        height: 10%;
+        /*height: 10%;*/
         width: 60%;
         left: 20%;
     }
@@ -1143,7 +1185,7 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     }
     
     #ratingResults {
-        top: 13%;
+        /*top: 13%;*/
         height: 78%;
         width: 80%;
         left: 10%;
@@ -1159,7 +1201,13 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     
     .preGameFacts > h3:nth-child(3){
     margin-bottom:-3%;
-}
+    }
+    
+    #resultsStar {
+        margin-left: -9% !important;
+        width: 6% !important;
+        margin-top: 7% !important;
+    }
 }
 
 /*kindle fire*/
@@ -1172,9 +1220,9 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
         margin-top: -1%;
     }
     
-    .gameOverInfo {
+/*    .gameOverInfo {
         height: 9%;
-    }
+    }*/
     
     #ratingResults > ul > li > p {
         font-size: 218%;
@@ -1253,14 +1301,14 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     }
     
     #ratingResults {
-        top: 20%;
+        /*top: 20%;*/
         width: 50%;
         left: 25%;
     }
     
-    .gameOverInfo {
+/*    .gameOverInfo {
         height: 17%;
-    }
+    }*/
     
     #ratingResults > ul > h1 {
         margin: 0% auto;
@@ -1279,5 +1327,10 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
         margin-bottom:3%;
     }
     
+    #resultsStar {
+    margin-left: -5% !important;
+    width: 4% !important;
+    margin-top: 4% !important;
+}
 
 }
