@@ -516,6 +516,37 @@ class PreGame extends React.Component{
                       <h1 id="countdown">{this.CountDownTimer(match_time, 'countdown')}</h1>
                     </div>
                     <div className="preGameFacts">
+                    <h3>Predicted team line up</h3>
+                    <div id="predictedTeamLineUp">                    
+                        <ul>
+                            <h1>Man Utd.</h1>
+                            <li>De Gea</li>
+                            <li>Young</li>
+                            <li>Smalling</li>
+                            <li>Lindelof</li>
+                            <li>Shaw</li>
+                            <li>Fred</li>
+                            <li>McTominay</li>
+                            <li>Pogba</li>
+                            <li>Lingard</li>
+                            <li>Rashford</li>
+                            <li>Martial</li>
+                        </ul>
+                        <ul>
+                            <h1>Man City</h1>
+                            <li>Ederson</li>
+                            <li>Walker</li>
+                            <li>Otamendi</li>
+                            <li>Laporte</li>
+                            <li>Mendy</li>
+                            <li>De Bruyne</li>
+                            <li>Fernandinho</li>
+                            <li>Gundogan</li>
+                            <li>B.Silva</li>
+                            <li>Aguero</li>
+                            <li>Sterling</li>
+                        </ul>
+                    </div>
                     <h3>Previous match up results</h3>
                         <div id="previousMatches">
                             <table>
@@ -525,53 +556,22 @@ class PreGame extends React.Component{
                                     <th>Man City</th>
                                 </tr>
                                 <tr>
-                                    <td>1</td><td>-</td><td>3</td>
+                                    <td>1</td><td>-</td><td>3<img alt="Away Crest" src={this.props.players.teams[1].crest} /></td>
                                 </tr>
                                 <tr>
-                                    <td>3</td><td>-</td><td>2</td>
+                                    <td><img alt="Home Crest" src={this.props.players.teams[0].crest} />3</td><td>-</td><td>2</td>
                                 </tr>
                                 <tr>
-                                    <td>1</td><td>-</td><td>2</td>
+                                    <td>1</td><td>-</td><td>2<img alt="Away Crest" src={this.props.players.teams[1].crest} /></td>
                                 </tr>
                                 <tr>
-                                    <td>2</td><td>-</td><td>0</td>
+                                    <td><img alt="Home Crest" src={this.props.players.teams[0].crest} />2</td><td>-</td><td>0</td>
                                 </tr>
                                 <tr>
-                                    <td>0</td><td>-</td><td>0</td>
+                                    <td><img alt="Home Crest" src={this.props.players.teams[0].crest} />0</td><td>-</td><td>0<img alt="Away Crest" src={this.props.players.teams[1].crest} /></td>
                                 </tr>
                             </table>
                         </div>
-                                            <h3>Predicted team line up</h3>
-                    <div id="predictedTeamLineUp">                    
-                        <ul>
-                            <h1>Man Utd.</h1>
-                            <li>(GK)De Gea</li>
-                            <li>(RB)Young</li>
-                            <li>(CB)Smalling</li>
-                            <li>(CB)Lindelof</li>
-                            <li>(LB)Shaw</li>
-                            <li>(CM)Fred</li>
-                            <li>(DM)McTominay</li>
-                            <li>(CM)Pogba</li>
-                            <li>(RW)Lingard</li>
-                            <li>(ST)Rashford</li>
-                            <li>(LW)Martial</li>
-                        </ul>
-                        <ul>
-                            <h1>Man City</h1>
-                            <li>(GK)Ederson</li>
-                            <li>(RB)Walker</li>
-                            <li>(CB)Otamendi</li>
-                            <li>(CB)Laporte</li>
-                            <li>(LB)Mendy</li>
-                            <li>(CM)De Bruyne</li>
-                            <li>(DM)Fernandinho</li>
-                            <li>(CM)Gundogan</li>
-                            <li>(RW)B.Silva</li>
-                            <li>(ST)Aguero</li>
-                            <li>(LW)Sterling</li>
-                        </ul>
-                    </div>
                     <h3>Premiership standings</h3>
 
                     <iframe id="frameyMcFrameFace" frameborder="0" 
