@@ -464,7 +464,7 @@ button#1.team1-players {
     top:2%;
     background-color: #ddd;
     opacity:0.9;
-    border-radius: 10%;
+    border-radius: 3%;
     border: 2px solid black;
     left:10%;
 }
@@ -587,7 +587,7 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     top: 4%;
     background-color: #ddd;
     opacity: 0.9;
-    border-radius: 15%;
+    border-radius: 3%;
     border: 2px solid black;
     left: 10%;
     height:14%;
@@ -654,6 +654,19 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     border: 0.1px solid black;
     border-radius: 5%;
     width: 88%;
+
+}
+
+#ratingResults > ul:nth-child(2) > li{
+    background: #f5d6d6;
+}
+#ratingResults > ul:nth-child(3) > li{
+    background: #d0dff5;
+}
+
+
+#ratingResults > ul > li:nth-child(2){
+    background: #f5f964;
 }
 
 #ratingResults ul li img{
@@ -822,8 +835,97 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
 }
 
 
+#frameyMcFrameFace{
+    height:67%;
+    width:100%;
+    max-width: 470px;
+}
+
+.preGameFacts > h3:nth-child(1){
+    margin-top:2%;
+    margin-bottom:2%;
+}
+
+#previousMatches{
+    
+}
+#previousMatches table{
+    margin:0 auto;
+}
 
 
+
+#previousMatches > table > tr > td{
+    font-size:161%;
+}
+
+#previousMatches > table > tr > th{
+    font-size: 121%;
+    border-bottom: 1px solid black;
+}
+
+#previousMatches > table:nth-child(1) > tr > td:nth-child(1){
+    text-align: end;
+}
+
+#previousMatches > table:nth-child(1) > tr > td:nth-child(3){
+    text-align:initial;
+}
+
+/*#ratingResults{
+    top: 19%;
+    height: 65%;
+    overflow: auto;
+    border-radius: 2%;
+    width: 90%;
+    left: 5%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-row:1fr;
+    grid-template-rows:1fr;
+    grid-template-columns: 1fr 1fr;
+}
+#ratingResults > h2{
+      grid-column-start: 1; 
+      grid-column-end: 3; 
+      grid-row-start: 1; 
+      grid-row-end: 3; 
+      margin: 2%;
+      font-size: 250%;
+}*/
+
+#predictedTeamLineUp{
+    display:grid;
+    grid-template-rows:1fr;
+    grid-template-columns: 1fr 1fr;
+    width: 90%;
+    text-align:center;
+}
+
+#predictedTeamLineUp > ul> h1{
+    font-size: 155%;
+    margin-bottom: 2%;
+    border-bottom: 1px solid black;
+}
+
+.preGameFacts > h3:nth-child(3){
+    margin-bottom:-5%;
+}
+
+
+.modal-header > h2:nth-child(1){
+    float:right;
+    font-size:130%;
+}
+
+.modal-header > img:nth-child(1){
+    width: 22%;
+    height: 190%;
+    position: relative;
+    float: left;
+    margin-top: -4%;
+    margin-right: -2%;
+}
 /*iphone5*/
 @media only screen and (max-width: 320px){
     .preGameLogo{
@@ -1038,6 +1140,10 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     #ratingResults > ul > li > p:nth-child(3) {
         font-size: 400%;
     }
+    
+    .preGameFacts > h3:nth-child(3){
+    margin-bottom:-3%;
+}
 }
 
 /*kindle fire*/

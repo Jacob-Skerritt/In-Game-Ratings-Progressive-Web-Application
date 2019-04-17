@@ -516,12 +516,68 @@ class PreGame extends React.Component{
                       <h1 id="countdown">{this.CountDownTimer(match_time, 'countdown')}</h1>
                     </div>
                     <div className="preGameFacts">
-                    <iframe frameborder="10"  scrolling="no" width="300" height="500" 
-                    src="https://www.fctables.com/england/premier-league/iframe/?type=table&lang_
-                    id=2&country=67&template=10&team=&timezone=UTC&time=24&po=1&ma=1&wi=1&dr=0&los=
-                    1&gf=0&ga=0&gd=0&pts=1&ng=0&form=0&width=300&height=700&font=Verdana&fs=9&lh=18&bg=
-                    FFFFFF&fc=333333&logo=1&tlink=1&ths=1&thb=1&thba=FFFFFF&thc=000000&bc=
-                    dddddd&hob=f5f5f5&hobc=ebe7e7&lc=333333&sh=1&hfb=1&hbc=3bafda&hfc=FFFFFF"/>
+                    <h3>Previous match up results</h3>
+                        <div id="previousMatches">
+                            <table>
+                                <tr>
+                                    <th>Man Utd.</th>
+                                    <th>Vs</th>
+                                    <th>Man City</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td><td>-</td><td>3</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td><td>-</td><td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>1</td><td>-</td><td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td><td>-</td><td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>0</td><td>-</td><td>0</td>
+                                </tr>
+                            </table>
+                        </div>
+                                            <h3>Predicted team line up</h3>
+                    <div id="predictedTeamLineUp">                    
+                        <ul>
+                            <h1>Man Utd.</h1>
+                            <li>(GK)De Gea</li>
+                            <li>(RB)Young</li>
+                            <li>(CB)Smalling</li>
+                            <li>(CB)Lindelof</li>
+                            <li>(LB)Shaw</li>
+                            <li>(CM)Fred</li>
+                            <li>(DM)McTominay</li>
+                            <li>(CM)Pogba</li>
+                            <li>(RW)Lingard</li>
+                            <li>(ST)Rashford</li>
+                            <li>(LW)Martial</li>
+                        </ul>
+                        <ul>
+                            <h1>Man City</h1>
+                            <li>(GK)Ederson</li>
+                            <li>(RB)Walker</li>
+                            <li>(CB)Otamendi</li>
+                            <li>(CB)Laporte</li>
+                            <li>(LB)Mendy</li>
+                            <li>(CM)De Bruyne</li>
+                            <li>(DM)Fernandinho</li>
+                            <li>(CM)Gundogan</li>
+                            <li>(RW)B.Silva</li>
+                            <li>(ST)Aguero</li>
+                            <li>(LW)Sterling</li>
+                        </ul>
+                    </div>
+                    <h3>Premiership standings</h3>
+
+                    <iframe id="frameyMcFrameFace" frameborder="0" 
+                    src="https://www.fctables.com/england/premier-league/iframe/?type=table&lang_id=2&country=67&template=10&team=180231&timezone=Europe/London&time=24&po=1&ma=1&wi=1&dr=1&los=1&gf=1&ga=1&gd=1&pts=1&ng=1&form=1&width=450&height=580&font=Verdana&fs=12&lh=12&bg=FFFFFF&fc=333333&logo=1&tlink=1&ths=1&thb=1&thba=FFFFFF&thc=000000&bc=dddddd&hob=f5f5f5&hobc=ebe7e7&lc=333333&sh=1&hfb=1&hbc=3bafda&hfc=FFFFFF"/>
+                    
+
                     </div>
                      
                 </div>
@@ -531,7 +587,7 @@ class PreGame extends React.Component{
                 <div className="gameOver-board">
                     <div className="gameOverText">
                         <h2>Match Countdown!</h2>
-                        <h1>Liverpool Vs Porto</h1>
+                        <h1>Man Utd Vs Man city</h1>
                     </div>
                 </div>   
                 );
@@ -548,12 +604,15 @@ class GameOver extends React.Component{
         let list=[];
         
         for(let i =0; i <teamSort.length;i++){
-            list.push(<li>
+            if(teamSort[i].position >=-1){
+                list.push(<li>
                         <img src={teamSort[i].player_image}/>
                         <p>{teamSort[i].player_name}</p>
                         <p>{parseFloat(teamSort[i].average_rating).toFixed(1)}</p>
                       </li>)
 		        }
+      }
+            
             return list;
     }
     render(){
@@ -735,7 +794,7 @@ class Game extends React.Component {
         if(localStorage.getItem('player_ratings_username')=== null){
             this.state.isShowing = true;
         }
-    if(this.state.players.match_elapsed_time <= "00:00"){
+    if(this.state.players.match_elapsed_time === "preGame"){
         return(    
         <PreGame players={this.state.players} /> );
     }
@@ -780,11 +839,8 @@ class Modal extends React.Component{
     super(props);
     this.state = {
       selectedOption: "6",
-      display: true   
+      display: true
     };
-    
-    
-
   }
   
     changeDisplay(obj){
@@ -849,9 +905,6 @@ class Modal extends React.Component{
     
     
 
-    
-    
-
   render() {
       
     if(localStorage.getItem('player_ratings_username') === null){
@@ -863,15 +916,18 @@ class Modal extends React.Component{
                     opacity: this.props.show ? '1' : '0'
                 }}>
                 <div className="modal-header">
-                    <h2>Nickname Creation</h2>
+                <img src="inGameRatingsLogo.png"/>
+                    <h2>In-Game Ratings</h2>
                     
                 </div>
                 <div id="modal-body-nickname">
+                <p>Enter username to rate players</p>
+                
  
-                        <input id="nickname" type="text" placeholder="Enter Nickname" />
+                        <input id="nickname" type="text" placeholder="Username" autofocus/>
                         <br/>
                         <br/>
-                        <button id="submit-nickname" className="btn-continue" onClick={() =>this.addNickname(document.getElementById('nickname').value)}> Enter Nickname </button>
+                        <button id="submit-nickname" className="btn-continue" onClick={() =>this.addNickname(document.getElementById('nickname').value)}> Rate players! </button>
 
                 </div>
                 
@@ -939,7 +995,10 @@ class Modal extends React.Component{
                         <table>
                             <tr>
                               <th>Crowd</th>
-                              <th>You</th>
+                              { localStorage.getItem('player_ratings_username').slice(0,localStorage.getItem('player_ratings_username').indexOf('#')).length ==0
+                                ?<th>You</th>
+                                :<th>{localStorage.getItem('player_ratings_username').slice(0,localStorage.getItem('player_ratings_username').indexOf('#'))}</th>}
+                              
                             </tr>
                             <tr>
                                 { obj.average_rating !=0
@@ -949,6 +1008,10 @@ class Modal extends React.Component{
                             </tr>
                       </table>
                     </div>
+                    { this.props.players.match_elapsed_time ==="00:00"
+                    ?<h2>Rating players available when game is live!</h2>
+                    :<div>
+                    
 
                     <h3 class="h3Custom">Enter New Rating:</h3>
                     <br/>
@@ -1039,12 +1102,16 @@ class Modal extends React.Component{
                                   </label>
                               </div>
                   </div>
-  
+                  </div> }   
             </div>
+            
+                { this.props.players.match_elapsed_time ==="00:00"
+                ?<p></p>
+                    :
                 <div className="modal-footer">
                     <button id="rateSubmit" className="btn-continue" onClick={() =>this.rateDiseappear(obj)}>Rate Player</button>
                     <p className="ratingConfirmMessage"><img src="public/images/events/tick.png"/> Rating submitted!</p>
-                </div>
+                </div>} 
             </div>
             
         </div>
@@ -1080,8 +1147,8 @@ class Modal extends React.Component{
                 <div className="modal-player-ratings">
                     <table>
                         <tr>
-                            <th>Crowd<br/> Rating</th>
-                            <th>Your<br/> Rating</th>
+                            <th>Crowd</th>
+                            <th>{localStorage.getItem('player_ratings_username').slice(0,localStorage.getItem('player_ratings_username').indexOf('#'))}</th>
                             </tr>
                         <tr>
                             { obj.average_rating !=0
