@@ -2,7 +2,7 @@
     background: white;
     border: 1px solid #d0cccc;
     box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
-    margin: 20% auto 0;
+    margin: 15% auto 0;
     transition: all .8s;
     width: 80%;
     align-content: center;
@@ -30,7 +30,7 @@
     width: 100%;
 }
 
-.modal-header h3 {
+.modal-header h2 {
     color: white;
     float: left;
     margin: 0;
@@ -200,7 +200,7 @@ font-weight: inherit;
     position: absolute;
     top: 1%;
     right: -8%;
-    opacity: 0.115;
+    opacity: 0.13;
     width: 114% !important;
     height: 269% !important;
     z-index: -5;
@@ -285,32 +285,56 @@ iphone5
 }
 
 
+
+
+
+/*phone 678plus*/
+@media only screen and (min-width:414px){
+    .modal-player-info p {
+      margin: 7%;
+    }
+}
+
 /*ipad*/
 @media only screen and (min-width:640px){
+    
+    .modal-wrapper{
+        height:44%;
+        width: 50%;
+        left:25%;
+    }
     .playerInfo{
         width:200px;
         font-size: 1.7em;
     }
-    
-    .modal-body img {
-        width: 148px;
-        height: 200px;
-        margin-right: 20px;
+    .modal-player-info > h2:nth-child(2){
+        font-size: 281%;
+        margin-left: 5%;
+        margin-bottom: -2%;
     }
-
+    
     .modal-player-info p {
-        font-size: 3em;
+        margin: 2% auto;
+        font-size: 2em;
     }
     
+    .modal-player-ratings table th {
+        font-size: 4.5vw;
+    }
+    
+   
     #ratings-span {
-        margin-left: 40%;
+        margin-left: 36%;
         font-size: 6em;
         margin-top: -3%;
     }
     
     .btn-continue {
-        margin: -9px auto;
-        font-size: 2.6em;
+        font-size: 2.5em;
+        height: 104%;
+        width: 74%;
+        top: 3%;
+        margin-top: 0%;
     }
     
     .h3Custom {
@@ -331,18 +355,42 @@ iphone5
     .playerDetailsCrest {
         position: absolute;
         top: -9%;
-        right: -10%;
-        opacity: 0.1;
+        right: -7%;
+        opacity: 0.14;
         width: 100% !important;
-        height: 525% !important;
+        height: 330% !important;
+    }
+    
+    .modal-footer{
+        height: 12%;
+        top: 1%;
+    }
+    
+
+    
+}
+/*kindle fire*/
+@media only screen and (min-width:800px) and (min-height: 1280px){
+    .modal-wrapper {
+        height: 36%;
     }
 }
 
 
-/*phone 678plus*/
-@media only screen and (min-width:414px){
-    .modal-player-info p {
-      margin: 7%;
+/*PC*/
+@media only screen and (min-width:1000px){
+    .modal-wrapper {
+        height: 75%;
+        width: 30%;
+        margin-top: 4%;
     }
+    
+    .modal-player-ratings table th {
+        font-size: 2.5vw;
+    }
+    
+    .modal-player-ratings table td {
+        font-size: 4vw;
+    }
+    
 }
-
