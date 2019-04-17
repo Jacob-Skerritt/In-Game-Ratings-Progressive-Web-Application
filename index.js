@@ -65,7 +65,7 @@ class GameInfo extends React.Component {
           <p>{this.props.players.teams[0].team_name}</p>
           <div className="homeEvents">
             {this.goals(0,8)} 
-            {this.ownGoals(0,8)}
+            {this.ownGoals(1,7)}
             </div>
         </div>
         <div className="away">
@@ -73,7 +73,7 @@ class GameInfo extends React.Component {
           <p>{this.props.players.teams[1].team_name}</p>
           <div className="awayEvents">
           {this.goals(1,7)}
-          {this.ownGoals(1,7)}
+          {this.ownGoals(0,8)}
           </div>
         </div>
         <div className="info">
@@ -682,13 +682,35 @@ class GameOver extends React.Component{
                     list.push(<li>
                     <img src="public/images/events/goalSolid.png"/> {elapsedTime} {playerName}
                       </li>)
-                }
-                
-            }             
-                
+                }                
+            }              
       }
             
             return list;
+    }
+    
+    
+        ownGoals(teamLoc,teamId){
+
+        let list=[];
+
+        for(let i =0; i <this.props.players.events.length;i++){
+            if(this.props.players.events[i].event_id == 6 && this.props.players.events[i].team_id == teamId)
+            {
+                var playerName = this.findPlayerName(teamLoc, this.props.players.events[i].player_id);
+                if (teamId==8) {
+                    list.push(<li>
+                    <img src="public/images/events/ownGoal.png"/> {playerName}(OG) 25'
+                      </li>)
+                }
+                else {
+                    list.push(<li>
+                 {playerName}(OG) 29' <img src="public/images/events/ownGoal.png"  />
+                      </li>)
+                }
+            }
+        } 
+        return list;
     }
     
     renderListPlayers(team){
@@ -740,9 +762,11 @@ class GameOver extends React.Component{
                         <div id="resultEvents">
                             <ul>
                                 {this.renderListEvents(0,8)}
+                                {this.ownGoals(1,7)}
                             </ul>
                             <ul>
                                 {this.renderListEvents(1,7)}
+                                {this.ownGoals(0,8)}
                             </ul>
                         </div>
                 </div>
