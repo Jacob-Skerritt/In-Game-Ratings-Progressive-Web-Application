@@ -129,7 +129,7 @@ p {
 
 .home p {
     position: absolute;
-    left: 47%;
+    left: 45%;
     top: 10%;
     font-family: serif;
     font-weight: bold;
@@ -185,13 +185,14 @@ p {
 .info h1 {
     position: relative;
     top:5%;
+    font-family: serif;
 }
 
 .info p {
     position: relative;
     top: -10%;
     font-weight: bold;
-
+    font-family: serif;
 }
 
 #plImg{
@@ -215,39 +216,52 @@ ul{
 
 .homeEvents {
     position: relative;
-    top: 40%;
+    top: 25%;
     left: 35%;
     width: 65%;
     height: 60%;
 }
 
+.homeEvents img {
+    width: 10px;
+    height:10px;
+    top: 6%;
+    left: 108%;
+}
+
 .homeEvents p {
-    font-size: 10px;
+    font-size: 10.5px;
     float: right;
     position: relative;
     top: 20%;
-    left: 5%;
-    margin-top: -10px;
+    left: -25%;
+    margin-bottom: -10px;
+    font-family: serif;
 }
 
 .awayEvents {
     position: relative;
-    top: 40%;
+    top: 25%;
     left: -5%;
     width: 65%;
     height: 60%;
 }
 
+.awayEvents img{
+    position: absolute;
+    width:10px;
+    height:10px;
+    top: 6%;
+    left: -25%;
+}
+
 .awayEvents p {
-    font-size: 10px;
+    font-size: 10.5px;
     float: left;
     position: relative;
     top: 20%;
-    left: 5%;
-    margin-top: -10px;
-}
-
-.homeEvents p {
-    font-size: 11px;
+    left: -20%;
+    margin-bottom: -10px;
+    font-family: serif;
 }
 

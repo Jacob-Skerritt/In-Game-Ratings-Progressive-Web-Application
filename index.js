@@ -2,7 +2,60 @@ class GameInfo extends React.Component {
   constructor(props) {
     super(props);
   }
-  
+    findPlayerName(teamLoc, playerId){
+        for(let i=0; i < this.props.players.teams[teamLoc].players.length; i++){
+            if(this.props.players.teams[teamLoc].players[i].id == playerId){
+                return this.props.players.teams[teamLoc].players[i].player_name;
+            }
+        }
+    }
+
+        goals(teamLoc,teamId){
+
+        let list=[];
+
+        for(let i =0; i <this.props.players.events.length;i++){
+            if(this.props.players.events[i].event_id == 3 && this.props.players.events[i].team_id == teamId)
+            {
+                var playerName = this.findPlayerName(teamLoc, this.props.players.events[i].player_id);
+                if (teamId==8) {
+                    list.push(<ul>
+                    <p>{playerName} 64'<img src="public/images/events/goalSolid.png"  /> </p>
+                      </ul>)
+                }
+                else {
+                    list.push(<ul>
+                <p><img src="public/images/events/goalSolid.png"  /> {playerName} 64'</p>
+                      </ul>)
+                }
+            }
+        } 
+        return list;
+    }
+    
+    ownGoals(teamLoc,teamId){
+
+        let list=[];
+
+        for(let i =0; i <this.props.players.events.length;i++){
+            if(this.props.players.events[i].event_id == 6 && this.props.players.events[i].team_id == teamId)
+            {
+                var playerName = this.findPlayerName(teamLoc, this.props.players.events[i].player_id);
+                if (teamId==8) {
+                    list.push(<ul>
+                    <p>{playerName}(OG) 25'<img src="public/images/events/ownGoal.png"  /> </p>
+                      </ul>)
+                }
+                else {
+                    list.push(<ul>
+                <p><img src="public/images/events/ownGoal.png"  /> {playerName}(OG) 29'</p>
+                      </ul>)
+                }
+            }
+        } 
+        return list;
+    }
+     
   render() {
       if(this.props.players.id !== -1){
     return (
@@ -10,10 +63,18 @@ class GameInfo extends React.Component {
         <div className="home">
           <img alt="Home Crest" src={this.props.players.teams[0].crest} />
           <p>{this.props.players.teams[0].team_name}</p>
+          <div className="homeEvents">
+            {this.goals(0,8)} 
+            {this.ownGoals(0,8)}
+            </div>
         </div>
         <div className="away">
           <img alt="Away Crest" src={this.props.players.teams[1].crest} />
           <p>{this.props.players.teams[1].team_name}</p>
+          <div className="awayEvents">
+          {this.goals(1,7)}
+          {this.ownGoals(1,7)}
+          </div>
         </div>
         <div className="info">
           <h1>{this.props.players.team1_score}-{this.props.players.team2_score}</h1>
