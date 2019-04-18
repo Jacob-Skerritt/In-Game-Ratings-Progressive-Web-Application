@@ -216,52 +216,69 @@ ul{
 
 .homeEvents {
     position: relative;
-    top: 25%;
+    top: 30%;
     left: 35%;
-    width: 65%;
-    height: 60%;
+    width: 70%;
+    height: 64%;
 }
-
-.homeEvents img {
+.awayEvents {
+    position: relative;
+    top: 30%;
+    left: -5%;
+    width: 70%;
+    height: 64%;
+}
+.homeGoals p{
+    font-size: 8.5px;
+    float: right;
+    position: relative;
+    top: 20%;
+    left: -25%;
+    margin-bottom: -8px;
+    font-family: serif;
+}
+.homeGoals img {
     width: 10px;
     height:10px;
     top: 6%;
     left: 108%;
 }
-
-.homeEvents p {
-    font-size: 10.5px;
-    float: right;
+.awayGoals p{
+    font-size: 8.5px;
+    float: left;
     position: relative;
     top: 20%;
-    left: -25%;
-    margin-bottom: -10px;
+    left: -28%;
+    margin-bottom: -8px;
     font-family: serif;
 }
-
-.awayEvents {
-    position: relative;
-    top: 25%;
-    left: -5%;
-    width: 65%;
-    height: 60%;
-}
-
-.awayEvents img{
+.awayGoals img{
     position: absolute;
     width:10px;
     height:10px;
     top: 6%;
     left: -25%;
 }
-
-.awayEvents p {
-    font-size: 10.5px;
-    float: left;
+.ownGoalsAway {
     position: relative;
+    width: 10px;
+    height: 10px;
     top: 20%;
-    left: -20%;
-    margin-bottom: -10px;
-    font-family: serif;
+    left: 5%;
+    margin-top: -10px;
+    background-color: red;
+    width: 100%;
+    height: 50%;
 }
 
+.ownGoalsHome {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    top: 20%;
+    left: -1%;
+    margin-top: -10px;
+    background-color: red;
+    width: 100%;
+    height: 50%;
+}
