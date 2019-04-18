@@ -58,7 +58,60 @@ class GameInfo extends React.Component {
   constructor(props) {
     super(props);
   }
-  
+    findPlayerName(teamLoc, playerId){
+        for(let i=0; i < this.props.players.teams[teamLoc].players.length; i++){
+            if(this.props.players.teams[teamLoc].players[i].id == playerId){
+                return this.props.players.teams[teamLoc].players[i].player_name;
+            }
+        }
+    }
+
+        goals(teamLoc,teamId){
+
+        let list=[];
+
+        for(let i =0; i <this.props.players.events.length;i++){
+            if(this.props.players.events[i].event_id == 3 && this.props.players.events[i].team_id == teamId)
+            {
+                var playerName = this.findPlayerName(teamLoc, this.props.players.events[i].player_id);
+                if (teamId==8) {
+                    list.push(<ul>
+                    <p>{playerName} 64'<img src="public/images/events/goalSolid.png"  /> </p>
+                      </ul>)
+                }
+                else {
+                    list.push(<ul>
+                <p><img src="public/images/events/goalSolid.png"  /> {playerName} 64'</p>
+                      </ul>)
+                }
+            }
+        } 
+        return list;
+    }
+    
+    ownGoals(teamLoc,teamId){
+
+        let list=[];
+
+        for(let i =0; i <this.props.players.events.length;i++){
+            if(this.props.players.events[i].event_id == 6 && this.props.players.events[i].team_id == teamId)
+            {
+                var playerName = this.findPlayerName(teamLoc, this.props.players.events[i].player_id);
+                if (teamId==8) {
+                    list.push(<ul>
+                    <p>{playerName}(OG) 25'<img src="public/images/events/ownGoal.png"  /> </p>
+                      </ul>)
+                }
+                else {
+                    list.push(<ul>
+                <p><img src="public/images/events/ownGoal.png"  /> {playerName}(OG) 29'</p>
+                      </ul>)
+                }
+            }
+        } 
+        return list;
+    }
+     
   render() {
       if(this.props.players.id !== -1){
     return (
@@ -66,10 +119,18 @@ class GameInfo extends React.Component {
         <div className="home">
           <img alt="Home Crest" src={this.props.players.teams[0].crest} />
           <p>{this.props.players.teams[0].team_name}</p>
+          <div className="homeEvents">
+            {this.goals(0,8)} 
+            {this.ownGoals(1,7)}
+            </div>
         </div>
         <div className="away">
           <img alt="Away Crest" src={this.props.players.teams[1].crest} />
           <p>{this.props.players.teams[1].team_name}</p>
+          <div className="awayEvents">
+          {this.goals(1,7)}
+          {this.ownGoals(0,8)}
+          </div>
         </div>
         <div className="info">
           <h1>{this.props.players.team1_score}-{this.props.players.team2_score}</h1>
@@ -573,6 +634,37 @@ class PreGame extends React.Component{
                       <h1 id="countdown">{this.CountDownTimer(match_time, 'countdown')}</h1>
                     </div>
                     <div className="preGameFacts">
+                    <h3>Predicted team line up</h3>
+                    <div id="predictedTeamLineUp">                    
+                        <ul>
+                            <h1>Man Utd.</h1>
+                            <li>De Gea</li>
+                            <li>Young</li>
+                            <li>Smalling</li>
+                            <li>Lindelof</li>
+                            <li>Shaw</li>
+                            <li>Fred</li>
+                            <li>McTominay</li>
+                            <li>Pogba</li>
+                            <li>Lingard</li>
+                            <li>Rashford</li>
+                            <li>Martial</li>
+                        </ul>
+                        <ul>
+                            <h1>Man City</h1>
+                            <li>Ederson</li>
+                            <li>Walker</li>
+                            <li>Otamendi</li>
+                            <li>Laporte</li>
+                            <li>Mendy</li>
+                            <li>De Bruyne</li>
+                            <li>Fernandinho</li>
+                            <li>Gundogan</li>
+                            <li>B.Silva</li>
+                            <li>Aguero</li>
+                            <li>Sterling</li>
+                        </ul>
+                    </div>
                     <h3>Previous match up results</h3>
                         <div id="previousMatches">
                             <table>
@@ -582,53 +674,22 @@ class PreGame extends React.Component{
                                     <th>Man City</th>
                                 </tr>
                                 <tr>
-                                    <td>1</td><td>-</td><td>3</td>
+                                    <td>1</td><td>-</td><td>3<img alt="Away Crest" src={this.props.players.teams[1].crest} /></td>
                                 </tr>
                                 <tr>
-                                    <td>3</td><td>-</td><td>2</td>
+                                    <td><img alt="Home Crest" src={this.props.players.teams[0].crest} />3</td><td>-</td><td>2</td>
                                 </tr>
                                 <tr>
-                                    <td>1</td><td>-</td><td>2</td>
+                                    <td>1</td><td>-</td><td>2<img alt="Away Crest" src={this.props.players.teams[1].crest} /></td>
                                 </tr>
                                 <tr>
-                                    <td>2</td><td>-</td><td>0</td>
+                                    <td><img alt="Home Crest" src={this.props.players.teams[0].crest} />2</td><td>-</td><td>0</td>
                                 </tr>
                                 <tr>
-                                    <td>0</td><td>-</td><td>0</td>
+                                    <td><img alt="Home Crest" src={this.props.players.teams[0].crest} />0</td><td>-</td><td>0<img alt="Away Crest" src={this.props.players.teams[1].crest} /></td>
                                 </tr>
                             </table>
                         </div>
-                                            <h3>Predicted team line up</h3>
-                    <div id="predictedTeamLineUp">                    
-                        <ul>
-                            <h1>Man Utd.</h1>
-                            <li>(GK)De Gea</li>
-                            <li>(RB)Young</li>
-                            <li>(CB)Smalling</li>
-                            <li>(CB)Lindelof</li>
-                            <li>(LB)Shaw</li>
-                            <li>(CM)Fred</li>
-                            <li>(DM)McTominay</li>
-                            <li>(CM)Pogba</li>
-                            <li>(RW)Lingard</li>
-                            <li>(ST)Rashford</li>
-                            <li>(LW)Martial</li>
-                        </ul>
-                        <ul>
-                            <h1>Man City</h1>
-                            <li>(GK)Ederson</li>
-                            <li>(RB)Walker</li>
-                            <li>(CB)Otamendi</li>
-                            <li>(CB)Laporte</li>
-                            <li>(LB)Mendy</li>
-                            <li>(CM)De Bruyne</li>
-                            <li>(DM)Fernandinho</li>
-                            <li>(CM)Gundogan</li>
-                            <li>(RW)B.Silva</li>
-                            <li>(ST)Aguero</li>
-                            <li>(LW)Sterling</li>
-                        </ul>
-                    </div>
                     <h3>Premiership standings</h3>
 
                     <iframe id="frameyMcFrameFace" frameborder="0" 
@@ -654,6 +715,61 @@ class PreGame extends React.Component{
 
 class GameOver extends React.Component{
     
+    findPlayerName(teamLoc, playerId){
+        for(let i=0; i < this.props.players.teams[teamLoc].players.length; i++){
+            if(this.props.players.teams[teamLoc].players[i].id == playerId){
+                return this.props.players.teams[teamLoc].players[i].player_name;
+            }
+        }
+    }
+    
+        renderListEvents(teamLoc,teamId){
+        
+        let list=[];
+        
+        for(let i =0; i <this.props.players.events.length;i++){
+            if(this.props.players.events[i].event_id == 3 && this.props.players.events[i].team_id == teamId){
+                var playerName = this.findPlayerName(teamLoc, this.props.players.events[i].player_id);
+                var elapsedTime = "'67";
+                if(teamId == this.props.players.teams[0].id){
+                    list.push(<li>
+                      {playerName} {elapsedTime} <img src="public/images/events/goalSolid.png"/>
+                      </li>)
+                }else{
+                    list.push(<li>
+                    <img src="public/images/events/goalSolid.png"/> {elapsedTime} {playerName}
+                      </li>)
+                }                
+            }              
+      }
+            
+            return list;
+    }
+    
+    
+        ownGoals(teamLoc,teamId){
+
+        let list=[];
+
+        for(let i =0; i <this.props.players.events.length;i++){
+            if(this.props.players.events[i].event_id == 6 && this.props.players.events[i].team_id == teamId)
+            {
+                var playerName = this.findPlayerName(teamLoc, this.props.players.events[i].player_id);
+                if (teamId==8) {
+                    list.push(<li>
+                    <img src="public/images/events/ownGoal.png"/> {playerName}(OG) 25'
+                      </li>)
+                }
+                else {
+                    list.push(<li>
+                 {playerName}(OG) 29' <img src="public/images/events/ownGoal.png"  />
+                      </li>)
+                }
+            }
+        } 
+        return list;
+    }
+    
     renderListPlayers(team){
         
         let teamSort = this.props.players.teams[team].players;
@@ -661,13 +777,30 @@ class GameOver extends React.Component{
         let list=[];
         
         for(let i =0; i <teamSort.length;i++){
-            if(teamSort[i].position >=-1){
-                list.push(<li>
+        if(teamSort[i].position >=-1){
+                    if(this.props.specialPlayers[0] == teamSort[i].id){
+                                        list.push(<li>
+                        <img src={teamSort[i].player_image}/>
+                        <img id="resultsStar" src="star1.png" />
+                        <p>{teamSort[i].player_name}</p>
+                        <p>{parseFloat(teamSort[i].average_rating).toFixed(1)}</p>
+                      </li>)
+        }else{
+                            list.push(<li>
                         <img src={teamSort[i].player_image}/>
                         <p>{teamSort[i].player_name}</p>
                         <p>{parseFloat(teamSort[i].average_rating).toFixed(1)}</p>
                       </li>)
-		        }
+        }
+        
+
+		        }    
+            
+            
+        
+            
+
+            
       }
             
             return list;
@@ -678,15 +811,21 @@ class GameOver extends React.Component{
                 <div className="gameOverInfo">
                 <h1>Game Over!</h1>
                     <div className="gameOverText">
-                          <div>Man Utd.</div>
-                          <div>Vs</div>  
-                          <div>Man City</div>
+                          <div>Man Utd. </div>
+                          <div> {this.props.players.team1_score} - {this.props.players.team2_score} </div>  
+                          <div> Man City</div>
                     </div>
-                    <div className="gameOverText">
-                          <div>{this.props.players.team1_score}</div>
-                          <div> - </div>
-                          <div>{this.props.players.team2_score}</div>                  
-                  </div>
+
+                        <div id="resultEvents">
+                            <ul>
+                                {this.renderListEvents(0,8)}
+                                {this.ownGoals(1,7)}
+                            </ul>
+                            <ul>
+                                {this.renderListEvents(1,7)}
+                                {this.ownGoals(0,8)}
+                            </ul>
+                        </div>
                 </div>
                 <div id="ratingResults">
                 <h2>Crowd rating results!</h2>
@@ -781,7 +920,7 @@ class Game extends React.Component {
     });
 
     
-    setTimeout(function() {this.closeModalHandler();}.bind(this), 1500);
+    setTimeout(function() {this.closeModalHandler();}.bind(this), 1400);
   }
   
   specialPlayers(){
@@ -857,7 +996,7 @@ class Game extends React.Component {
     }
     else if(this.state.players.match_elapsed_time === "fin"){
         return (
-            <GameOver players={this.state.players}/>);            
+            <GameOver players={this.state.players} specialPlayers={this.specialPlayers()}/>);            
     }else{
         
  if(Object.keys(this.state.players).length !== 0 && this.state.players.id !== -1){
