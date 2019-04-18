@@ -19,13 +19,13 @@ class GameInfo extends React.Component {
             {
                 var playerName = this.findPlayerName(teamLoc, this.props.players.events[i].player_id);
                 if (teamId==8) {
-                    list.push(<ul>
-                    <p>{playerName} 64'<img src="public/images/events/goalSolid.png"  /> </p>
-                      </ul>)
+                    list.push(<li>
+                    <p>{playerName} 64' <img src="public/images/events/goalSolid.png"  /></p>
+                      </li>)
                 }
                 else {
                     list.push(<ul>
-                <p><img src="public/images/events/goalSolid.png"  /> {playerName} 64'</p>
+                <p><img src="public/images/events/goalSolid.png"/> {playerName} 64'</p>
                       </ul>)
                 }
             }
@@ -43,12 +43,12 @@ class GameInfo extends React.Component {
                 var playerName = this.findPlayerName(teamLoc, this.props.players.events[i].player_id);
                 if (teamId==8) {
                     list.push(<ul>
-                    <p>{playerName}(OG) 25'<img src="public/images/events/ownGoal.png"  /> </p>
+                    <p>{playerName}(OG)25' <img src="public/images/events/ownGoal.png"  /> </p>
                       </ul>)
                 }
                 else {
                     list.push(<ul>
-                <p><img src="public/images/events/ownGoal.png"  /> {playerName}(OG) 29'</p>
+                <p><img src="public/images/events/ownGoal.png"/> {playerName}(OG) 29'</p>
                       </ul>)
                 }
             }
@@ -64,17 +64,25 @@ class GameInfo extends React.Component {
           <img alt="Home Crest" src={this.props.players.teams[0].crest} />
           <p>{this.props.players.teams[0].team_name}</p>
           <div className="homeEvents">
-            {this.goals(0,8)} 
-            {this.ownGoals(1,7)}
+            <div className="homeGoals">
+            <ul>{this.goals(0,8)}</ul>
+                <div className="ownGoalsHome">
+                    {this.ownGoals(1,7)}
+                </div>
             </div>
+          </div>
         </div>
         <div className="away">
-          <img alt="Away Crest" src={this.props.players.teams[1].crest} />
-          <p>{this.props.players.teams[1].team_name}</p>
-          <div className="awayEvents">
-          {this.goals(1,7)}
-          {this.ownGoals(0,8)}
-          </div>
+            <img alt="Away Crest" src={this.props.players.teams[1].crest} />
+            <p>{this.props.players.teams[1].team_name}</p>
+            <div className="awayEvents">
+                <div className="awayGoals">
+                    {this.goals(1,7)}
+                    <div className="ownGoalsAway">
+                        {this.ownGoals(0,8)}
+                    </div>
+                </div>
+            </div>
         </div>
         <div className="info">
           <h1>{this.props.players.team1_score}-{this.props.players.team2_score}</h1>
