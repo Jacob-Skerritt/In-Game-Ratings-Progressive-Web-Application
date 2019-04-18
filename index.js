@@ -1011,6 +1011,10 @@ class Game extends React.Component {
               <p className="awayNameDisplay">{this.state.players.teams[1].team_name}</p>
               <p className="awayFormationDisplay">4-3-3</p> 
             </div>
+            {this.state.players.match_elapsed_time === "HT"
+          ?<div id="halfTimeMessage"><h1>Half-Time</h1></div>
+          :null}
+            
             <Board players={this.state.players}  specialPlayers={this.specialPlayers()}  onClick={(i) => this.handleClick(i)}/>
           </div>
               <TeamInfo players={this.state.players} onClick={(i) => this.handleClick(i)}/>
