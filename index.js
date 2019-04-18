@@ -134,7 +134,6 @@ class GameInfo extends React.Component {
         <div className="info">
           <h1>{this.props.players.team1_score}-{this.props.players.team2_score}</h1>
           <p>{this.props.players.match_elapsed_time}</p>{" "}
-          <CountdownTimer />
         </div>
       </div>
     );
