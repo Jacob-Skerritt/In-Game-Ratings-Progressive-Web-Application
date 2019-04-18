@@ -1,3 +1,58 @@
+class CountdownTimer extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            time:180,
+        }
+    }
+    
+    timeCountdown(){
+        
+        this.state.time = this.state.time -1;
+    }
+    
+    render(){
+        let countdown = false;
+        
+        if(this.state.time > 0){
+            countdown = true;
+            setInterval(this.timeCountdown(),1000);
+        }
+        
+      let minutes = Math.floor(this.state.time/60);
+      let seconds = Math.floor(this.state.time%60);
+
+      let elapsed_time;
+
+
+        if(minutes >= 10 && seconds >= 10){
+          elapsed_time = minutes + ":" + seconds;
+        }else if(minutes > 10 && seconds < 10){
+          elapsed_time = minutes + ":" + "0" + seconds ;
+        } else if(minutes < 10 && seconds >= 10){
+          elapsed_time = ("0"+ minutes) + ":"  + seconds;
+        }else {
+          elapsed_time = "0" + minutes + ":" + "0" + seconds  ;
+        }
+        
+        return(
+                
+                <div id="coutndown-timer">
+ 
+                    {countdown
+                    ?elapsed_time
+                    :null}
+                        
+                </div>
+                
+        );
+    }
+    
+        
+    
+    
+}
+
 class GameInfo extends React.Component {
   constructor(props) {
     super(props);
@@ -616,7 +671,7 @@ class PreGame extends React.Component{
                             <li>Sterling</li>
                         </ul>
                     </div>
-                    <h3>Previous match up results</h3>
+                    <h3>Previous results</h3>
                         <div id="previousMatches">
                             <table>
                                 <tr>
@@ -674,10 +729,8 @@ class GameOver extends React.Component{
         }
     }
     
-        renderListEvents(teamLoc,teamId){
-        
-        let list=[];
-        
+        renderListEvents(teamLoc,teamId){        
+        let list=[];        
         for(let i =0; i <this.props.players.events.length;i++){
             if(this.props.players.events[i].event_id == 3 && this.props.players.events[i].team_id == teamId){
                 var playerName = this.findPlayerName(teamLoc, this.props.players.events[i].player_id);
@@ -730,14 +783,15 @@ class GameOver extends React.Component{
         for(let i =0; i <teamSort.length;i++){
         if(teamSort[i].position >=-1){
                     if(this.props.specialPlayers[0] == teamSort[i].id){
-                                        list.push(<li>
+                        list.push(<div>                        
                         <img src={teamSort[i].player_image}/>
-                        <img id="resultsStar" src="star1.png" />
                         <p>{teamSort[i].player_name}</p>
+                        <img id="resultsStar" src="star1.png" />
                         <p>{parseFloat(teamSort[i].average_rating).toFixed(1)}</p>
-                      </li>)
+                                
+                      </div>)
         }else{
-                            list.push(<li>
+                        list.push(<li>
                         <img src={teamSort[i].player_image}/>
                         <p>{teamSort[i].player_name}</p>
                         <p>{parseFloat(teamSort[i].average_rating).toFixed(1)}</p>
@@ -746,11 +800,6 @@ class GameOver extends React.Component{
         
 
 		        }    
-            
-            
-        
-            
-
             
       }
             
@@ -802,6 +851,7 @@ class Game extends React.Component {
       players: {id:-1},
       buttonId: -1,
       userId: -1,
+      dispaly: 0,
     };
   }
 
@@ -938,24 +988,31 @@ class Game extends React.Component {
   
   render() {
       
-        if(localStorage.getItem('player_ratings_username')=== null){
+      let showEndGameButton = false;
+      if(this.state.players.match_elapsed_time === "FT"){
+          showEndGameButton = true;
+      }
+    if(localStorage.getItem('player_ratings_username')=== null){
             this.state.isShowing = true;
-        }
+    }
+    
     if(this.state.players.match_elapsed_time === "preGame"){
         return(    
         <PreGame players={this.state.players} /> );
     }
-    else if(this.state.players.match_elapsed_time === "fin"){
+    else if(this.state.players.match_elapsed_time === "fin" || this.state.dispaly ===1){
         return (
             <GameOver players={this.state.players} specialPlayers={this.specialPlayers()}/>);            
-    }else{
-        
- if(Object.keys(this.state.players).length !== 0 && this.state.players.id !== -1){
+    }else if(Object.keys(this.state.players).length !== 0 && this.state.players.id !== -1 && this.state.dispaly !== 1){
       return (
         <div className="game">
           <GameInfo players={this.state.players}/>
             
           <div className="game-board">
+          {showEndGameButton
+          ?<img id="final-ratings-image" src="public/images/game_over_3d_transparent_words.png" onClick={() => this.state.dispaly = 1} />
+          :null}
+
           <div className="displayInfo">
               <p className="homeNameDisplay">{this.state.players.teams[0].team_name}</p>
               <p className="homeFormationDisplay">4-3-3</p>
@@ -979,7 +1036,7 @@ class Game extends React.Component {
     );}
         }
   }
-}
+
 
 class Modal extends React.Component{
   constructor(props) {
@@ -1074,7 +1131,7 @@ class Modal extends React.Component{
                         <input id="nickname" type="text" placeholder="Username" autofocus/>
                         <br/>
                         <br/>
-                        <button id="submit-nickname" className="btn-continue" onClick={() =>this.addNickname(document.getElementById('nickname').value)}> Rate players! </button>
+                        <button id="submit-nickname" className="btn-continue" onClick={() =>this.addNickname(document.getElementById('nickname').value)}> Submit </button>
 
                 </div>
                 

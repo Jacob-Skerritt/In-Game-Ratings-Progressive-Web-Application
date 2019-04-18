@@ -317,6 +317,18 @@ button .eventRedCard{
     background-repeat: no-repeat, repeat;
 }
 
+#final-ratings-image{
+    position:absolute;
+    top:45%;
+    left:27%;
+}
+
+#final-ratings-button{
+    position:absolute;
+    top:49%;
+    left:34%;
+}
+
 game-board-players {
     display: inline-block;
     text-align: center;
@@ -660,7 +672,7 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     border: 0.1px solid black;
     border-radius: 5%;
     width: 88%;
-
+height: 3.2%;
 }
 
 #ratingResults > ul:nth-child(2) > li{
@@ -942,16 +954,63 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
 }
 
 #resultsStar{
-    z-index: 0;
-    margin-left: -12% !important;
-    position: fixed;
-    width: 8% !important;
-    margin-top: 7% !important;
+width:20%;
 }
 
+#ratingResults > ul > div{
+    display: inline-block;
+    margin: 1% auto;
+    border: 0.1px solid black;
+    border-radius: 5%;
+    width: 88%;
+    background: #f5f964;
+    height: 3.2%;
+}
 
+#ratingResults > ul > div > img{
+width: 25%;
+float: left;
+clear: both;
+margin: 2%;
+border-radius: 40%;
+}
 
+#ratingResults > ul > div > img:nth-child(2){
+    float:right;
+}
+#ratingResults > ul > div> p:nth-child(4){
+    font-size: 220%;
+    margin: 0%;
+}
 
+#ratingResults > ul > div > p:nth-child(2){
+    margin: 0;
+    font-weight: bold;
+    font-size: 160%;
+    text-align: center;
+    width: 71%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#ratingResults > ul:nth-child(3) > div:nth-child(2) > img:nth-child(1){
+    float:right;
+}
+
+#resultsStar{
+    position: relative;
+    width: 19% !important;
+    top: -49%;
+    left: 7%;
+
+}
+
+#ratingResults > ul:nth-child(2) > div:nth-child(2) > #resultsStar{
+    top: -48%;
+    left: 29%;  
+}
 
 
 
@@ -1045,6 +1104,16 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
         top:94.6%;
         font-size: 11px;
     }
+    
+    #ratingResults > ul:nth-child(2) > div:nth-child(2) > #resultsStar {
+    left:45%;
+      }
+      
+    #ratingResults > ul:nth-child(3) > div > #resultsStar{
+        left: 16%;
+        width: 20% !important;
+        top: -50%;
+    }
 }
 
 
@@ -1109,6 +1178,12 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     .awayFormationDisplay {
         top:95.3%;
         font-size: 15px;
+    }
+    
+    #ratingResults > ul:nth-child(3) > div > #resultsStar{
+        left: 1%;
+        width: 20% !important;
+        top: -60%;
     }
 }
 
@@ -1233,6 +1308,23 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
         margin-left: -9% !important;
         width: 6% !important;
         margin-top: 7% !important;
+    }
+    #ratingResults > ul:nth-child(2) > div:nth-child(2) > #resultsStar {
+        width: 20% !important;
+        left: 41%;
+        top: -78%;
+    }
+    #ratingResults > ul > div > p:nth-child(2){
+        font-size: 300%;
+    }
+    #ratingResults > ul > div > p:nth-child(4){
+        font-size:350%;
+    }
+    
+    #ratingResults > ul:nth-child(3) > div > #resultsStar{
+        left: 11%;
+        width: 20% !important;
+        top: -78%;
     }
 }
 
