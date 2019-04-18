@@ -65,7 +65,7 @@ class GameInfo extends React.Component {
           <p>{this.props.players.teams[0].team_name}</p>
           <div className="homeEvents">
             {this.goals(0,8)} 
-            {this.ownGoals(0,8)}
+            {this.ownGoals(1,7)}
             </div>
         </div>
         <div className="away">
@@ -73,7 +73,7 @@ class GameInfo extends React.Component {
           <p>{this.props.players.teams[1].team_name}</p>
           <div className="awayEvents">
           {this.goals(1,7)}
-          {this.ownGoals(1,7)}
+          {this.ownGoals(0,8)}
           </div>
         </div>
         <div className="info">
