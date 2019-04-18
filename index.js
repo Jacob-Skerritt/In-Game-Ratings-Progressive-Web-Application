@@ -608,7 +608,7 @@ class PreGame extends React.Component{
                             <li>Sterling</li>
                         </ul>
                     </div>
-                    <h3>Previous match up results</h3>
+                    <h3>Previous results</h3>
                         <div id="previousMatches">
                             <table>
                                 <tr>
@@ -666,10 +666,8 @@ class GameOver extends React.Component{
         }
     }
     
-        renderListEvents(teamLoc,teamId){
-        
-        let list=[];
-        
+        renderListEvents(teamLoc,teamId){        
+        let list=[];        
         for(let i =0; i <this.props.players.events.length;i++){
             if(this.props.players.events[i].event_id == 3 && this.props.players.events[i].team_id == teamId){
                 var playerName = this.findPlayerName(teamLoc, this.props.players.events[i].player_id);
@@ -722,14 +720,15 @@ class GameOver extends React.Component{
         for(let i =0; i <teamSort.length;i++){
         if(teamSort[i].position >=-1){
                     if(this.props.specialPlayers[0] == teamSort[i].id){
-                                        list.push(<li>
+                        list.push(<div>                        
                         <img src={teamSort[i].player_image}/>
-                        <img id="resultsStar" src="star1.png" />
                         <p>{teamSort[i].player_name}</p>
+                        <img id="resultsStar" src="star1.png" />
                         <p>{parseFloat(teamSort[i].average_rating).toFixed(1)}</p>
-                      </li>)
+                                
+                      </div>)
         }else{
-                            list.push(<li>
+                        list.push(<li>
                         <img src={teamSort[i].player_image}/>
                         <p>{teamSort[i].player_name}</p>
                         <p>{parseFloat(teamSort[i].average_rating).toFixed(1)}</p>
@@ -738,11 +737,6 @@ class GameOver extends React.Component{
         
 
 		        }    
-            
-            
-        
-            
-
             
       }
             
@@ -1066,7 +1060,7 @@ class Modal extends React.Component{
                         <input id="nickname" type="text" placeholder="Username" autofocus/>
                         <br/>
                         <br/>
-                        <button id="submit-nickname" className="btn-continue" onClick={() =>this.addNickname(document.getElementById('nickname').value)}> Rate players! </button>
+                        <button id="submit-nickname" className="btn-continue" onClick={() =>this.addNickname(document.getElementById('nickname').value)}> Submit </button>
 
                 </div>
                 
