@@ -317,6 +317,18 @@ button .eventRedCard{
     background-repeat: no-repeat, repeat;
 }
 
+#final-ratings-image{
+    position:absolute;
+    top:45%;
+    left:27%;
+}
+
+#final-ratings-button{
+    position:absolute;
+    top:49%;
+    left:34%;
+}
+
 game-board-players {
     display: inline-block;
     text-align: center;

@@ -17,7 +17,6 @@ class CountdownTimer extends React.Component{
         if(this.state.time > 0){
             countdown = true;
             setInterval(this.timeCountdown(),1000);
-            console.log("hi9");
         }
         
       let minutes = Math.floor(this.state.time/60);
@@ -851,6 +850,7 @@ class Game extends React.Component {
       players: {id:-1},
       buttonId: -1,
       userId: -1,
+      dispaly: 0,
     };
   }
 
@@ -987,24 +987,31 @@ class Game extends React.Component {
   
   render() {
       
-        if(localStorage.getItem('player_ratings_username')=== null){
+      let showEndGameButton = false;
+      if(this.state.players.match_elapsed_time === "FT"){
+          showEndGameButton = true;
+      }
+    if(localStorage.getItem('player_ratings_username')=== null){
             this.state.isShowing = true;
-        }
+    }
+    
     if(this.state.players.match_elapsed_time === "preGame"){
         return(    
         <PreGame players={this.state.players} /> );
     }
-    else if(this.state.players.match_elapsed_time === "fin"){
+    else if(this.state.players.match_elapsed_time === "fin" || this.state.dispaly ===1){
         return (
             <GameOver players={this.state.players} specialPlayers={this.specialPlayers()}/>);            
-    }else{
-        
- if(Object.keys(this.state.players).length !== 0 && this.state.players.id !== -1){
+    }else if(Object.keys(this.state.players).length !== 0 && this.state.players.id !== -1 && this.state.dispaly !== 1){
       return (
         <div className="game">
           <GameInfo players={this.state.players}/>
             
           <div className="game-board">
+          {showEndGameButton
+          ?<img id="final-ratings-image" src="public/images/game_over_3d_transparent_words.png" onClick={() => this.state.dispaly = 1} />
+          :null}
+
           <div className="displayInfo">
               <p className="homeNameDisplay">{this.state.players.teams[0].team_name}</p>
               <p className="homeFormationDisplay">4-3-3</p>
@@ -1028,7 +1035,7 @@ class Game extends React.Component {
     );}
         }
   }
-}
+
 
 class Modal extends React.Component{
   constructor(props) {
