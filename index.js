@@ -1,3 +1,59 @@
+class CountdownTimer extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            time:180,
+        }
+    }
+    
+    timeCountdown(){
+        
+        this.state.time = this.state.time -1;
+    }
+    
+    render(){
+        let countdown = false;
+        
+        if(this.state.time > 0){
+            countdown = true;
+            setInterval(this.timeCountdown(),1000);
+            console.log("hi9");
+        }
+        
+      let minutes = Math.floor(this.state.time/60);
+      let seconds = Math.floor(this.state.time%60);
+
+      let elapsed_time;
+
+
+        if(minutes >= 10 && seconds >= 10){
+          elapsed_time = minutes + ":" + seconds;
+        }else if(minutes > 10 && seconds < 10){
+          elapsed_time = minutes + ":" + "0" + seconds ;
+        } else if(minutes < 10 && seconds >= 10){
+          elapsed_time = ("0"+ minutes) + ":"  + seconds;
+        }else {
+          elapsed_time = "0" + minutes + ":" + "0" + seconds  ;
+        }
+        
+        return(
+                
+                <div id="coutndown-timer">
+ 
+                    {countdown
+                    ?elapsed_time
+                    :null}
+                        
+                </div>
+                
+        );
+    }
+    
+        
+    
+    
+}
+
 class GameInfo extends React.Component {
   constructor(props) {
     super(props);
@@ -18,6 +74,7 @@ class GameInfo extends React.Component {
         <div className="info">
           <h1>{this.props.players.team1_score}-{this.props.players.team2_score}</h1>
           <p>{this.props.players.match_elapsed_time}</p>{" "}
+          <CountdownTimer />
         </div>
       </div>
     );
