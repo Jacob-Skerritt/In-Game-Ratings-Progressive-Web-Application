@@ -142,6 +142,9 @@ class GameInfo extends React.Component {
         <div className="info">
           <h1>{this.props.players.team1_score}-{this.props.players.team2_score}</h1>
           <p>{this.props.players.match_elapsed_time}</p>{" "}
+          {this.props.players.match_elapsed_time === "FT"
+          ?<CountdownTimer />
+          :null}
         </div>
       </div>
     );
@@ -987,11 +990,7 @@ class Game extends React.Component {
   
   
   render() {
-      
-      let showEndGameButton = false;
-      if(this.state.players.match_elapsed_time === "FT"){
-          showEndGameButton = true;
-      }
+
     if(localStorage.getItem('player_ratings_username')=== null){
             this.state.isShowing = true;
     }
@@ -1009,7 +1008,7 @@ class Game extends React.Component {
           <GameInfo players={this.state.players}/>
             
           <div className="game-board">
-          {showEndGameButton
+          {this.state.players.match_elapsed_time === "FT"
           ?<img id="final-ratings-image" src="public/images/game_over_3d_transparent_words.png" onClick={() => this.state.dispaly = 1} />
           :null}
 
