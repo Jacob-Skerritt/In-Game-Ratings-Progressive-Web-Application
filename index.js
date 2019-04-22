@@ -939,11 +939,11 @@ class Game extends React.Component {
           
           for(let c =0; c<this.state.players.teams[i].players.length; c++){
               
-              if(this.state.players.teams[i].players[c].average_rating >= max){
+              if(this.state.players.teams[i].players[c].average_rating >= max && this.state.players.teams[i].players[c].position > -1){
                   max = this.state.players.teams[i].players[c].average_rating;
               }
               
-              if(min > this.state.players.teams[i].players[c].average_rating && this.state.players.teams[i].players[c].average_rating !==0 ){
+              if(min > this.state.players.teams[i].players[c].average_rating && this.state.players.teams[i].players[c].average_rating !==0 && this.state.players.teams[i].players[c].position > -1){
                   min = this.state.players.teams[i].players[c].average_rating;
               }
               
@@ -955,7 +955,7 @@ class Game extends React.Component {
           
           for(let c = 0; c<this.state.players.teams[i].players.length; c++){
               
-              if(max < 6 && this.state.players.teams[i].players[c].average_rating ===0 && this.state.players.teams[i].players[c].position >=0){
+              if(max < 6 && this.state.players.teams[i].players[c].average_rating ===0 && this.state.players.teams[i].players[c].position >=0 ){
                   starPlayer.push(this.state.players.teams[i].players[c].id);
               }
               else if(this.state.players.teams[i].players[c].average_rating === max){
