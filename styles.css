@@ -216,17 +216,17 @@ ul{
 
 .homeEvents {
     position: relative;
-    top: 30%;
+    top: 37%;
     left: 35%;
     width: 70%;
-    height: 64%;
+    height: 53%;
 }
 .awayEvents {
     position: relative;
-    top: 30%;
+    top: 37%;
     left: -5%;
     width: 70%;
-    height: 64%;
+    height: 53%;
 }
 .homeGoals p{
     font-size: 8.5px;
