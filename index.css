@@ -672,14 +672,14 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     border: 0.1px solid black;
     border-radius: 5%;
     width: 88%;
-height: 3.2%;
+height: 3.4%;
 }
 
 #ratingResults > ul:nth-child(2) > li{
-    background: #f5d6d6;
+    background: #f59f9f;
 }
 #ratingResults > ul:nth-child(3) > li{
-    background: #d0dff5;
+    background: #afcaf3;
 }
 
 
@@ -964,7 +964,7 @@ width:20%;
     border-radius: 5%;
     width: 88%;
     background: #f5f964;
-    height: 3.2%;
+    height: 3.4%;
 }
 
 #ratingResults > ul > div > img{

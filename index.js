@@ -1481,35 +1481,65 @@ class TeamInfo extends React.Component{
         
         
         
-        
-        list.push
-        (
-            <li  
-                id={listId} 
-                onClick={() => this.props.onClick(this.props.players.teams[team].players[i].id)}>
-                {this.props.players.teams[team].players[i].player_name} 
-                { goal
-                ?<img src="public/images/events/goalSolid.png"/>
-      :null}
-      
-      { ownGoal
-      ?<img src="public/images/events/ownGoal.png"  />
-      :null}
-      
-      { yellowCard
-      ?<img src="public/images/events/yellowCard.png" /> 
-      :null}
-      
-      { redCard
-      ?<img src="public/images/events/redCard.png" />
-      :null}
-      
-      { sub
-      ?<img src="public/images/events/substitution.png"  />
-      :null}
-            </li>
-        );
+        if(team === 0){
+            list.push
+            (
+                <li  
+                    id={listId} 
+                    onClick={() => this.props.onClick(this.props.players.teams[team].players[i].id)}>
+                    {this.props.players.teams[team].players[i].player_name} 
+                    { goal
+                    ?<img src="public/images/events/goalSolid.png"/>
+          :null}
+
+          { ownGoal
+          ?<img src="public/images/events/ownGoal.png"  />
+          :null}
+
+          { yellowCard
+          ?<img src="public/images/events/yellowCard.png" /> 
+          :null}
+
+          { redCard
+          ?<img src="public/images/events/redCard.png" />
+          :null}
+
+          { sub
+          ?<img src="public/images/events/substitution.png"  />
+          :null}
+                </li>
+            );
+      }else{
+          list.push
+            (
+                <li  
+                    id={listId} 
+                    onClick={() => this.props.onClick(this.props.players.teams[team].players[i].id)}>
+                     
+                    { goal
+                    ?<img src="public/images/events/goalSolid.png"/>
+          :null}
+
+          { ownGoal
+          ?<img src="public/images/events/ownGoal.png"  />
+          :null}
+
+          { yellowCard
+          ?<img src="public/images/events/yellowCard.png" /> 
+          :null}
+
+          { redCard
+          ?<img src="public/images/events/redCard.png" />
+          :null}
+
+          { sub
+          ?<img src="public/images/events/substitution.png"  />
+          :null}
+                  {this.props.players.teams[team].players[i].player_name}
+                </li>
+            );
       }
+    }
     }
 
     return list;
