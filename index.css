@@ -1008,7 +1008,7 @@ border-radius: 40%;
 }
 
 #ratingResults > ul:nth-child(2) > div:nth-child(2) > #resultsStar{
-    top: -48%;
+    top: -52%;
     left: 29%;  
 }
 
@@ -1060,7 +1060,7 @@ border-radius: 40%;
 
     .ratingConfirmMessage {
         margin-top: -7%;
-        font-size: 160%;
+        font-size: 120%;
     }
     
 /*    #ratingResults {
