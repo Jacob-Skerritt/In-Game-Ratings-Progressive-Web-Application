@@ -319,14 +319,16 @@ button .eventRedCard{
 
 #final-ratings-image{
     position:absolute;
-    top:45%;
-    left:27%;
+    top:42%;
+    left:20%;
+    width: 60%;
 }
 
 #final-ratings-button{
     position:absolute;
     top:49%;
     left:34%;
+    
 }
 
 game-board-players {
@@ -1425,6 +1427,8 @@ border-radius: 40%;
     #countdown{
         font-size:4em;
     }
+    
+
 
     #preGameLocation {
         margin-top: 2%;

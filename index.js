@@ -37,7 +37,7 @@ class CountdownTimer extends React.Component{
         
         return(
                 
-                <div id="coutndown-timer">
+                <div id="countdown-timer">
  
                     {countdown
                     ?elapsed_time
@@ -75,12 +75,12 @@ class GameInfo extends React.Component {
                 var playerName = this.findPlayerName(teamLoc, this.props.players.events[i].player_id);
                 if (teamId==8) {
                     list.push(<li>
-                    <p>{playerName} 64' <img src="public/images/events/goalSolid.png"  /></p>
+                    <p>{playerName} <img src="public/images/events/goalSolid.png"  /></p>
                       </li>)
                 }
                 else {
                     list.push(<ul>
-                <p><img src="public/images/events/goalSolid.png"/> {playerName} 64'</p>
+                <p><img src="public/images/events/goalSolid.png"/> {playerName}</p>
                       </ul>)
                 }
             }
@@ -98,12 +98,12 @@ class GameInfo extends React.Component {
                 var playerName = this.findPlayerName(teamLoc, this.props.players.events[i].player_id);
                 if (teamId==8) {
                     list.push(<ul>
-                    <p>{playerName}(OG)25' <img src="public/images/events/ownGoal.png"  /> </p>
+                    <p>{playerName}(OG)<img src="public/images/events/ownGoal.png"  /> </p>
                       </ul>)
                 }
                 else {
                     list.push(<ul>
-                <p><img src="public/images/events/ownGoal.png"/> {playerName}(OG) 29'</p>
+                <p><img src="public/images/events/ownGoal.png"/> {playerName}(OG)</p>
                       </ul>)
                 }
             }
@@ -140,11 +140,13 @@ class GameInfo extends React.Component {
             </div>
         </div>
         <div className="info">
+        
           <h1>{this.props.players.team1_score}-{this.props.players.team2_score}</h1>
-          <p>{this.props.players.match_elapsed_time}</p>{" "}
-          {this.props.players.match_elapsed_time === "FT"
-          ?<CountdownTimer />
-          :null}
+          <div id="info-elapsed-time" >
+          {this.props.players.match_elapsed_time ==="FT"
+          ? <div> Full <br/> Time </div>
+          :this.props.players.match_elapsed_time }
+          </div>
         </div>
       </div>
     );
@@ -1009,7 +1011,11 @@ class Game extends React.Component {
             
           <div className="game-board">
           {this.state.players.match_elapsed_time === "FT"
-          ?<img id="final-ratings-image" src="public/images/game_over_3d_transparent_words.png" onClick={() => this.state.dispaly = 1} />
+          ?<img id="final-ratings-image" src="public/images/full_time_version2.png" onClick={() => this.state.dispaly = 1} /> 
+          :null}
+          
+          {this.state.players.match_elapsed_time === "FT"
+          ?<CountdownTimer /> 
           :null}
 
           <div className="displayInfo">

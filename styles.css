@@ -24,6 +24,14 @@
 
 }
 
+    #countdown-timer{
+        color:white;
+        position:absolute;
+        top:48.2%;
+        left:63.5%;
+        font-size: 3.2vw;
+    }
+
 .game {
     display: flex;
     left: 0%;
@@ -188,11 +196,12 @@ p {
     font-family: serif;
 }
 
-.info p {
+.info #info-elapsed-time {
     position: relative;
     top: -10%;
     font-weight: bold;
     font-family: serif;
+    text-align: center;
 }
 
 #plImg{
