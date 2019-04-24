@@ -37,7 +37,7 @@ class CountdownTimer extends React.Component{
         
         return(
                 
-                <div id="coutndown-timer">
+                <div id="countdown-timer">
  
                     {countdown
                     ?elapsed_time
@@ -141,11 +141,13 @@ class GameInfo extends React.Component {
             </div>
         </div>
         <div className="info">
+        
           <h1>{this.props.players.team1_score}-{this.props.players.team2_score}</h1>
-          <p>{this.props.players.match_elapsed_time}</p>{" "}
-          {this.props.players.match_elapsed_time === "FT"
-          ?<CountdownTimer />
-          :null}
+          <div id="info-elapsed-time" >
+          {this.props.players.match_elapsed_time ==="FT"
+          ? <div> Full <br/> Time </div>
+          :this.props.players.match_elapsed_time }
+          </div>
         </div>
       </div>
     );
@@ -1010,7 +1012,11 @@ class Game extends React.Component {
             
           <div className="game-board">
           {this.state.players.match_elapsed_time === "FT"
-          ?<img id="final-ratings-image" src="public/images/game_over_3d_transparent_words.png" onClick={() => this.state.dispaly = 1} />
+          ?<img id="final-ratings-image" src="public/images/full_time_version2.png" onClick={() => this.state.dispaly = 1} /> 
+          :null}
+          
+          {this.state.players.match_elapsed_time === "FT"
+          ?<CountdownTimer /> 
           :null}
 
           <div className="displayInfo">
@@ -1482,35 +1488,65 @@ class TeamInfo extends React.Component{
         
         
         
-        
-        list.push
-        (
-            <li  
-                id={listId} 
-                onClick={() => this.props.onClick(this.props.players.teams[team].players[i].id)}>
-                {this.props.players.teams[team].players[i].player_name} 
-                { goal
-                ?<img src="public/images/events/goalSolid.png"/>
-      :null}
-      
-      { ownGoal
-      ?<img src="public/images/events/ownGoal.png"  />
-      :null}
-      
-      { yellowCard
-      ?<img src="public/images/events/yellowCard.png" /> 
-      :null}
-      
-      { redCard
-      ?<img src="public/images/events/redCard.png" />
-      :null}
-      
-      { sub
-      ?<img src="public/images/events/substitution.png"  />
-      :null}
-            </li>
-        );
+        if(team === 0){
+            list.push
+            (
+                <li  
+                    id={listId} 
+                    onClick={() => this.props.onClick(this.props.players.teams[team].players[i].id)}>
+                    {this.props.players.teams[team].players[i].player_name} 
+                    { goal
+                    ?<img src="public/images/events/goalSolid.png"/>
+          :null}
+
+          { ownGoal
+          ?<img src="public/images/events/ownGoal.png"  />
+          :null}
+
+          { yellowCard
+          ?<img src="public/images/events/yellowCard.png" /> 
+          :null}
+
+          { redCard
+          ?<img src="public/images/events/redCard.png" />
+          :null}
+
+          { sub
+          ?<img src="public/images/events/substitution.png"  />
+          :null}
+                </li>
+            );
+      }else{
+          list.push
+            (
+                <li  
+                    id={listId} 
+                    onClick={() => this.props.onClick(this.props.players.teams[team].players[i].id)}>
+                     
+                    { goal
+                    ?<img src="public/images/events/goalSolid.png"/>
+          :null}
+
+          { ownGoal
+          ?<img src="public/images/events/ownGoal.png"  />
+          :null}
+
+          { yellowCard
+          ?<img src="public/images/events/yellowCard.png" /> 
+          :null}
+
+          { redCard
+          ?<img src="public/images/events/redCard.png" />
+          :null}
+
+          { sub
+          ?<img src="public/images/events/substitution.png"  />
+          :null}
+                  {this.props.players.teams[team].players[i].player_name}
+                </li>
+            );
       }
+    }
     }
 
     return list;
