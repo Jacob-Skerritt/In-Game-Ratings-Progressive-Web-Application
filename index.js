@@ -77,6 +77,7 @@ class GameInfo extends React.Component {
                     list.push(<ul>
                     <p>{playerName} <img src="public/images/events/goalSolid.png"  />  </p>
                       </ul>)
+                  
                 }
                 else {
                     list.push(<ul>
@@ -144,9 +145,7 @@ class GameInfo extends React.Component {
         
           <h1>{this.props.players.team1_score}-{this.props.players.team2_score}</h1>
           <div id="info-elapsed-time" >
-          {this.props.players.match_elapsed_time ==="FT"
-          ? <div> Full <br/> Time </div>
-          :this.props.players.match_elapsed_time }
+          {this.props.players.match_elapsed_time}
           </div>
         </div>
       </div>
@@ -740,14 +739,14 @@ class GameOver extends React.Component{
         for(let i =0; i <this.props.players.events.length;i++){
             if(this.props.players.events[i].event_id == 3 && this.props.players.events[i].team_id == teamId){
                 var playerName = this.findPlayerName(teamLoc, this.props.players.events[i].player_id);
-                var elapsedTime = "'67";
+                
                 if(teamId == this.props.players.teams[0].id){
                     list.push(<li>
-                      {playerName} {elapsedTime} <img src="public/images/events/goalSolid.png"/>
+                      {playerName} <img src="public/images/events/goalSolid.png"/>
                       </li>)
                 }else{
                     list.push(<li>
-                    <img src="public/images/events/goalSolid.png"/> {elapsedTime} {playerName}
+                    <img src="public/images/events/goalSolid.png"/> {playerName}
                       </li>)
                 }                
             }              
@@ -767,12 +766,12 @@ class GameOver extends React.Component{
                 var playerName = this.findPlayerName(teamLoc, this.props.players.events[i].player_id);
                 if (teamId==8) {
                     list.push(<li>
-                    <img src="public/images/events/ownGoal.png"/> {playerName}(OG) 25'
+                    <img src="public/images/events/ownGoal.png"/> {playerName}(OG) 
                       </li>)
                 }
                 else {
                     list.push(<li>
-                 {playerName}(OG) 29' <img src="public/images/events/ownGoal.png"  />
+                 {playerName}(OG)  <img src="public/images/events/ownGoal.png"  />
                       </li>)
                 }
             }
@@ -788,23 +787,11 @@ class GameOver extends React.Component{
         
         for(let i =0; i <teamSort.length;i++){
         if(teamSort[i].position >=-1){
-                    if(this.props.specialPlayers[0] == teamSort[i].id){
-                        list.push(<div>                        
-                        <img src={teamSort[i].player_image}/>
-                        <p>{teamSort[i].player_name}</p>
-                        <img id="resultsStar" src="star1.png" />
-                        <p>{parseFloat(teamSort[i].average_rating).toFixed(1)}</p>
-                                
-                      </div>)
-        }else{
-                        list.push(<li>
-                        <img src={teamSort[i].player_image}/>
-                        <p>{teamSort[i].player_name}</p>
-                        <p>{parseFloat(teamSort[i].average_rating).toFixed(1)}</p>
-                      </li>)
-        }
-        
-
+            list.push(<li>
+            <img src={teamSort[i].player_image}/>
+            <p>{teamSort[i].player_name}</p>
+            <p>{parseFloat(teamSort[i].average_rating).toFixed(1)}</p>
+            </li>)
 		        }    
             
       }
@@ -1012,7 +999,7 @@ class Game extends React.Component {
             
           <div className="game-board">
           {this.state.players.match_elapsed_time === "FT"
-          ?<img id="final-ratings-image" src="public/images/full_time_version2.png" onClick={() => this.state.dispaly = 1} /> 
+          ?<img id="final-ratings-image" src="public/images/full_time_version4.png" onClick={() => this.state.dispaly = 1} /> 
           :null}
           
           {this.state.players.match_elapsed_time === "FT"

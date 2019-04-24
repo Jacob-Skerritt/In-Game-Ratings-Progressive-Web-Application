@@ -674,7 +674,7 @@ div.gameOverText:nth-child(3) > div:nth-child(3), div.gameOverText:nth-child(2) 
     border: 0.1px solid black;
     border-radius: 5%;
     width: 88%;
-height: 3.4%;
+/*height: 3.4%;*/
 }
 
 #ratingResults > ul:nth-child(2) > li{
@@ -1172,21 +1172,21 @@ border-radius: 40%;
         width: 30px;
     }
     .homeNameDisplay {
-        font-size: 15px;
+        font-size: 13px;
     }
 
     .homeFormationDisplay {
-        font-size: 15px;
+        font-size: 13px;
     }
 
     .awayNameDisplay {
-        top:95.3%;
-        font-size: 15px;
+        top:95%;
+        font-size: 13px;
     }
 
     .awayFormationDisplay {
-        top:95.3%;
-        font-size: 15px;
+        top:95%;
+        font-size: 13px;
     }
     
     #ratingResults > ul:nth-child(3) > div > #resultsStar{
@@ -1197,6 +1197,10 @@ border-radius: 40%;
     
     .preGameLogo h2 {
     font-size: 220%;
+    }
+    
+    .ratingConfirmMessage{
+        font-size:145%;
     }
     
 }
@@ -1227,6 +1231,9 @@ border-radius: 40%;
     
     .preGameText{
         height:30%;
+    }
+    #countdown-timer {
+        top: 47%;
     }
 }
 
@@ -1340,6 +1347,12 @@ border-radius: 40%;
         width: 20% !important;
         top: -78%;
     }
+    
+    #countdown-timer {
+        top: 50% !important;
+        left: 56.5% !important;
+        font-size: 300% !important;
+    }
 }
 
 /*kindle fire*/
@@ -1366,6 +1379,9 @@ border-radius: 40%;
 
     .preGameText{
         height: 20%;
+    }
+    #countdown-timer {
+    top: 48% !important;
     }
 }
 
@@ -1466,6 +1482,10 @@ border-radius: 40%;
     width: 4% !important;
     margin-top: 4% !important;
 }
+
+    #countdown-timer {
+    top: 60% !important;
+    }
 
 }
 
