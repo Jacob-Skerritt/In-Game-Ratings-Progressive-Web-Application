@@ -116,7 +116,7 @@ p {
     position: absolute;
     width: 40%;
     height: 100%;
-    text-align: center;
+    text-align: right;
 }
 
 .home img {
@@ -230,11 +230,9 @@ ul{
 }
 .homeGoals p{
     font-size: 8.5px;
-    float: right;
     position: relative;
-    top: 20%;
     left: -25%;
-    margin-bottom: -8px;
+    margin-bottom: -12px;
     font-family: serif;
 }
 .homeGoals img {
@@ -245,12 +243,9 @@ ul{
 }
 .awayGoals p{
     font-size: 8.5px;
-    float: left;
     position: relative;
-    top: 20%;
-    left: -28%;
-    margin-bottom: -8px;
-    font-family: serif;
+    left: -15%;
+    margin-bottom: -12px;
 }
 .awayGoals img{
     position: absolute;
@@ -261,24 +256,10 @@ ul{
 }
 .ownGoalsAway {
     position: relative;
-    width: 10px;
-    height: 10px;
-    top: 20%;
-    left: 5%;
     margin-top: -10px;
-    background-color: red;
-    width: 100%;
-    height: 50%;
 }
 
 .ownGoalsHome {
     position: relative;
-    width: 10px;
-    height: 10px;
-    top: 20%;
-    left: -1%;
     margin-top: -10px;
-    background-color: red;
-    width: 100%;
-    height: 50%;
 }
