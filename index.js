@@ -789,23 +789,11 @@ class GameOver extends React.Component{
         
         for(let i =0; i <teamSort.length;i++){
         if(teamSort[i].position >=-1){
-                    if(this.props.specialPlayers[0] == teamSort[i].id){
-                        list.push(<div>                        
-                        <img src={teamSort[i].player_image}/>
-                        <p>{teamSort[i].player_name}</p>
-                        <img id="resultsStar" src="star1.png" />
-                        <p>{parseFloat(teamSort[i].average_rating).toFixed(1)}</p>
-                                
-                      </div>)
-        }else{
-                        list.push(<li>
-                        <img src={teamSort[i].player_image}/>
-                        <p>{teamSort[i].player_name}</p>
-                        <p>{parseFloat(teamSort[i].average_rating).toFixed(1)}</p>
-                      </li>)
-        }
-        
-
+            list.push(<li>
+            <img src={teamSort[i].player_image}/>
+            <p>{teamSort[i].player_name}</p>
+            <p>{parseFloat(teamSort[i].average_rating).toFixed(1)}</p>
+            </li>)
 		        }    
             
       }
