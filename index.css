@@ -1145,8 +1145,8 @@ border-radius: 40%;
 /*phone 678plus*/
 @media only screen and (min-width:375px){
     .preGameFacts {
-        top: 58%;
-        height: 39%;
+        top: 61%;
+        height: 37%;
     }
     
 /*    .gameOverInfo {
@@ -1154,7 +1154,7 @@ border-radius: 40%;
     }*/
     
     .preGameText{
-        height: 36%;
+        height: 40%;
     }
 
     .team1-players{
@@ -1192,6 +1192,11 @@ border-radius: 40%;
         width: 20% !important;
         top: -60%;
     }
+    
+    .preGameLogo h2 {
+    font-size: 220%;
+    }
+    
 }
 
 
