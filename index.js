@@ -77,9 +77,7 @@ class GameInfo extends React.Component {
                     list.push(<ul>
                     <p>{playerName} <img src="public/images/events/goalSolid.png"  />  </p>
                       </ul>)
-                    list.push(<li>
-                    <p>{playerName} <img src="public/images/events/goalSolid.png"  /></p>
-                      </li>)
+                  
                 }
                 else {
                     list.push(<ul>
