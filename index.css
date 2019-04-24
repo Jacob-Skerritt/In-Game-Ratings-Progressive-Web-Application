@@ -1123,6 +1123,11 @@ border-radius: 40%;
         width: 20% !important;
         top: -50%;
     }
+    
+    #halfTimeMessage h1 {
+        font-size: 250%;
+        left: 13%;
+    }
 }
 
 
