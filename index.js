@@ -74,13 +74,16 @@ class GameInfo extends React.Component {
             {
                 var playerName = this.findPlayerName(teamLoc, this.props.players.events[i].player_id);
                 if (teamId==8) {
+                    list.push(<ul>
+                    <p>{playerName} <img src="public/images/events/goalSolid.png"  />  </p>
+                      </ul>)
                     list.push(<li>
                     <p>{playerName} <img src="public/images/events/goalSolid.png"  /></p>
                       </li>)
                 }
                 else {
                     list.push(<ul>
-                <p><img src="public/images/events/goalSolid.png"/> {playerName}</p>
+                <p><img src="public/images/events/goalSolid.png"/> {playerName}  </p>
                       </ul>)
                 }
             }
@@ -98,12 +101,12 @@ class GameInfo extends React.Component {
                 var playerName = this.findPlayerName(teamLoc, this.props.players.events[i].player_id);
                 if (teamId==8) {
                     list.push(<ul>
-                    <p>{playerName}(OG)<img src="public/images/events/ownGoal.png"  /> </p>
+                    <p>{playerName}(OG) <img src="public/images/events/ownGoal.png"  /></p>
                       </ul>)
                 }
                 else {
                     list.push(<ul>
-                <p><img src="public/images/events/ownGoal.png"/> {playerName}(OG)</p>
+                <p><img src="public/images/events/ownGoal.png"/> {playerName}(OG) </p>
                       </ul>)
                 }
             }
@@ -120,7 +123,7 @@ class GameInfo extends React.Component {
           <p>{this.props.players.teams[0].team_name}</p>
           <div className="homeEvents">
             <div className="homeGoals">
-            <ul>{this.goals(0,8)}</ul>
+            {this.goals(0,8)}
                 <div className="ownGoalsHome">
                     {this.ownGoals(1,7)}
                 </div>
@@ -128,6 +131,7 @@ class GameInfo extends React.Component {
           </div>
         </div>
         <div className="away">
+        
             <img alt="Away Crest" src={this.props.players.teams[1].crest} />
             <p>{this.props.players.teams[1].team_name}</p>
             <div className="awayEvents">
