@@ -27,9 +27,10 @@
     #countdown-timer{
         color:white;
         position:absolute;
-        top:48.2%;
-        left:63.5%;
-        font-size: 3.2vw;
+        top: 48%;
+        left: 55.5%;
+        font-size: 141%;
+        font-weight: bold;
     }
 
 .game {
