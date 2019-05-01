@@ -1,3 +1,4 @@
+//countdown timer for the full time timer
 class CountdownTimer extends React.Component{
     constructor(props){
         super(props);
@@ -52,11 +53,12 @@ class CountdownTimer extends React.Component{
     
     
 }
-
+//component that renders all of the meta game info, crests, team names, score, time,events
 class GameInfo extends React.Component {
   constructor(props) {
     super(props);
   }
+    //function to find the player name from teh team location and player id
     findPlayerName(teamLoc, playerId){
         for(let i=0; i < this.props.players.teams[teamLoc].players.length; i++){
             if(this.props.players.teams[teamLoc].players[i].id == playerId){
@@ -64,11 +66,9 @@ class GameInfo extends React.Component {
             }
         }
     }
-
+        //function returns  alist fo the players who have scored for a prticulr team
         goals(teamLoc,teamId){
-
         let list=[];
-
         for(let i =0; i <this.props.players.events.length;i++){
             if(this.props.players.events[i].event_id == 3 && this.props.players.events[i].team_id == teamId)
             {
@@ -76,8 +76,7 @@ class GameInfo extends React.Component {
                 if (teamId==8) {
                     list.push(<ul>
                     <p>{playerName} <img src="public/images/events/goalSolid.png"  />  </p>
-                      </ul>)
-                  
+                      </ul>)                  
                 }
                 else {
                     list.push(<ul>
@@ -88,7 +87,7 @@ class GameInfo extends React.Component {
         } 
         return list;
     }
-    
+    //function returns a list fo the players who ahve scored an own goal
     ownGoals(teamLoc,teamId){
 
         let list=[];
@@ -111,7 +110,7 @@ class GameInfo extends React.Component {
         } 
         return list;
     }
-     
+     //renders al the relevant game info data
   render() {
       if(this.props.players.id !== -1){
     return (
@@ -151,6 +150,7 @@ class GameInfo extends React.Component {
       </div>
     );
   }else
+      //defaults display if pull from db goes wrong
       return (
       <div className="gameInfo">
         <div className="home">
@@ -583,8 +583,9 @@ class Board extends React.Component {
 }
 
 class PreGame extends React.Component{
+//this component houses all the functionality of the initial page diaplayed before a ame starts
 
-
+    //this handles the countdown time to the next match kick off, this data is gotten from the db in the mass pull
     CountDownTimer(dt, id)
     {
         var end = new Date(dt);
@@ -620,6 +621,7 @@ class PreGame extends React.Component{
     }
 
     render(){
+        //parsing the match date time into a useable format for the counddown time function
           if(this.props.players.id !==-1){
               let year = (this.props.players.match_date_time).slice(0,4);
               let month = (this.props.players.match_date_time).slice(5,7);
@@ -627,9 +629,8 @@ class PreGame extends React.Component{
               let hour = (this.props.players.match_date_time).slice(11,13);
               let min = (this.props.players.match_date_time).slice(14,16);
               let match_time = month + "/"+ day + "/" + year + " " + hour + ":" + min + " GMT+0100";
-          
-            return(    
-                    
+          // this returns the pregame data, the title, match data and countdown timer, and the pregamefacts
+            return(                        
                 <div className="preGame-board">
                     <div class="preGameLogo">
                     <img src="public/images/misc/InGameRatingsLogo.png" />
@@ -724,8 +725,9 @@ class PreGame extends React.Component{
     }
 };
 
+//This component renders all teh data to do with teh results/end game screen
 class GameOver extends React.Component{
-    
+    // this returns a players name after being given the team location in the teams array and the player id
     findPlayerName(teamLoc, playerId){
         for(let i=0; i < this.props.players.teams[teamLoc].players.length; i++){
             if(this.props.players.teams[teamLoc].players[i].id == playerId){
@@ -734,12 +736,15 @@ class GameOver extends React.Component{
         }
     }
     
+    // this returns the list of goals for a particular team
         renderListEvents(teamLoc,teamId){        
         let list=[];        
+        //iterates through the events list for the match
         for(let i =0; i <this.props.players.events.length;i++){
+            //if the event si a goal - 3 and the team id matchs the provided one, find teh player name and add it to teh list
             if(this.props.players.events[i].event_id == 3 && this.props.players.events[i].team_id == teamId){
                 var playerName = this.findPlayerName(teamLoc, this.props.players.events[i].player_id);
-                
+                //adding the player name to the list if home team if away use else statement for different alignment
                 if(teamId == this.props.players.teams[0].id){
                     list.push(<li>
                       {playerName} <img src="public/images/events/goalSolid.png"/>
@@ -755,11 +760,9 @@ class GameOver extends React.Component{
             return list;
     }
     
-    
+        //this function checks to see if tehre were any own gols and adds them to the correct team
         ownGoals(teamLoc,teamId){
-
         let list=[];
-
         for(let i =0; i <this.props.players.events.length;i++){
             if(this.props.players.events[i].event_id == 6 && this.props.players.events[i].team_id == teamId)
             {
@@ -778,9 +781,8 @@ class GameOver extends React.Component{
         } 
         return list;
     }
-    
-    renderListPlayers(team){
-        
+    //this sorts and returns a list fo the players for a team in descending order based on their crowd score
+    renderListPlayers(team){        
         let teamSort = this.props.players.teams[team].players;
         teamSort.sort(function(a,b){return b.average_rating - a.average_rating});
         let list=[];
@@ -798,6 +800,7 @@ class GameOver extends React.Component{
             
             return list;
     }
+    //renders all the various components for the end game page
     render(){
         return(                
             <div className="gameOver-board">
@@ -808,7 +811,7 @@ class GameOver extends React.Component{
                           <div> {this.props.players.team1_score} - {this.props.players.team2_score} </div>  
                           <div> Man City</div>
                     </div>
-
+                        {/* gets the list of players who have socred */}
                         <div id="resultEvents">
                             <ul>
                                 {this.renderListEvents(0,8)}
@@ -860,7 +863,7 @@ class Game extends React.Component {
             isShowing: false
         });
     }
-
+    //mass pull from the database gettinga ll the matchdata
   loadData(){
     fetch('http://localhost/player_ratings_api/match/all_match_data.php', {
       method:'post',
@@ -902,7 +905,7 @@ class Game extends React.Component {
     });
   }
   
-  
+  //sends the suers ratings to the db
   vote(rating ,player_id, match_id){
     fetch('http://localhost/player_ratings_api/rating/add_rating.php', {
       method:'post',
@@ -916,7 +919,7 @@ class Game extends React.Component {
     
     setTimeout(function() {this.closeModalHandler();}.bind(this), 1400);
   }
-  
+  // thsi is the functionality to do with teh star and trashcan players, each being in tehir own array
   specialPlayers(){
       let max = 0;
       let min = 10;
@@ -978,21 +981,24 @@ class Game extends React.Component {
   }
   
   
-  
+  //main render for teh site
   render() {
-
+    //checks local storage to see if a user has created a username yet
     if(localStorage.getItem('player_ratings_username')=== null){
             this.state.isShowing = true;
     }
-    
+    //if match_elapsed_time == pregame the render the preGame component
     if(this.state.players.match_elapsed_time === "preGame"){
         return(    
         <PreGame players={this.state.players} /> );
     }
+    //if match_elapsed_time == fin the render the GameOver component
     else if(this.state.players.match_elapsed_time === "fin" || this.state.dispaly ===1){
         return (
             <GameOver players={this.state.players} specialPlayers={this.specialPlayers()}/>);            
-    }else if(Object.keys(this.state.players).length !== 0 && this.state.players.id !== -1 && this.state.dispaly !== 1){
+    }
+    //if not pre or end game, render the main ratings page for the site
+    else if(Object.keys(this.state.players).length !== 0 && this.state.players.id !== -1 && this.state.dispaly !== 1){
       return (
         <div className="game">
           <GameInfo players={this.state.players}/>
@@ -1034,7 +1040,8 @@ class Game extends React.Component {
         }
   }
 
-
+//houses all the mdoal functionality
+//this is the username entry and player details modals
 class Modal extends React.Component{
   constructor(props) {
     super(props);
@@ -1072,7 +1079,7 @@ class Modal extends React.Component{
   });
 
 };
-
+    //this function adds a number to the end of teh username, adds the username to the database and localstorage allowing teh user to rate players
   addNickname(nickname){
       var $usernames;
           fetch('http://localhost/player_ratings_api/user/user_count.php', {
@@ -1107,7 +1114,7 @@ class Modal extends React.Component{
     
 
   render() {
-      
+      //this checks if the lcoaclstorage is null, if true it pops up the modal requiring teh user to enter a username, can be left blank and any string/num accepted
     if(localStorage.getItem('player_ratings_username') === null){
       return(
         <div>
@@ -1137,10 +1144,12 @@ class Modal extends React.Component{
       );
 
     }
+    //player details modal
+    // if the pull isnt empty and display is true render the palyers
     else if(this.props.id !== -1 && this.state.display === true){
       let obj = {id: -1, player_name: "N/A", average_rating: 0, position: -1,crest:""};
       
-      
+      //create an object that hold the player details for use inside the modal
       for(let i = 0; i < this.props.players.teams[0].players.length;i++){
         if(this.props.players.teams[0].players[i].id == this.props.id)
         {
@@ -1159,12 +1168,12 @@ class Modal extends React.Component{
 
 
       
-      
+      //checking if the id != -1 and position isnt -1 (not a sub)
     if(obj.id !== -1 && obj.position != -1){
         
         
      let currentRating = 0;
-      
+      //checks to see if the user has  arating already for this player, if it does then it updates the current rating other wise leaving it at default
     if(this.props.players.user_ratings.length >0){
         for(let i = 0; i < this.props.players.user_ratings.length;i++){
         if (this.props.players.user_ratings[i].player_id == obj.id){
@@ -1173,7 +1182,7 @@ class Modal extends React.Component{
         }
       
     }
-        
+        //renders teh player details insde the modal
       return(
         <div>
             <div className="modal-wrapper"
@@ -1191,7 +1200,7 @@ class Modal extends React.Component{
                         <p>{obj.player_role}</p>
                         <img class="playerDetailsCrest" alt="Team Crest" src={obj.crest} />
                     </div>
-                    
+                    {/* this displays the crowd rating of teh player and the private rating of the user */}
                     <div className="modal-player-ratings">
                         <table>
                             <tr>
@@ -1209,6 +1218,7 @@ class Modal extends React.Component{
                             </tr>
                       </table>
                     </div>
+                    {/* this checks to see if the game has started, if yes displays rating section, if no displayed informative message */}
                     { this.props.players.match_elapsed_time ==="00:00"
                     ?<h2>Rating players available when game is live!</h2>
                     :<div>
@@ -1305,7 +1315,7 @@ class Modal extends React.Component{
                   </div>
                   </div> }   
             </div>
-            
+            {/* sumbt rating buttona and cofirmation message when rated */}
                 { this.props.players.match_elapsed_time ==="00:00"
                 ?<p></p>
                     :
@@ -1317,8 +1327,10 @@ class Modal extends React.Component{
             
         </div>
       );
-    }else if( obj.id !== -1 && this.state.display === true){
-      //subs modal
+    }
+    //subs modal, this shows a edited version of the player details mdoal for the subs, disallowing rating
+    else if( obj.id !== -1 && this.state.display === true){
+      
       let currentRating = 0;
       
       if(this.props.players.user_ratings.length >0){
@@ -1349,6 +1361,7 @@ class Modal extends React.Component{
                     <table>
                         <tr>
                             <th>Crowd</th>
+                            {/* sliced the username to cut off anything after # */}
                             <th>{localStorage.getItem('player_ratings_username').slice(0,localStorage.getItem('player_ratings_username').indexOf('#'))}</th>
                             </tr>
                         <tr>
@@ -1390,6 +1403,8 @@ class Modal extends React.Component{
        
   }
   else{
+  //defaults returned modal, statinga n error was encountered    
+  
     return(
       <div>
           <div className="modal-wrapper"
@@ -1413,12 +1428,12 @@ class Modal extends React.Component{
 
 }}
 
-
+//this renders all of the team info, subs and team managers, and events info for relevant players
 class TeamInfo extends React.Component{
   renderListPlayers(team){
     let list=[];
 
-
+    //checks to see if any events are for the player and increments a count of them
     for(let i =0; i <this.props.players.teams[team].players.length;i++){
       if(this.props.players.teams[team].players[i].position == -1){
         let listId="list" + i;
@@ -1474,7 +1489,7 @@ class TeamInfo extends React.Component{
         
         
         
-        
+        //if any players on the subs has a n event tied to them, display the relevant icon as well as name
         if(team === 0){
             list.push
             (
@@ -1539,6 +1554,7 @@ class TeamInfo extends React.Component{
     return list;
 
   }
+  //render out the list of subs and team manages for each team
   render(){
 
     return(
