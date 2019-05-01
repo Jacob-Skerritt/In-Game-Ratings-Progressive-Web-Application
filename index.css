@@ -1177,21 +1177,21 @@ border-radius: 40%;
         width: 30px;
     }
     .homeNameDisplay {
-        font-size: 15px;
+        font-size: 13px;
     }
 
     .homeFormationDisplay {
-        font-size: 15px;
+        font-size: 13px;
     }
 
     .awayNameDisplay {
-        top:95.3%;
-        font-size: 15px;
+        top:95%;
+        font-size: 13px;
     }
 
     .awayFormationDisplay {
-        top:95.3%;
-        font-size: 15px;
+        top:95%;
+        font-size: 13px;
     }
     
     #ratingResults > ul:nth-child(3) > div > #resultsStar{
