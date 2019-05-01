@@ -170,6 +170,8 @@ class GameInfo extends React.Component {
   }
 }
 
+//this component renders each of the players on the field, and places any event on them if it is relevant to teh player
+// also changes it from a default circle toa  star/trashcan if needed
 function Square(props) {
 
     let output;
@@ -476,7 +478,6 @@ function Square(props) {
 }
 
 //This componenet is responsible for housing all of the "players" (buttons).
-
 class Board extends React.Component {
   renderSquare(i,track) {
        let obj2={player_id: -1};
@@ -583,7 +584,7 @@ class Board extends React.Component {
 }
 
 class PreGame extends React.Component{
-//this component houses all the functionality of the initial page diaplayed before a ame starts
+//this component houses all the functionality of the initial page diaplayed before a game starts
 
     //this handles the countdown time to the next match kick off, this data is gotten from the db in the mass pull
     CountDownTimer(dt, id)
