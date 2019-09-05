@@ -14,4 +14,19 @@ The following are some of the features provided by the application
 - Key Player Symbols
   - Star: The best player, the one with the highest average rating would have a star on their plyer circle making it easy for users to see    who was doing the best.
   - Trash Can: The worsr performing player, the one with the lower average rating would have a trash can symbol on their player circle        making it easy for user to see who was playing the worst
+- User Rating
+  - When a user clicked on the circle that represents a player a Modal would appear containing all the releveant player informaiton and       with a section that would allow the user to rate the player
+-Events
+  - The application stored and output all relevant events that occured during a game, this allowed users to make easy ratings based on the     events that occured or it allowed people to use the application to get a quick and easy understanding of the game state. The folling       events are displyed
+    - Goals
+    - Cards(red/yellow)
+    - Substitutions
+    - Star Player
+    - Trash Player
+- Game Information display
+  -A Game display is situated at the top providing some import and easy to read informaiton
+    - Time
+    - Team Name
+    - Team Crest
+    - Team Score
 
