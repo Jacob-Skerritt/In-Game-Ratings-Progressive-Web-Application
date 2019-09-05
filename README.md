@@ -9,7 +9,7 @@ The following application was created by a team of 4 students using brand new te
 ### Features
 
 The following are some of the features provided by the application
-- Username creation: When a user loaded the application, if no session they would be prompted to create a username.
+- Username creation: Upon loading the application, if no session the user would be prompted to create a username.
 - Users were able to click on a player (represented by a circle with a player name and number under/in the cicle) and a Modal would         appeaer prompting the user to give a rating from 1- 10
 - Key Player Symbols
   -Star: The best player, the one with the highest average rating would have a star on their plyer circle making it easy for users to see    who was doing the best.
