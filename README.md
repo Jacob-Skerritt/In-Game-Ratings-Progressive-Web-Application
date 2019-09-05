@@ -37,5 +37,5 @@ The following are some of the features provided by the application
  Throughout the application development our team carried out three tests:
  
  - ### Focus Group
- 
+  The Focus group consisted of 10 users sourced independantly by an outside contractor (business stuendets). The 10 person user group were brought to a medium sized conference room where they would watch 15 minutes of gameplay that our team had tested the app on ourselves. After the testers used the application for 15 minutes they were given a questionare in which to answer questions related to the application and provide any other feedback they felt necessary
 
