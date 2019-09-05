@@ -29,4 +29,13 @@ The following are some of the features provided by the application
     - Team Name
     - Team Crest
     - Team Score
+- End of Game Rankings
+  - Once a game has concluded the users will have a final few minutes to rate the players and will be redirected to a rankings with all     players displayed in descending order
+  
+ ### User Testing
+ 
+ Throughout the application development our team carried out three tests:
+ 
+ - #### Focus Group
+ 
 
