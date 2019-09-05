@@ -38,4 +38,10 @@ The following are some of the features provided by the application
  
  - ### Focus Group
   The Focus group consisted of 10 users sourced independantly by an outside contractor (business stuendets). The 10 person user group were brought to a medium sized conference room where they would watch 15 minutes of gameplay that our team had tested the app on ourselves. After the testers used the application for 15 minutes they were given a questionare in which to answer questions related to the application and provide any other feedback they felt necessary
+  
+- ### Small Scale Live Test
+  The next test the team carried out was a small scale test involving 20 close relative and friends duringa live 90 minute game. This test was in preperation for our full scale live public test in two weeks time from this test. The users watched a live football game (our choosing) and used the application throughout if they felt like they desired so. Upon completion of the game they were to answer a questionare provided via email and return their feedback.
+  
+- ### Large Scale Live Test
+  The final test involved advertising our application on other social meida platforms and any other means the team could come up with to get as many live users as possible. The Application was advertised several days in advance to the game and when a user loaded the web application up before it was "live" they would be given a timer and some information about the applicaiton. The live test conlucded with no issues, a total of 70+ users with a minimum of 40+ active users throughout the entire 90 minutes game duration
 
