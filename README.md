@@ -44,4 +44,8 @@ The following are some of the features provided by the application
   
 - ### Large Scale Live Test
   The final test involved advertising our application on other social meida platforms and any other means the team could come up with to get as many live users as possible. The Application was advertised several days in advance to the game and when a user loaded the web application up before it was "live" they would be given a timer and some information about the applicaiton. The live test conlucded with no issues, a total of 70+ users with a minimum of 40+ active users throughout the entire 90 minutes game duration
+  
+## Disclaimer
+
+The Following application was developed by four students using new technologies. This application is intended only as a proof of concept developed as a prototype that would not see use past the inital testing phases. There are numerous security vulnerabilites, lack of commenting and error handling. This code base should not be used for development.
 
